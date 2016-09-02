@@ -33,14 +33,16 @@
   <!-- Draft C -->
   <%= form_for @submission, url: {action: 'create'} do |f| %>
     Materials:
-    <ul>
       <%= f.fields_for :submission_groups do |sub_group_form| %>
-        <li>
-          <%= sub_group_form.label :quantity %>
-          <%= submission_group_form.number_field :quantity %>
-        </li>
+          <%# @submission.materials.each do |mat|  %>
+          <!--<%#mat = @submission.materials[0] %> -->
+            <%#= sub_group_form.label :material %>
+            <%#= sub_group_form.text_field :material %>
+            <%#= sub_group_form.label :quantity %>
+            <%#= sub_group_form.number_field :quantity %>
+            <%= sub_group_form.collection_select :post, :submission_group, @submission.materials, :id %>
       <% end %>
-    </ul>
+    <%= f.submit "Submit" %>
   <% end %>
 
 

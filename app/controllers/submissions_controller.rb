@@ -3,20 +3,22 @@ class SubmissionsController < ApplicationController
     @submission = Submission.new
     # Draft A
     # @materials = Material.all
-    # @submission_group = @submission.submission_groups.build
+    # @submission_group_array = []
+    # @submission.materials.each do |mat|
+    @submission_group = @submission.submission_groups.build
   end
 
   def create
     # Draft A
-    # puts "==============params========="
-    # p submission_params
-    # @submission = Submission.new()
+    puts "==============params========="
+    p submission_params
+    @submission = Submission.new
     # if @submission.save?
-    #   Material.all.each do |material|
-    #     SubmissionGroup.create(submission_id: @submission.id, material_id: 1)
-    #   end
+    #   SubmissionGroup.new(submission_id: @submission.id)
     #   redirect_to @submission
     # end
+
+
   end
 
   def show
@@ -29,6 +31,5 @@ private
 
 def submission_params
   # Draft A
-  # params.require(:submission).permit(:recycler_id, submission_groups_attributes: [:material_id, :submission_id, :total_weight])
-
+  params.require(:submission).permit(submission_groups_attributes: [:material, :submission_id, :quantity])
 end
