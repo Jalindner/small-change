@@ -37,7 +37,7 @@
     <type label="SET" length="1" sql="SET" quote=""/>
     <type label="Bit" length="0" sql="bit" quote=""/>
   </group>
-</datatypes><table x="493" y="348" name="recyclers">
+</datatypes><table x="423" y="334" name="recyclers">
 <row name="id" null="1" autoincrement="1">
 <datatype>INTEGER</datatype>
 <default>NULL</default></row>
@@ -54,7 +54,7 @@
 <part>id</part>
 </key>
 </table>
-<table x="1291" y="109" name="sponsors">
+<table x="593" y="39" name="sponsors">
 <row name="id" null="1" autoincrement="1">
 <datatype>INTEGER</datatype>
 <default>NULL</default></row>
@@ -74,7 +74,7 @@
 <part>id</part>
 </key>
 </table>
-<table x="970" y="610" name="charities">
+<table x="586" y="680" name="charities">
 <row name="id" null="1" autoincrement="1">
 <datatype>INTEGER</datatype>
 <default>NULL</default></row>
@@ -94,7 +94,7 @@
 <part>id</part>
 </key>
 </table>
-<table x="774" y="310" name="submissions">
+<table x="636" y="314" name="submissions">
 <row name="id" null="1" autoincrement="1">
 <datatype>INTEGER</datatype>
 <default>NULL</default></row>
@@ -106,7 +106,7 @@
 <part>id</part>
 </key>
 </table>
-<table x="828" y="608" name="donations">
+<table x="760" y="625" name="donations">
 <row name="id" null="1" autoincrement="1">
 <datatype>INTEGER</datatype>
 <default>NULL</default></row>
@@ -125,7 +125,7 @@
 <part>id</part>
 </key>
 </table>
-<table x="839" y="431" name="votes">
+<table x="700" y="404" name="votes">
 <row name="id" null="1" autoincrement="1">
 <datatype>INTEGER</datatype>
 <default>NULL</default></row>
@@ -141,7 +141,7 @@
 <part>id</part>
 </key>
 </table>
-<table x="987" y="132" name="payments">
+<table x="951" y="89" name="payments">
 <row name="id" null="1" autoincrement="1">
 <datatype>INTEGER</datatype>
 <default>NULL</default></row>
@@ -160,7 +160,7 @@
 <part>id</part>
 </key>
 </table>
-<table x="1149" y="122" name="grants">
+<table x="785" y="55" name="grants">
 <row name="id" null="1" autoincrement="1">
 <datatype>INTEGER</datatype>
 <default>NULL</default></row>
@@ -175,7 +175,7 @@
 <part>id</part>
 </key>
 </table>
-<table x="1040" y="449" name="submission_data_objects">
+<table x="880" y="283" name="submission_data_objects">
 <row name="id" null="1" autoincrement="1">
 <datatype>INTEGER</datatype>
 <default>NULL</default></row>
@@ -187,7 +187,7 @@
 <part>id</part>
 </key>
 </table>
-<table x="1007" y="317" name="submission_groups">
+<table x="863" y="370" name="submission_groups">
 <row name="id" null="1" autoincrement="1">
 <datatype>INTEGER</datatype>
 <default>NULL</default></row>
