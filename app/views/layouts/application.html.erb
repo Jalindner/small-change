@@ -9,11 +9,19 @@
   </head>
 
   <body>
+    <div class="container">
+      <p class="notice"><%= notice %></p>
+      <p class="alert"><%= alert %></p>
 
-    <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
+      <header>
+        Logged in as <%=  %>
+        <ul>
+          <li><%= link_to "Sign out", destroy_user_session_path, method: 'delete'  %></li>
+          <li><%= link_to "Sign in", new_user_session_path %></li>
+        </ul>
+      </header>
 
-
-    <%= yield %>
+      <%= yield %>
+    </div>
   </body>
 </html>
