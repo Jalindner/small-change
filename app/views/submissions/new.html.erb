@@ -31,8 +31,17 @@
 <%# end %>
 
   <!-- Draft C -->
-
-
+  <%= form_for @submission, url: {action: 'create'} do |f| %>
+    Materials:
+    <ul>
+      <%= f.fields_for :submission_groups do |sub_group_form| %>
+        <li>
+          <%= sub_group_form.label :quantity %>
+          <%= submission_group_form.number_field :quantity %>
+        </li>
+      <% end %>
+    </ul>
+  <% end %>
 
 
 
