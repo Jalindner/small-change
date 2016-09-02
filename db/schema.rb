@@ -10,7 +10,22 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160902154321) do
+ActiveRecord::Schema.define(version: 20160902160649) do
+
+  create_table "materials", force: :cascade do |t|
+    t.string   "name"
+    t.float    "price_per_weight"
+    t.datetime "created_at",       null: false
+    t.datetime "updated_at",       null: false
+  end
+
+  create_table "submission_groups", force: :cascade do |t|
+    t.integer  "material_id"
+    t.integer  "submission_id"
+    t.integer  "total_weight"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
+  end
 
   create_table "submissions", force: :cascade do |t|
     t.integer  "recycler_id"
