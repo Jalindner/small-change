@@ -1,4 +1,5 @@
 class SubmissionGroup < ApplicationRecord
-  belongs_to :material
+  # Draft A
+  # belongs_to :material
   belongs_to :submission
 end

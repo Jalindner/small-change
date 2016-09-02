@@ -1,15 +1,40 @@
 <div>
-  <form>
+  <!-- Draft A -->
+ <!--  <form action='/submissions' method='post'>
     <label>Materials</label>
     <ul>
-      <% @materials.each do |material| %>
+      <%# @materials.each do |material| %>
         <li>
-          <%= material.name %>
-          <input type='number' name='total_weight' value='0'>
+          <input type='hidden' name='material' value='<%#= material.id %>'>
+          <%#= material.name %>
+          <input type='number' name='quantity' value='0'>
         </li>
 
-      <% end %>
+      <%# end %>
     </ul>
     <input type='submit' value='Upload'>
-  </form>
+  </form> -->
+<!-- Draft B -->
+<%#= form_for @submission, url: {action: "create"} do |f| %>
+<!--
+  Materials: < br>
+  <ul> -->
+    <%#= f.fields-for :submission_groups do |submission_group_form| %>
+  <%# @materials.each do |material| %>
+    <!-- <%#= f.label material.name %>: <br> -->
+    <%#= f.label :total_weight %>
+    <%#= f.number_field :total_weight %>
+  <%# end %>
+  <!-- </ul> -->
+  <%#= f.submit "Submit" %>
+
+<%# end %>
+
+  <!-- Draft C -->
+
+
+
+
+
 </div>
+
