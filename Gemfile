@@ -41,7 +41,7 @@ group :development, :test do
   gem 'byebug', platform: :mri
   gem 'rake'
   gem 'simplecov', :require => false
-  gem 'rspec', :require => false
+  gem 'rspec-rails'
 end
 
 group :development do
