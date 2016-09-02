@@ -17,7 +17,7 @@ gem 'coffee-rails', '~> 4.2'
 gem 'pg'
 
 gem 'devise'
-
+gem 'materialize-sass'
 
 
 
