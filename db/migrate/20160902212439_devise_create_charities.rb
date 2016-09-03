@@ -3,6 +3,7 @@ class DeviseCreateCharities < ActiveRecord::Migration[5.0]
     create_table :charities do |t|
 
       t.string :name
+      
       ## Database authenticatable
       t.string :email,              null: false, default: ""
       t.string :encrypted_password, null: false, default: ""
