@@ -1,51 +1,11 @@
 <div>
-  <!-- Draft A -->
- <!--  <form action='/submissions' method='post'>
-    <label>Materials</label>
-    <ul>
-      <%# @materials.each do |material| %>
-        <li>
-          <input type='hidden' name='material' value='<%#= material.id %>'>
-          <%#= material.name %>
-          <input type='number' name='quantity' value='0'>
-        </li>
-
-      <%# end %>
-    </ul>
-    <input type='submit' value='Upload'>
-  </form> -->
-<!-- Draft B -->
-<%#= form_for @submission, url: {action: "create"} do |f| %>
-<!--
-  Materials: < br>
-  <ul> -->
-    <%#= f.fields-for :submission_groups do |submission_group_form| %>
-  <%# @materials.each do |material| %>
-    <!-- <%#= f.label material.name %>: <br> -->
-    <%#= f.label :total_weight %>
-    <%#= f.number_field :total_weight %>
-  <%# end %>
-  <!-- </ul> -->
-  <%#= f.submit "Submit" %>
-
-<%# end %>
-
-  <!-- Draft C -->
   <%= form_for @submission, url: {action: 'create'} do |f| %>
     Materials:
       <%= f.fields_for :submission_groups do |sub_group_form| %>
-          <%# @submission.materials.each do |mat|  %>
-          <!--<%#mat = @submission.materials[0] %> -->
-            <%#= sub_group_form.label :material %>
-            <%#= sub_group_form.text_field :material %>
-            <%#= sub_group_form.label :quantity %>
-            <%#= sub_group_form.number_field :quantity %>
-            <%= sub_group_form.collection_select :post, :submission_group, @submission.materials, :id %>
+
+        <%= sub_group_form.select :materials, options_for_select(@materials, @submission_group.material) %>
       <% end %>
     <%= f.submit "Submit" %>
   <% end %>
-
-
-
 </div>
 
