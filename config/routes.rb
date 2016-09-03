@@ -14,6 +14,6 @@ Rails.application.routes.draw do
   devise_for :sponsors
   devise_for :charities
 
-  root to: 'recyclers#signin'
+  root 'welcome#index'
 
 end
