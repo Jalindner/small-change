@@ -14,11 +14,21 @@
       <p class="alert"><%= alert %></p>
 
       <header>
-        Logged in as <%=  %>
-        <ul>
-          <li><%= link_to "Sign out", destroy_user_session_path, method: 'delete'  %></li>
-          <li><%= link_to "Sign in", new_user_session_path %></li>
-        </ul>
+        <% if current_recycler %>
+          Logged in as <%= current_recycler.email %><br>
+          Thanks for being a recycler!<br>
+          <%= link_to "Sign out", destroy_recycler_session_path, method: 'delete'  %>
+        <% elsif current_sponsor %>
+          Logged in as <%= current_sponsor.email %><br>
+          Thanks for being a sponsor!<br>
+        <% elsif current_charity %>
+          Logged in as <%= current_charity.email %><br>
+          Thanks for being a charity!<br>
+        <% else %>
+          <%= link_to "Register or sign in as a recycler", new_recycler_session_path %><br>
+          <%= link_to "Register or sign in as a sponsor", new_sponsor_session_path %><br>
+          <%= link_to "Register or sign in as a charity", new_charity_session_path %><br>
+        <% end %>
       </header>
 
       <%= yield %>

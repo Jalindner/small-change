@@ -54,7 +54,7 @@
 <part>id</part>
 </key>
 </table>
-<table x="593" y="39" name="sponsors">
+<table x="682" y="105" name="sponsors">
 <row name="id" null="1" autoincrement="1">
 <datatype>INTEGER</datatype>
 <default>NULL</default></row>
@@ -74,7 +74,7 @@
 <part>id</part>
 </key>
 </table>
-<table x="586" y="680" name="charities">
+<table x="646" y="678" name="charities">
 <row name="id" null="1" autoincrement="1">
 <datatype>INTEGER</datatype>
 <default>NULL</default></row>
@@ -106,7 +106,7 @@
 <part>id</part>
 </key>
 </table>
-<table x="760" y="625" name="donations">
+<table x="796" y="612" name="donations">
 <row name="id" null="1" autoincrement="1">
 <datatype>INTEGER</datatype>
 <default>NULL</default></row>
@@ -141,7 +141,7 @@
 <part>id</part>
 </key>
 </table>
-<table x="951" y="89" name="payments">
+<table x="1008" y="46" name="payments">
 <row name="id" null="1" autoincrement="1">
 <datatype>INTEGER</datatype>
 <default>NULL</default></row>
@@ -160,7 +160,7 @@
 <part>id</part>
 </key>
 </table>
-<table x="785" y="55" name="grants">
+<table x="855" y="83" name="grants">
 <row name="id" null="1" autoincrement="1">
 <datatype>INTEGER</datatype>
 <default>NULL</default></row>
@@ -175,7 +175,7 @@
 <part>id</part>
 </key>
 </table>
-<table x="880" y="283" name="submission_data_objects">
+<table x="880" y="284" name="submission_data_objects">
 <row name="id" null="1" autoincrement="1">
 <datatype>INTEGER</datatype>
 <default>NULL</default></row>
@@ -187,7 +187,7 @@
 <part>id</part>
 </key>
 </table>
-<table x="863" y="370" name="submission_groups">
+<table x="870" y="367" name="submission_groups">
 <row name="id" null="1" autoincrement="1">
 <datatype>INTEGER</datatype>
 <default>NULL</default></row>
