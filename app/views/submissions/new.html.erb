@@ -1,0 +1,11 @@
+<div>
+  <%= form_for @submission, url: {action: 'create'} do |f| %>
+    Materials:
+      <%= f.fields_for :submission_groups do |sub_group_form| %>
+
+        <%= sub_group_form.select :materials, options_for_select(@materials, @submission_group.material) %>
+      <% end %>
+    <%= f.submit "Submit" %>
+  <% end %>
+</div>
+
