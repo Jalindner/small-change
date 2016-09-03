@@ -19,6 +19,9 @@ gem 'pg'
 gem 'devise'
 gem 'materialize-sass'
 
+#paperclip and amazonweb services
+gem 'paperclip'
+gem 'aws-sdk', '~> 2.3'
 
 
 
