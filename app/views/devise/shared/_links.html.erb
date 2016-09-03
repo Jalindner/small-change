@@ -1,10 +1,10 @@
-<%- if controller_name != 'sessions' %>
-  <%= link_to "Log in", new_session_path(resource_name) %><br />
-<% end -%>
+<%#- if controller_name != 'sessions' %>
+  <!-- <%#= link_to "Log in", new_session_path(resource_name) %><br /> -->
+<%# end -%>
 
 <%- if devise_mapping.registerable? && controller_name != 'registrations' %>
-<% puts "On the #{controller_name} controller!!!!!!!!!!!!!!!!!!!!!!!!!!!!" %>
   <% if controller_name == "recyclers" %>
+    <br />
     <%= link_to "Sign up as a recycler", new_recycler_registration_path %><br />
   <% elsif controller_name == "sponsors"  %>
     <%= link_to "Sign up as a sponsor", new_sponsor_registration_path %><br />
