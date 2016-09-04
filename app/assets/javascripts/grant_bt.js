@@ -62,7 +62,7 @@ function nonceMaker(token){
 
       // $('#submit-button').removeAttribute('disabled');
       console.log("Setting up the submit button!");
-      $('#braintree-form').on('submit', function (event) {
+      $('#grant-form').on('submit', function (event) {
         event.preventDefault();
         console.log("Button clicked!");
 
