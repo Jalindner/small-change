@@ -8,9 +8,15 @@ Rails.application.routes.draw do
   get '/recyclers/sign_up' => 'recyclers#new', as: :newer_recycler_registration
   get '/charities/sign_up' => 'charities#new', as: :newer_charity_registration
 
+
+
+  get '/grants' => 'grants#index'
+  get '/grants/new' => 'grants#new'
   post '/grants' => 'grants#generate_transaction'
   get '/client_token' => 'grants#generate_client_token'
   get '/grant_transactions_report' => 'grants#grant_transactions_report'
+
+  get '/payments/process' => 'payments#process_payments', as: :process_payments
 
   resources :submissions
 

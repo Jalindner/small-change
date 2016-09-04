@@ -1,4 +1,7 @@
 class GrantsController < ApplicationController
+  def index
+    @grants = Grant.all
+  end
 
   def generate_client_token
     token = Braintree::ClientToken.generate

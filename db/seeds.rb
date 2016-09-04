@@ -14,6 +14,14 @@
 # Material.create(name: 'paper', price_per_weight: 0.01)
 
 
-Recycler.create(first_name: "Rob", last_name: "Dale", email: "robzd1@gmail.com", password: 'password')
-Sponsor.create(name: "Whole Foods", email: "info@wholefoods.com", password: 'password')
-Charity.create(name: "American Red Cross", email: "info@redcross.org", password: 'password')
+rob = Recycler.create(first_name: "Rob", last_name: "Dale", email: "robzd1@gmail.com", password: 'password')
+wholefoods = Sponsor.create(name: "Whole Foods", email: "info@wholefoods.com", password: 'password')
+redcross = Charity.create(name: "American Red Cross", email: "info@redcross.org", password: 'password')
+
+bigGrant = Grant.create(sponsor_id: wholefoods.id, amount: 500)
+
+
+sub1 = Submission.create(recycler_id: rob.id )
+SubmissionGroup.create(submission_id: 1, material: "aluminum", quantity: 5)
+SubmissionGroup.create(submission_id: 1, material: "paper", quantity: 2)
+

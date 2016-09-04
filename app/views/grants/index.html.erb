@@ -1,0 +1,11 @@
+All grants:
+
+<% if @grants %>
+  <ol>
+    <% @grants.each do |grant| %>
+      <li>Grant #<%= grant.id %>, in the amount of $<%= grant.amount %> created by <%= grant.sponsor.name %> on <%= grant.created_at %></li>
+    <% end %>
+  </ol>
+<% end %>
+
+<p>Total of all grants: $<%= GrantsController.total %></p>

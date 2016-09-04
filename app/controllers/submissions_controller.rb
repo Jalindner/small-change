@@ -47,7 +47,15 @@ class SubmissionsController < ApplicationController
 
 
   def show
+  end
 
+
+  def self.process_all_payments
+    Submission.all.each { |sub| process_one_payment(sub) }
+  end
+
+  def self.process_one_payment(submission)
+    puts "Processing submission with id #{submission.id}"
   end
 
 private
@@ -64,4 +72,5 @@ private
   def image_params
     params.require(:submission).permit(:image)
   end
+
 end

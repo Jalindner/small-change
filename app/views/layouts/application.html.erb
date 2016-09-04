@@ -18,23 +18,32 @@
       <p class="alert"><%= alert %></p>
 
       <header>
-        <% if current_recycler %>
-          Logged in as <%= current_recycler.email %><br>
-          <%= link_to "sign out", destroy_recycler_session_path, method: :delete %><br>
-          Thanks for being a recycler!<br>
-        <% elsif current_sponsor %>
-          Logged in as <%= current_sponsor.email %><br>
-          <%= link_to "sign out", destroy_sponsor_session_path, method: :delete %><br>
-          Thanks for being a sponsor!<br>
-        <% elsif current_charity %>
-          Logged in as <%= current_charity.email %><br>
-          <%= link_to "sign out", destroy_charity_session_path, method: :delete %><br>
-          Thanks for being a charity!<br>
-        <% else %>
-          <%= link_to "register or sign in as a recycler", new_recycler_session_path %><br>
-          <%= link_to "register or sign in as a sponsor", new_sponsor_session_path %><br>
-          <%= link_to "register or sign in as a charity", new_charity_session_path %><br>
-        <% end %>
+        <div id="relevantlinks">
+          <% if current_recycler %>
+            Logged in as <%= current_recycler.email %><br>
+            <%= link_to "sign out", destroy_recycler_session_path, method: :delete %><br>
+            Thanks for being a recycler!<br>
+          <% elsif current_sponsor %>
+            Logged in as <%= current_sponsor.email %><br>
+            <%= link_to "sign out", destroy_sponsor_session_path, method: :delete %><br>
+            Thanks for being a sponsor!<br>
+          <% elsif current_charity %>
+            Logged in as <%= current_charity.email %><br>
+            <%= link_to "sign out", destroy_charity_session_path, method: :delete %><br>
+            Thanks for being a charity!<br>
+          <% else %>
+            <%= link_to "register or sign in as a recycler", new_recycler_session_path %><br>
+            <%= link_to "register or sign in as a sponsor", new_sponsor_session_path %><br>
+            <%= link_to "register or sign in as a charity", new_charity_session_path %><br>
+          <% end %>
+        </div>
+        <div id="admintools">
+          Admin tools:
+          <ul>
+            <li><%= link_to 'Show transactions report', '/grant_transactions_report' %></li>
+            <li><%= link_to 'Process payments', process_payments_path %></li>
+          </ul>
+        </div>
       </header>
 
       <%= yield %>
