@@ -36,14 +36,14 @@ ActiveRecord::Schema.define(version: 20160904212618) do
   create_table "donations", force: :cascade do |t|
     t.integer  "recycler_id"
     t.integer  "charity_id"
-    t.integer  "amount"
+    t.float    "amount"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
   end
 
   create_table "grants", force: :cascade do |t|
     t.integer  "sponsor_id"
-    t.integer  "amount"
+    t.float    "amount"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -51,7 +51,7 @@ ActiveRecord::Schema.define(version: 20160904212618) do
   create_table "payments", force: :cascade do |t|
     t.integer  "grant_id"
     t.integer  "submission_id"
-    t.integer  "amount"
+    t.float    "amount"
     t.datetime "created_at",    null: false
     t.datetime "updated_at",    null: false
   end
