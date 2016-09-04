@@ -46,23 +46,28 @@ function nonceMaker(token){
           selector: '#expiration-date',
           placeholder: '10 / 2019'
         }
+        // ,
+        // amount: {
+        //   selector: '#amount',
+        //   placeholder: '$$$$'
+        // }
       }
 
     }, function (hostedFieldsErr, hostedFieldsInstance) {
         if (hostedFieldsErr) {
         // Handle error in Hosted Fields creation
-        console.log("error in Hosted Fields creation!!!!!!");
+        console.log("error in Hosted Fields creation!!!!!! Error: " + hostedFieldsErr);
         return;
       }
 
       // $('#submit-button').removeAttribute('disabled');
-      console.log("Setting up the submit button!")
+      console.log("Setting up the submit button!");
       $('#braintree-form').on('submit', function (event) {
         event.preventDefault();
-        console.log("Button clicked!")
+        console.log("Button clicked!");
 
         hostedFieldsInstance.tokenize(function (tokenizeErr, payload) {
-          console.log("Tokenizing the form fields into an encrypted payload!")
+          console.log("Tokenizing the form fields into an encrypted payload!");
           if (tokenizeErr) {
             // Handle error in Hosted Fields tokenization
              console.log("error in Hosted Fields tokenization!!!!!!");
@@ -72,14 +77,22 @@ function nonceMaker(token){
           // Put `payload.nonce` into the `payment-method-nonce` input, and then
           // submit the form. Alternatively, you could send the nonce to your server
           // with AJAX.
-
-          console.log("payload.nonce is: " + payload.nonce)
           // document.querySelector('input[name="payment-method-nonce"]').value = payload.nonce;
           // $('#braintree-form').submit();
 
+          console.log("payload.nonce is: " + payload.nonce);
+
           //the following goes to 'payments#generate_transaction'
-          $.post('/transaction-endpoint', { authenticity_token: window._token, 'client-nonce': payload.nonce} )
-        }); //end of payload tokenization
+          $.post('/grants', {
+            authenticity_token: window._token,
+            'client-nonce': payload.nonce,
+            amount: $('#amount').val()
+           });
+
+
+
+
+        }); //end of payload tokenization and send
     }); //end of submit button handler
   }); //end of hosted fields creation
 }); //end of client creation

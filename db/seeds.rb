@@ -20,3 +20,5 @@ SubmissionGroup.create(submission_id: 1, material: 'aluminum', quantity: 3)
 SubmissionGroup.create(submission_id: 1, material: 'glass', quantity: 2)
 
 Recycler.create(first_name: "Rob", last_name: "Dale", email: "robzd1@gmail.com", password: 'password')
+Sponsor.create(name: "Whole Foods", email: "info@wholefoods.com", password: 'password')
+Charity.create(name: "American Red Cross", email: "info@redcross.org", password: 'password')
