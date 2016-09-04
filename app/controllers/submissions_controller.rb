@@ -7,14 +7,17 @@ class SubmissionsController < ApplicationController
   #before_action :authorize, only: [:edit, :update, :create, :delete]
 
   def new
-    @submission = Submission.new
+    if recycler_session
+      @submission = Submission.new
 
-    @materials = @submission.materials
+      @materials = @submission.materials
 
-    @materials.count.times do
-      submission_group = @submission.submission_groups.build
+      @materials.count.times do
+        submission_group = @submission.submission_groups.build
+      end
+    else
+      redirect_to '/recyclers/sign_in'
     end
-
   end
 
   def create
