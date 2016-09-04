@@ -1,11 +1,12 @@
+<!--
 <div>
-  <%= form_for @submission, url: {action: 'create'} do |f| %>
-    Materials:
-      <%= f.fields_for :submission_groups do |sub_group_form| %>
+  <%#= form_for @submission do |f| %>
+    <%#= f.label :image %>
+    <%#= f.file_field :image %>
+    <%#= f.submit 'Submit Image' %>
+  <%# end %>
+</div> -->
 
-        <%= sub_group_form.select :materials, options_for_select(@materials, @submission_group.material) %>
-      <% end %>
-    <%= f.submit "Submit" %>
-  <% end %>
-</div>
+<h1>New submission</h1>
 
+<%= render "form" %>

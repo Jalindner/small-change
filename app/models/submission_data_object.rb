@@ -1,0 +1,3 @@
+class SubmissionDataObject < ApplicationRecord
+
+end

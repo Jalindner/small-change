@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160902214151) do
+ActiveRecord::Schema.define(version: 20160904003149) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -93,6 +93,10 @@ ActiveRecord::Schema.define(version: 20160902214151) do
     t.index ["reset_password_token"], name: "index_sponsors_on_reset_password_token", unique: true, using: :btree
   end
 
+  create_table "submission_data_objects", force: :cascade do |t|
+    t.integer "submission_id"
+  end
+
   create_table "submission_groups", force: :cascade do |t|
     t.integer  "submission_id"
     t.string   "material"
@@ -103,8 +107,12 @@ ActiveRecord::Schema.define(version: 20160902214151) do
 
   create_table "submissions", force: :cascade do |t|
     t.integer  "recycler_id"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.datetime "created_at",         null: false
+    t.datetime "updated_at",         null: false
+    t.string   "image_file_name"
+    t.string   "image_content_type"
+    t.integer  "image_file_size"
+    t.datetime "image_updated_at"
   end
 
 end
