@@ -44,13 +44,22 @@ class SubmissionsController < ApplicationController
       redirect_to @submission
     else
       render :new
-
     end
   end
 
-
   def show
+  end
 
+  def upvote
+    @submission = Submission.find(params[:id])
+    @submission.upvote_by current_recycler
+    redirect_to @submission
+  end
+
+  def downvote
+    @submission = Submission.find(params[:id])
+    @submission.downvote_by current_recycler
+    redirect_to @submission
   end
 
 private
