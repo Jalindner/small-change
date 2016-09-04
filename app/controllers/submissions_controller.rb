@@ -2,37 +2,65 @@ class SubmissionsController < ApplicationController
   def index
     @submissions = Submission.all
   end
+
+  before_action :find_submission, only: [:edit, :update, :show, :delete]
+  #before_action :authorize, only: [:edit, :update, :create, :delete]
+
   def new
     @submission = Submission.new
+
+    @materials = @submission.materials
+
+    @materials.count.times do
+      submission_group = @submission.submission_groups.build
+    end
 
   end
 
   def create
-    # Draft A
-    puts "==============params========="
-    p submission_data_params
-    @submission = Submission.new(submission_data_params)
+    @submission = Submission.new(image_params)
+    #@submission.recycler_id = submission_params[:recycler_id]
+    @submission.recycler_id = current_recycler.id
+
     if @submission.save
+      flash[:notice] = "Successfully created submission."
+
+      submission_params[:submission_groups_attributes].each do |group|
+        group_params = submission_params[:submission_groups_attributes][group]
+
+        submission_group = SubmissionGroup.new(group_params)
+        submission_group.submission_id = @submission.id
+        if !submission_group.save
+          #TODO: error management when creating submission_groups in the template
+          puts "error while creating the submission group: #{submission_group}"
+          puts submission_group.errors.full_messages
+        end
+
+    end
+      #TODO: submission show
       redirect_to @submission
     else
-      render action: 'new'
+      render :new
+
     end
   end
 
+
   def show
-    @submission = Submission.find_by(id: params[:id])
+
   end
-end
 
 private
 
 
 def submission_params
-  # Draft A
-  params.require(:submission).permit(submission_groups_attributes: [:material, :submission_id, :quantity])
+  params.require(:submission).permit(:recycler_id, submission_groups_attributes: [:material, :submission_id, :quantity])
 end
 
-def submission_data_params
-  params.require(:submission).permit(:id, :image)
+def find_submission
+  @submission = Submission.find(params[:id])
+end
 
+def image_params
+  params.require(:submission).permit(:image)
 end

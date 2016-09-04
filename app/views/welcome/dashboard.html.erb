@@ -1,0 +1,39 @@
+<p>To date, you have recycled 39 things!</p>
+
+<p>You've received $2.90 in payments!</p>
+
+<p>And you've donated $0.40 to charities!</p>
+
+
+<ol>
+  <li>Client requests a client token</li>
+  <li>Server generates a client token and sends it to the client</li>
+  <li>Once the client gets the token, it can create a payment_method_nonce and send it to the server </li>
+  <li>When the server receives the nonce, it can use it to create a transaction</li>
+</ol>
+
+<p><p><p><p><p><p><p>
+<form id="braintree-form" action="/transaction-endpoint" method="post">
+  <div id="error-message"></div>
+
+  <label for="card-number">Card Number</label>
+  <div class="hosted-field" id="card-number"></div>
+
+  <label for="cvv">CVV</label>
+  <div class="hosted-field" id="cvv"></div>
+
+  <label for="expiration-date">Expiration Date</label>
+  <div class="hosted-field" id="expiration-date"></div>
+
+  <!-- <input type="hidden" name="payment-method-nonce"> -->
+  <input id="submit-button" type="submit" value="Pay $10">
+</form>
+<p><p><p><p><p><p><p>
+<!-- <button id="braintree-button">
+  Click here to request a client token!
+</button>
+
+
+<div id="braintree-content">
+
+</div> -->

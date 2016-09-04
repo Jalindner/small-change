@@ -13,3 +13,6 @@
 # Material.create(name: 'cardboard', price_per_weight: 0.01)
 # Material.create(name: 'paper', price_per_weight: 0.01)
 
+
+Recycler.create(first_name: "Rob", last_name: "Dale", email: "robzd1@gmail.com", password: 'password')
+
