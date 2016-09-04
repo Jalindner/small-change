@@ -6,6 +6,10 @@
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_tag "window._token = '#{form_authenticity_token}'" %>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="https://js.braintreegateway.com/web/3.0.2/js/client.min.js"></script>
+    <script src="https://js.braintreegateway.com/web/3.0.2/js/hosted-fields.min.js"></script>
   </head>
 
   <body>
@@ -26,6 +30,10 @@
           Logged in as <%= current_charity.email %><br>
           <%= link_to "sign out", destroy_charity_session_path, method: :delete %><br>
           Thanks for being a charity!<br>
+        <% else %>
+          <%= link_to "register or sign in as a recycler", new_recycler_session_path %><br>
+          <%= link_to "register or sign in as a sponsor", new_sponsor_session_path %><br>
+          <%= link_to "register or sign in as a charity", new_charity_session_path %><br>
         <% end %>
       </header>
 
