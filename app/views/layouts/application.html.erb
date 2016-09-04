@@ -10,43 +10,56 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <script src="https://js.braintreegateway.com/web/3.0.2/js/client.min.js"></script>
     <script src="https://js.braintreegateway.com/web/3.0.2/js/hosted-fields.min.js"></script>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   </head>
 
   <body>
-    <div class="container">
-      <p class="notice"><%= notice %></p>
-      <p class="alert"><%= alert %></p>
+    <p class="notice"><%= notice %></p>
+    <p class="alert"><%= alert %></p>
 
-      <header>
-        <div id="relevantlinks">
-          <% if current_recycler %>
-            Logged in as <%= current_recycler.email %><br>
-            <%= link_to "sign out", destroy_recycler_session_path, method: :delete %><br>
-            Thanks for being a recycler!<br>
-          <% elsif current_sponsor %>
-            Logged in as <%= current_sponsor.email %><br>
-            <%= link_to "sign out", destroy_sponsor_session_path, method: :delete %><br>
-            Thanks for being a sponsor!<br>
-          <% elsif current_charity %>
-            Logged in as <%= current_charity.email %><br>
-            <%= link_to "sign out", destroy_charity_session_path, method: :delete %><br>
-            Thanks for being a charity!<br>
-          <% else %>
-            <%= link_to "register or sign in as a recycler", new_recycler_session_path %><br>
-            <%= link_to "register or sign in as a sponsor", new_sponsor_session_path %><br>
-            <%= link_to "register or sign in as a charity", new_charity_session_path %><br>
-          <% end %>
-        </div>
-        <div id="admintools">
-          Admin tools:
-          <ul>
-            <li><%= link_to 'Show transactions report', '/grant_transactions_report' %></li>
-            <li><%= link_to 'Process payments', process_payments_path %></li>
+    <nav class="card-panel light-green">
+      <div class="navbar-wrapper container" id="relevantlinks">
+       <a href="#" class="brand-logo left">logo here</a>
+        <% if current_recycler %>
+          <ul class="right">
+            <li>Logged in as <%= current_recycler.email %></li>
+            <li><%= link_to "sign out", destroy_recycler_session_path, method: :delete %></li>
+            <li>Thanks for being a recycler!</li>
           </ul>
-        </div>
-      </header>
-
+        <% elsif current_sponsor %>
+          <ul class="right">
+            <li>Logged in as <%= current_sponsor.email %></li>
+            <li><%= link_to "sign out", destroy_sponsor_session_path, method: :delete %></li>
+            <li>Thanks for being a sponsor!</li>
+          </ul>
+        <% elsif current_charity %>
+          <ul class="right">
+            <li>Logged in as <%= current_charity.email %></li>
+            <li><%= link_to "sign out", destroy_charity_session_path, method: :delete %></li>
+            <li>Thanks for being a charity!</li>
+          </ul>
+        <% else %>
+          <a class="dropdown-button right" data-activates="dropdown1">register or sign in as a:<i class="material-icons right">arrow_drop_down</i></a>
+          <ul id="dropdown1" class="right dropdown-content">
+            <li><%= link_to "recycler", new_recycler_session_path %></li>
+            <li><%= link_to "sponsor", new_sponsor_session_path %></li>
+            <li><%= link_to "charity", new_charity_session_path %></li>
+          </ul>
+        <% end %>
+      </div>
+      <div id="admintools">
+        Admin tools:
+        <ul>
+          <li><%= link_to 'Show transactions report', '/grant_transactions_report' %></li>
+          <li><%= link_to 'Process payments', process_payments_path %></li>
+        </ul>
+      </div>
+    </nav>
+    <div class="container">
       <%= yield %>
     </div>
   </body>
+  <footer class="page-footer light-green">
+    <div class="container footer-copyright light-green center">placeholder text for footer</div>
+  </footer>
 </html>
