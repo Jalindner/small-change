@@ -13,10 +13,6 @@
 # Material.create(name: 'cardboard', price_per_weight: 0.01)
 # Material.create(name: 'paper', price_per_weight: 0.01)
 
-Submission.destroy_all
-SubmissionGroup.destroy_all
-Submission.create(recycler_id:1)
-SubmissionGroup.create(submission_id: 1, material: 'aluminum', quantity: 3)
-SubmissionGroup.create(submission_id: 1, material: 'glass', quantity: 2)
 
 Recycler.create(first_name: "Rob", last_name: "Dale", email: "robzd1@gmail.com", password: 'password')
+

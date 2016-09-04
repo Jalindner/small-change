@@ -3,6 +3,8 @@
 <p>
     <%= f.label :recycler_id %><br />
     <%= f.text_field :recycler_id %>
+    <%= f.label :image %>
+    <%= f.file_field :image %>
   </p>
   <%= f.fields_for :submission_groups do |builder| %>
     <%= render "submission_group_fields", :f => builder %>
