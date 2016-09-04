@@ -12,7 +12,12 @@ Rails.application.routes.draw do
   get '/client_token' => 'grants#generate_client_token'
   get '/grant_transactions_report' => 'grants#grant_transactions_report'
 
-  resources :submissions
+  resources :submissions do
+    member do
+      put "like", to: "submissions#upvote"
+      put "dislike", to: "submissions#downvote"
+    end
+  end
 
   devise_for :recyclers
   devise_for :sponsors
