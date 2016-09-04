@@ -9,3 +9,8 @@
 p, li {
 	color: #263238;
 }
+
+.input-field input[type=text]:active {
+	border-bottom: 1px solid #F2840F;
+	box-shadow: 0 1px 0 0 #F2840F;
+}

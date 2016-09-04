@@ -1,17 +1,17 @@
-<h2 class="blue-grey-text text-blue-grey-darken-3">Log in as a recycler</h2>
+<h4 class="blue-grey-text text-blue-grey-darken-3">Log in as a recycler</h4>
 
 <%= form_for 'recycler', url: new_recycler_session_path do |f| %>
-  <div class="field input-field col s6">
+  <div class="input-field col s6">
     <%= f.label :email %><br />
     <%= f.email_field :email, autofocus: true %>
   </div>
 
-  <div class="field input-field col s6">
+  <div class="input-field col s6">
     <%= f.label :password %><br />
     <%= f.password_field :password, autocomplete: "off" %>
   </div>
 
-  <div class="actions btn waves-effect waves-light orange lighten-2">
+  <div class="actions btn waves-effect waves-light teal darken-2">
     <%= f.submit "Log in" %>
   </div>
 
