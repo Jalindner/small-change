@@ -1,23 +1,22 @@
 
-
-
+<!-- added this as a reminder that materialize has useful icons -->
+<i class="material-icons left">payment</i>
 
 <% if current_recycler %>
   <div id="recycler-info" recyclerid="<%= current_recycler.id %>"></div>
+  
   <h1>Welcome valued recycler!</h1>
-<p>To date, you have recycled 39 things!</p>
+  
+  <p>To date, you have recycled 39 things!</p>
+  <p>You've received $2.90 in payments!</p>
+  <p>And you've donated $0.40 to charities!</p>
 
-<p>You've received $2.90 in payments!</p>
-
-<p>And you've donated $0.40 to charities!</p>
-
-
-<ol>
-  <li>Client requests a client token</li>
-  <li>Server generates a client token and sends it to the client</li>
-  <li>Once the client gets the token, it can create a payment_method_nonce and send it to the server </li>
-  <li>When the server receives the nonce, it can use it to create a transaction</li>
-</ol>
+  <ol>
+    <li>Client requests a client token</li>
+    <li>Server generates a client token and sends it to the client</li>
+    <li>Once the client gets the token, it can create a payment_method_nonce and send it to the server </li>
+    <li>When the server receives the nonce, it can use it to create a transaction</li>
+  </ol>
 <% elsif current_sponsor %>
   <div id="sponsor-info" sponsorid="<%= current_sponsor.id %>"></div>
   <h1>Welcome valued sponsor!</h1>
@@ -37,7 +36,6 @@
     <label for="amount">Amount</label>
     <input type="text" name="amount" id="amount"></input>
 
-    <!-- <input type="hidden" name="payment-method-nonce"> -->
     <input id="submit-button" type="submit" value="Submit a grant">
   </form>
   <p></p>
@@ -48,19 +46,15 @@
 
 <div id="transaction-success"></div>
 
-<%= link_to 'Show transactions report', '/grant_transactions_report' %>
+<div class="link">
+  <%= link_to 'Show transactions report', '/grant_transactions_report' %>
+</div>
 
 <p>Total grants: $<%= GrantsController.total %></p>
 
-
-
-
-
-
-
-
-
-
+<input id="submit-button" type="submit" value="Pay $10" class="actions btn waves-effect waves-light teal darken-2">
+</form>
+<p><p><p><p><p><p><p>
 
 
 
