@@ -13,31 +13,42 @@
   </head>
 
   <body>
-    <div class="container">
       <p class="notice"><%= notice %></p>
       <p class="alert"><%= alert %></p>
 
-      <header>
-        <% if current_recycler %>
-          Logged in as <%= current_recycler.email %><br>
-          <%= link_to "sign out", destroy_recycler_session_path, method: :delete %><br>
-          Thanks for being a recycler!<br>
-        <% elsif current_sponsor %>
-          Logged in as <%= current_sponsor.email %><br>
-          <%= link_to "sign out", destroy_sponsor_session_path, method: :delete %><br>
-          Thanks for being a sponsor!<br>
-        <% elsif current_charity %>
-          Logged in as <%= current_charity.email %><br>
-          <%= link_to "sign out", destroy_charity_session_path, method: :delete %><br>
-          Thanks for being a charity!<br>
-        <% else %>
-          <%= link_to "register or sign in as a recycler", new_recycler_session_path %><br>
-          <%= link_to "register or sign in as a sponsor", new_sponsor_session_path %><br>
-          <%= link_to "register or sign in as a charity", new_charity_session_path %><br>
-        <% end %>
-      </header>
-
-      <%= yield %>
-    </div>
+      <nav class="card-panel light-green">
+        <div class="navbar-wrapper container">
+         <a href="#" class="brand-logo">Logo here</a>
+          <% if current_recycler %>
+            <ul class="right">
+              <li>Logged in as <%= current_recycler.email %></li>              
+              <li><%= link_to "sign out", destroy_recycler_session_path, method: :delete %></li>
+              <li>Thanks for being a recycler!</li>
+            </ul>
+          <% elsif current_sponsor %>
+            <ul class="right">
+              <li>Logged in as <%= current_sponsor.email %></li>
+              <li><%= link_to "sign out", destroy_sponsor_session_path, method: :delete %></li>
+              <li>Thanks for being a sponsor!</li>
+            </ul>
+          <% elsif current_charity %>
+            <ul class="right">
+              <li>Logged in as <%= current_charity.email %></li>
+              <li><%= link_to "sign out", destroy_charity_session_path, method: :delete %></li>
+              <li>Thanks for being a charity!</li>
+            </ul>
+          <% else %>
+            <ul class="right">
+              <li>register or sign in as a:</li>
+              <li><%= link_to "recycler", new_recycler_session_path %></li>
+              <li><%= link_to "sponsor", new_sponsor_session_path %></li>
+              <li><%= link_to "charity", new_charity_session_path %></li>
+            </ul>
+          <% end %>
+        </div>
+      </nav>
+      <div class="container">
+        <%= yield %>
+      </div>
   </body>
 </html>
