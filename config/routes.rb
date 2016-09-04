@@ -8,6 +8,10 @@ Rails.application.routes.draw do
   get '/recyclers/sign_up' => 'recyclers#new', as: :newer_recycler_registration
   get '/charities/sign_up' => 'charities#new', as: :newer_charity_registration
 
+  get '/client_token' => 'payments#generate_client_token'
+  post '/transaction-endpoint' => 'payments#generate_transaction'
+
+
   resources :submissions
 
   devise_for :recyclers
