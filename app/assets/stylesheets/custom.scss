@@ -2,15 +2,10 @@
 	color: #263238;
 }
 
-.lower-links a:hover {
+.lower-links a:hover, link {
 	color: #90a4ae;
 }
 
-p, li {
+p, li, a {
 	color: #263238;
-}
-
-.input-field input[type=text]:active {
-	border-bottom: 1px solid #F2840F;
-	box-shadow: 0 1px 0 0 #F2840F;
 }

@@ -1,4 +1,5 @@
 class Submission < ApplicationRecord
+  acts_as_votable
   has_many :submission_groups
   belongs_to :recycler
   accepts_nested_attributes_for :submission_groups

@@ -1,5 +1,14 @@
 <div class="front">
     <%= link_to submission, class: 'pic-link' do %>
-      <%= image_tag submission.image.url() %>
+      <%= image_tag submission.image.url(:square) %>
+      <%= link_to like_submission_path(submission), method: :put do %>
+        Upvote
+        <%= submission.get_upvotes.size %>
+      <% end %>
+
+      <%= link_to dislike_submission_path(submission), method: :put do %>
+        Downvote
+        <%= submission.get_downvotes.size %>
+      <% end %>
     <% end %>
   </div>
