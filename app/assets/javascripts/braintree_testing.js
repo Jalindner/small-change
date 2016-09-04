@@ -82,16 +82,14 @@ function nonceMaker(token){
 
           console.log("payload.nonce is: " + payload.nonce);
 
+
           //the following goes to 'payments#generate_transaction'
           $.post('/grants', {
             authenticity_token: window._token,
             'client-nonce': payload.nonce,
-            amount: $('#amount').val()
-           });
-
-
-
-
+            amount: $('#amount').val(),
+            sponsor_id: $('#sponsor-info').attr('sponsorid')
+           }).done(function(response){ $('#transaction-success').html(response) })
         }); //end of payload tokenization and send
     }); //end of submit button handler
   }); //end of hosted fields creation

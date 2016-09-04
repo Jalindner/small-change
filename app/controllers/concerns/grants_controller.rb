@@ -21,14 +21,16 @@ class GrantsController < ApplicationController
     puts "it looks like this: #{new_transaction}, a type of #{new_transaction.class}"
 
     puts "Now let's create a new grant object in our database!"
-    new_grant = Grant.new(sponsor_id: 1, amount: params[:amount].to_f)
+    @new_grant = Grant.new(sponsor_id: params[:sponsor_id].to_i, amount: params[:amount].to_f)
 
-    if new_grant.save
+    if @new_grant.save
       puts "Grant saved to the database!!!!!!!!!!!!!!!"
+      render :generate_transaction, layout:false
     else
       puts "Grant was NOT saved to the database!!!!!!!!!!!!!!!"
       puts "Errors:"
-      puts new_grant.errors.full_messages
+      puts @new_grant.errors.full_messages
+      render :generate_transaction, layout:false
     end
   end
 
