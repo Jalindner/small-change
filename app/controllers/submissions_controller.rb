@@ -1,10 +1,10 @@
 class SubmissionsController < ApplicationController
-
+  def index
+    @submissions = Submission.all
+  end
   def new
     @submission = Submission.new
-    @submission_group = @submission.submission_groups.build
-    @materials = @submission.materials
-    @sub_data_obj = SubmissionDataObject.new
+
   end
 
   def create
@@ -20,7 +20,7 @@ class SubmissionsController < ApplicationController
   end
 
   def show
-    @submission = Submission.find(1)
+    @submission = Submission.find_by(id: params[:id])
   end
 end
 
