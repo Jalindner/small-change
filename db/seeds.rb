@@ -15,4 +15,5 @@
 
 
 Recycler.create(first_name: "Rob", last_name: "Dale", email: "robzd1@gmail.com", password: 'password')
-
+Sponsor.create(name: "Whole Foods", email: "info@wholefoods.com", password: 'password')
+Charity.create(name: "American Red Cross", email: "info@redcross.org", password: 'password')

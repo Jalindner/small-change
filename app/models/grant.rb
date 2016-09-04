@@ -1,4 +1,4 @@
 class Grant < ActiveRecord::Base
-  belongs_to :recycler
-  belongs_to :charity
+  belongs_to :sponsor
+  has_many :payments
 end
