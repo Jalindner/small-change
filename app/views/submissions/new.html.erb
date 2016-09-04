@@ -1,11 +1,17 @@
-<div>
-  <%= form_for @submission, url: {action: 'create'} do |f| %>
+<!-- <div>
+  <%#= form_for @submission, url: {action: 'create'}, html: {:id => "Myid"} do |f| %>
     Materials:
-      <%= f.fields_for :submission_groups do |sub_group_form| %>
+    <%#= f.fields_for :submission_groups do |sub_group_form| %>
 
-        <%= sub_group_form.select :materials, options_for_select(@materials, @submission_group.material) %>
-      <% end %>
-    <%= f.submit "Submit" %>
-  <% end %>
-</div>
+        <%#= sub_group_form.select :materials, options_for_select(@materials, @submission_group.material) %>
+      <%# end %>
 
+
+    <%#= f.text_field :recycler_id %><br>
+
+    <%#= f.submit "Add material to the submission" %>
+  <%# end %>
+</div> -->
+<h1>New submission</h1>
+
+<%= render "form" %>

@@ -1,5 +1,8 @@
 class SubmissionGroup < ApplicationRecord
-  # Draft A
-  # belongs_to :material
+
   belongs_to :submission
+
+  validates :quantity, presence: true
+  validates :material, presence: true
+
 end
