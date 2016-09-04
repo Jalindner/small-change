@@ -3,6 +3,7 @@
 
 
 <% if current_recycler %>
+  <div id="recycler-info" recyclerid="<%= current_recycler.id %>"></div>
   <h1>Welcome valued recycler!</h1>
 <p>To date, you have recycled 39 things!</p>
 
@@ -18,6 +19,7 @@
   <li>When the server receives the nonce, it can use it to create a transaction</li>
 </ol>
 <% elsif current_sponsor %>
+  <div id="sponsor-info" sponsorid="<%= current_sponsor.id %>"></div>
   <h1>Welcome valued sponsor!</h1>
   Fill out the form below to create a new grant:
   <form id="braintree-form" action="/grants" method="post">
@@ -40,12 +42,13 @@
   </form>
   <p></p>
 <% elsif current_charity %>
+  <div id="sponsor-info" name="<%= current_sponsor.id %>"></div>
   <h1>Welcome valued charity!</h1>
 <% end %>
 
+<div id="transaction-success"></div>
+
 <%= link_to 'Show transactions report', '/grant_transactions_report' %>
-
-
 
 <p>Total grants: $<%= GrantsController.total %></p>
 
