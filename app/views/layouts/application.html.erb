@@ -18,7 +18,7 @@
 
       <nav class="card-panel light-green">
         <div class="navbar-wrapper container">
-         <a href="#" class="brand-logo">Logo here</a>
+         <a href="#" class="brand-logo">logo here</a>
           <% if current_recycler %>
             <ul class="right">
               <li>Logged in as <%= current_recycler.email %></li>              
@@ -45,10 +45,13 @@
               <li><%= link_to "charity", new_charity_session_path %></li>
             </ul>
           <% end %>
-        </div>`
+        </div>
       </nav>
       <div class="container">
         <%= yield %>
       </div>
   </body>
+  <footer class="page-footer light-green">
+    <div class="container footer-copyright light-green center">placeholder text for footer</div>
+  </footer>
 </html>
