@@ -1,4 +1,5 @@
 class CustomFailure < Devise::FailureApp
+
   def redirect_url
    redirect_to root_path 
   end
