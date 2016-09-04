@@ -6,4 +6,11 @@ class CreateSubmissions < ActiveRecord::Migration[5.0]
       t.timestamps
     end
   end
+  def self.up
+    add_attachment :submission, :image
+  end
+
+  def self.down
+    remove_attachment :submission, :image
+  end
 end

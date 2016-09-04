@@ -1,4 +1,7 @@
 class SubmissionsController < ApplicationController
+  def index
+    @submissions = Submission.all
+  end
 
   before_action :find_submission, only: [:edit, :update, :show, :delete]
   #before_action :authorize, only: [:edit, :update, :create, :delete]
@@ -15,8 +18,7 @@ class SubmissionsController < ApplicationController
   end
 
   def create
-
-    @submission = Submission.new
+    @submission = Submission.new(image_params)
     #@submission.recycler_id = submission_params[:recycler_id]
     @submission.recycler_id = current_recycler.id
 
@@ -41,23 +43,25 @@ class SubmissionsController < ApplicationController
       render :new
 
     end
-
-
   end
 
 
   def show
 
   end
-end
 
 private
 
 
-def submission_params
-  params.require(:submission).permit(:recycler_id, submission_groups_attributes: [:material, :submission_id, :quantity])
-end
+  def submission_params
+    params.require(:submission).permit(:recycler_id, submission_groups_attributes: [:material, :submission_id, :quantity])
+  end
 
-def find_submission
-  @submission = Submission.find(params[:id])
+  def find_submission
+    @submission = Submission.find(params[:id])
+  end
+
+  def image_params
+    params.require(:submission).permit(:image)
+  end
 end

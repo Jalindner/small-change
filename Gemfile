@@ -5,7 +5,8 @@ source 'https://rubygems.org'
 gem 'devise'
 gem 'materialize-sass'
 gem 'braintree'
-
+gem 'paperclip'
+gem 'aws-sdk', '~> 2.3'
 
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
@@ -23,6 +24,9 @@ gem 'coffee-rails', '~> 4.2'
 # See https://github.com/rails/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby
 gem 'pg'
+
+
+
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
 # Turbolinks makes navigating your web application faster. Read more: https://github.com/turbolinks/turbolinks
