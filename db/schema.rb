@@ -106,14 +106,14 @@ ActiveRecord::Schema.define(version: 20160904212618) do
   end
 
   create_table "submissions", force: :cascade do |t|
-    t.integer  "recycler_id",                              null: false
-    t.string   "status",             default: "Submitted"
-    t.datetime "created_at",                               null: false
-    t.datetime "updated_at",                               null: false
-    t.string   "image_file_name"
-    t.string   "image_content_type"
-    t.integer  "image_file_size"
-    t.datetime "image_updated_at"
+    t.integer  "recycler_id",        null: false
+    t.string   "status"
+    t.datetime "created_at",         null: false
+    t.datetime "updated_at",         null: false
+    t.string   "image_file_name",    null: false
+    t.string   "image_content_type", null: false
+    t.integer  "image_file_size",    null: false
+    t.datetime "image_updated_at",   null: false
   end
 
   create_table "votes", force: :cascade do |t|

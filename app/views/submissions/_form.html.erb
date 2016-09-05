@@ -1,12 +1,17 @@
 <%= form_for @submission, url: {action: 'create'} do |f| %>
 <%#= f.error_messages %>
-  <p>
+  <div>
     <%= f.label :image %>
     <%= f.file_field :image %>
-  </p>
- <!--  <%#= f.fields_for :submission_groups do |builder| %>
-    <%#= render "submission_group_fields", :f => builder %>
-  <%# end %>
-  <p><%#= f.submit "Submit" %></p> -->
-
+  </div>
+  <% @index = 0  %>
+  <div id='material-container' class='row'>
+    <%= f.fields_for :submission_groups do |builder| %>
+      <%= render "submission_group_fields", :f => builder %>
+      <% @index += 1 %>
+    <% end %>
+  </div>
+  <div class="actions btn waves-effect waves-light teal darken-2">
+    <%= f.submit "Submit" %>
+  </div>
 <% end %>
