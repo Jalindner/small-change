@@ -3,6 +3,11 @@ class SubmissionsController < ApplicationController
     @submissions = Submission.all
   end
 
+  def review
+    @submissions = Submission.all
+  end
+
+
   before_action :find_submission, only: [:edit, :update, :show, :delete]
   #before_action :authorize, only: [:edit, :update, :create, :delete]
 
