@@ -50,6 +50,7 @@ class SubmissionsController < ApplicationController
   def show
   end
 
+
   def upvote
     @submission = Submission.find(params[:id])
     @submission.upvote_by current_recycler
@@ -60,6 +61,14 @@ class SubmissionsController < ApplicationController
     @submission = Submission.find(params[:id])
     @submission.downvote_by current_recycler
     redirect_to @submission
+
+
+  def self.process_all_payments
+    Submission.all.each { |sub| process_one_payment(sub) }
+  end
+
+  def self.process_one_payment(submission)
+    puts "Processing submission with id #{submission.id}"
   end
 
 private
@@ -76,4 +85,5 @@ private
   def image_params
     params.require(:submission).permit(:image)
   end
+
 end

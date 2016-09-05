@@ -17,11 +17,11 @@
     <div class="page-flexbox-wrapper">
 
     <nav class="card-panel light-green">
-      <div class="navbar-wrapper container">
+      <div class="navbar-wrapper container" id="relevantlinks">
        <a href="#" class="brand-logo left">logo here</a>
         <% if current_recycler %>
           <ul class="right">
-            <li>Logged in as <%= current_recycler.email %></li>              
+            <li>Logged in as <%= current_recycler.email %></li>
             <li><%= link_to "sign out", destroy_recycler_session_path, method: :delete %></li>
             <li>Thanks for being a recycler!</li>
           </ul>
@@ -45,6 +45,13 @@
             <li><%= link_to "charity", new_charity_session_path %></li>
           </ul>
         <% end %>
+      </div>
+      <div id="admintools">
+        Admin tools:
+        <ul>
+          <li><%= link_to 'Show transactions report', '/grant_transactions_report' %></li>
+          <li><%= link_to 'Process payments', process_payments_path %></li>
+        </ul>
       </div>
     </nav>
 

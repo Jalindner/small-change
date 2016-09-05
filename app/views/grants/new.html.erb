@@ -1,0 +1,22 @@
+Fill out the form below to create a new grant:
+<div id="sponsor-info" sponsorid="<%= current_sponsor.id %>"></div>
+<form id="grant-form" action="/grants" method="post">
+    <div id="error-message"></div>
+
+    <label for="card-number">Card Number</label>
+    <div class="hosted-field" id="card-number"></div>
+
+    <label for="cvv">CVV</label>
+    <div class="hosted-field" id="cvv"></div>
+
+    <label for="expiration-date">Expiration Date</label>
+    <div class="hosted-field" id="expiration-date"></div>
+
+    <label for="amount">Amount</label>
+    <input type="text" name="amount" id="amount"></input>
+
+    <!-- <input type="hidden" name="payment-method-nonce"> -->
+    <input id="submit-button" type="submit" value="Submit a grant">
+</form>
+
+<div id="transaction-success"></div>
