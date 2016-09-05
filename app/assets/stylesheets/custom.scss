@@ -10,13 +10,12 @@ p, li, a {
 	color: #263238;
 }
 
-body {
+.page-flexbox-wrapper {
   display: flex;
-  min-height: 100vh;
+  min-height: 90vh;
   flex-direction: column;
 }
 
 main {
-  flex: 1 0 auto;
+  flex: 1 1 auto;
 }
-      

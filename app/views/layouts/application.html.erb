@@ -14,8 +14,7 @@
   </head>
 
   <body>
-    <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
+    <div class="page-flexbox-wrapper">
 
     <nav class="card-panel light-green">
       <div class="navbar-wrapper container">
@@ -48,9 +47,15 @@
         <% end %>
       </div>
     </nav>
+
+    <p class="notice"><%= notice %></p>
+    <p class="alert"><%= alert %></p>
+
     <main class="container">
       <%= yield %>
     </main>
+
+    </div>
   </body>
   <footer class="page-footer light-green">
     <div class="container footer-copyright light-green center">placeholder text for footer</div>
