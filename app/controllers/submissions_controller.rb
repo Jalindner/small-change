@@ -61,7 +61,7 @@ class SubmissionsController < ApplicationController
     @submission = Submission.find(params[:id])
     @submission.downvote_by current_recycler
     redirect_to @submission
-
+  end
 
   def self.process_all_payments
     Submission.all.each { |sub| process_one_payment(sub) }
@@ -72,8 +72,6 @@ class SubmissionsController < ApplicationController
   end
 
 private
-
-
   def submission_params
     params.require(:submission).permit(:recycler_id, submission_groups_attributes: [:material, :submission_id, :quantity])
   end
@@ -85,5 +83,4 @@ private
   def image_params
     params.require(:submission).permit(:image)
   end
-
 end
