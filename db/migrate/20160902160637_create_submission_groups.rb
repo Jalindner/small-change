@@ -3,7 +3,7 @@ class CreateSubmissionGroups < ActiveRecord::Migration[5.0]
     create_table :submission_groups do |t|
       t.integer :submission_id, null:false
       t.string :material
-      t.integer :weight
+      t.float :weight
       t.timestamps
     end
   end

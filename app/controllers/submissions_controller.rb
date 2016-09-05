@@ -76,7 +76,7 @@ class SubmissionsController < ApplicationController
 
 private
   def submission_params
-    params.require(:submission).permit(:recycler_id, submission_groups_attributes: [:material, :submission_id, :quantity])
+    params.require(:submission).permit(:recycler_id, submission_groups_attributes: [:material, :submission_id, :weight])
   end
 
   def find_submission
