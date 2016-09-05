@@ -2,11 +2,11 @@
 <!--   <%#= f.label :submission_id, "Submission id" %><br />
   <%#= f.text_field :submission_id %><br /> -->
 
-  <%= f.label :material, "Material" %><br />
+  <%= f.label :material, "#{@materials[@index]}" %><br />
   <%= f.text_field :material %><br />
 
   <%= f.label :weight, "Weight in ounces" %><br />
-  <%= f.text_field :weight %><br />
+  <%= f.number_field :weight %><br />
 
   <!--<%#= f.check_box :_destroy %>
   <%#= f.label :_destroy, "Remove Submission group" %> -->

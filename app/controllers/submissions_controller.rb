@@ -15,6 +15,7 @@ class SubmissionsController < ApplicationController
       @materials.count.times do
         submission_group = @submission.submission_groups.build
       end
+
     else
       redirect_to '/recyclers/sign_in'
     end
