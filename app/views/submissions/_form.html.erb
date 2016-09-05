@@ -1,14 +1,12 @@
 <%= form_for @submission, url: {action: 'create'} do |f| %>
 <%#= f.error_messages %>
-<p>
-    <%= f.label :recycler_id %><br />
-    <%= f.text_field :recycler_id %>
+  <p>
     <%= f.label :image %>
     <%= f.file_field :image %>
   </p>
-  <%= f.fields_for :submission_groups do |builder| %>
-    <%= render "submission_group_fields", :f => builder %>
-  <% end %>
-  <p><%= f.submit "Submit" %></p>
+ <!--  <%#= f.fields_for :submission_groups do |builder| %>
+    <%#= render "submission_group_fields", :f => builder %>
+  <%# end %>
+  <p><%#= f.submit "Submit" %></p> -->
 
 <% end %>
