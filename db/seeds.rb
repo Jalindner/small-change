@@ -25,3 +25,6 @@ sub1 = Submission.create(recycler_id: rob.id )
 SubmissionGroup.create(submission_id: 1, material: "aluminum", quantity: 5)
 SubmissionGroup.create(submission_id: 1, material: "paper", quantity: 2)
 
+sub2 = Submission.create(recycler_id: rob.id )
+SubmissionGroup.create(submission_id: sub2.id, material: "HDPE", quantity: 4)
+SubmissionGroup.create(submission_id: sub2.id, material: "PET", quantity: 3)

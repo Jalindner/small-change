@@ -3,7 +3,9 @@ All submissions:
 <% if @submissions %>
   <ol>
     <% @submissions.each do |sub| %>
-      <li>Submission #<%= sub.id %>, created by <%= sub.recycler.first_name %> <%= sub.recycler.last_name %> on <%= sub.created_at %></li>
+      <li>Submission #<%= sub.id %>, created by <%= sub.recycler.first_name %> <%= sub.recycler.last_name %> on <%= sub.created_at %>
+      <%= link_to "Process", "/payments/process/#{sub.id}" %>
+      </li>
     <% end %>
   </ol>
 <% end %>
