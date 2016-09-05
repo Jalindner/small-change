@@ -21,11 +21,11 @@ redcross = Charity.create(name: "American Red Cross", email: "info@redcross.org"
 bigGrant = Grant.create(sponsor_id: wholefoods.id, amount: 500)
 
 
-sub1 = Submission.create(recycler_id: rob.id )
-SubmissionGroup.create(submission_id: 1, material: "aluminum", weight: 5.0)
-SubmissionGroup.create(submission_id: 1, material: "paper", weight: 2.0)
+# sub1 = Submission.create(recycler_id: rob.id )
+# SubmissionGroup.create(submission_id: 1, material: "aluminum", weight: 5.0)
+# SubmissionGroup.create(submission_id: 1, material: "paper", weight: 2.0)
 
-sub2 = Submission.create(recycler_id: rob.id )
+# sub2 = Submission.create(recycler_id: rob.id )
 
-SubmissionGroup.create(submission_id: sub2.id, material: "HDPE", quantity: 4)
-SubmissionGroup.create(submission_id: sub2.id, material: "PET", quantity: 3)
+# SubmissionGroup.create(submission_id: sub2.id, material: "HDPE", quantity: 4)
+# SubmissionGroup.create(submission_id: sub2.id, material: "PET", quantity: 3)

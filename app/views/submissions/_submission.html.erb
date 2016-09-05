@@ -11,4 +11,9 @@
       <%= submission.get_downvotes.size %>
     <% end %>
   <% end %>
+  <ul>
+    <% submission.submission_groups.each do |subG| %>
+      <li><%= subG.material %>: <%= subG.weight %> mG</li>
+    <% end %>
+  </ul>
 </div>
