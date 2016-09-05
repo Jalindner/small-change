@@ -34,23 +34,23 @@ ActiveRecord::Schema.define(version: 20160904212618) do
   end
 
   create_table "donations", force: :cascade do |t|
-    t.integer  "recycler_id"
-    t.integer  "charity_id"
+    t.integer  "recycler_id", null: false
+    t.integer  "charity_id",  null: false
     t.float    "amount"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
   end
 
   create_table "grants", force: :cascade do |t|
-    t.integer  "sponsor_id"
+    t.integer  "sponsor_id", null: false
     t.float    "amount"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
   create_table "payments", force: :cascade do |t|
-    t.integer  "grant_id"
-    t.integer  "submission_id"
+    t.integer  "grant_id",      null: false
+    t.integer  "submission_id", null: false
     t.float    "amount"
     t.datetime "created_at",    null: false
     t.datetime "updated_at",    null: false
@@ -94,21 +94,22 @@ ActiveRecord::Schema.define(version: 20160904212618) do
   end
 
   create_table "submission_data_objects", force: :cascade do |t|
-    t.integer "submission_id"
+    t.integer "submission_id", null: false
   end
 
   create_table "submission_groups", force: :cascade do |t|
-    t.integer  "submission_id"
+    t.integer  "submission_id", null: false
     t.string   "material"
-    t.float  "weight"
+    t.float    "weight"
     t.datetime "created_at",    null: false
     t.datetime "updated_at",    null: false
   end
 
   create_table "submissions", force: :cascade do |t|
-    t.integer  "recycler_id"
-    t.datetime "created_at",         null: false
-    t.datetime "updated_at",         null: false
+    t.integer  "recycler_id",                              null: false
+    t.string   "status",             default: "Submitted"
+    t.datetime "created_at",                               null: false
+    t.datetime "updated_at",                               null: false
     t.string   "image_file_name"
     t.string   "image_content_type"
     t.integer  "image_file_size"

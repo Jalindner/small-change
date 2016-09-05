@@ -15,6 +15,7 @@
 
 
 rob = Recycler.create(first_name: "Rob", last_name: "Dale", email: "robzd1@gmail.com", password: 'password')
+ver = Recycler.create(first_name: "Veronica", last_name: "Agurto", email: "Veronica@veronica.com", password: 'password')
 wholefoods = Sponsor.create(name: "Whole Foods", email: "info@wholefoods.com", password: 'password')
 redcross = Charity.create(name: "American Red Cross", email: "info@redcross.org", password: 'password')
 
@@ -27,5 +28,12 @@ SubmissionGroup.create(submission_id: 1, material: "paper", weight: 2.0)
 
 sub2 = Submission.create(recycler_id: rob.id )
 
-SubmissionGroup.create(submission_id: sub2.id, material: "HDPE", quantity: 4)
-SubmissionGroup.create(submission_id: sub2.id, material: "PET", quantity: 3)
+SubmissionGroup.create(submission_id: sub2.id, material: "HDPE", weight: 4.0)
+SubmissionGroup.create(submission_id: sub2.id, material: "PET", weight: 3.0)
+
+
+
+
+don1 = Donation.create(recycler_id: rob.id, charity_id: redcross.id, amount: 5.0)
+don2 = Donation.create(recycler_id: ver.id, charity_id: redcross.id, amount: 14.0)
+

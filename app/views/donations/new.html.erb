@@ -1,0 +1,11 @@
+<%= form_for @donation, url: {action: 'create'}, html: {id: "donation-form"} do |f| %>
+
+<%= f.label :amount %><br>
+<%= f.number_field :amount %><br>
+
+<%= f.label :charity_id %><br>
+<%= f.number_field :charity_id %><br>
+
+<%= f.submit "Submit a new donation" %></p>
+
+<% end %>

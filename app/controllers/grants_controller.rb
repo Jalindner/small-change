@@ -3,6 +3,12 @@ class GrantsController < ApplicationController
     @grants = Grant.all
   end
 
+  def new
+    if !current_sponsor
+      redirect_to '/'
+    end
+  end
+
   def generate_client_token
     token = Braintree::ClientToken.generate
     render '/payments/_token', layout: false, locals: {token: token}
