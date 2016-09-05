@@ -7,6 +7,11 @@ $(document).ready(function(){
     console.log("On the submissions review page!")
     paymentClientTokenRequester();
   }
+  else if (window.location.pathname == '/donations/new') {
+    console.log("On the donations page!")
+    donationClientTokenRequester();
+  }
+
 });
 
 function grantClientTokenRequester(){

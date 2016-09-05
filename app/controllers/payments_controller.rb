@@ -1,10 +1,5 @@
 class PaymentsController < ApplicationController
 
-  def create
-  end
-
-
-
   def process_all_payments
     Submission.all.each do |sub|
       process_payment(sub)
@@ -41,7 +36,6 @@ class PaymentsController < ApplicationController
       # payment_method_nonce: params['client-nonce'],
       # options: {submit_for_settlement: true}
       # )
-
 
       if payment.save
         puts "Payment saved!"

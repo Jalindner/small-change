@@ -16,6 +16,11 @@ Rails.application.routes.draw do
   get '/grant_transactions_report' => 'grant_transactions_reportts#grant_transactions_report'
 
 
+  get '/donations' => 'donations#index'
+  get '/donations/new' => 'donations#new'
+  post '/donations' => 'donations#create'
+
+
   get '/submissions/review' => 'submissions#review'
 
   resources :submissions do
