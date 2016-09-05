@@ -10,7 +10,7 @@ Your recycling submisssions:
           <ul>
             <% sub.submission_groups.each do |subm_group| %>
               <li>
-                <%= subm_group.quantity %> of <%= subm_group.material %>
+                <%= subm_group.weight %> ounces of <%= subm_group.material %>
               </li>
             <% end %>
           </ul>

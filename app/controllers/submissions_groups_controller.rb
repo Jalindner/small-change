@@ -17,5 +17,5 @@ private
 
 def submission_groups_params
   # Draft A
-  params.require(:submission).permit(submission_groups_attributes: [:material, :submission_id, :quantity])
+  params.require(:submission).permit(submission_groups_attributes: [:material, :submission_id, :weight])
 end
