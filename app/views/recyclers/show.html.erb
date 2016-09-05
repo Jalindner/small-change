@@ -1,1 +1,21 @@
-show an individual recycler page
+User: <%= current_recycler.first_name %> <%= current_recycler.last_name %>
+
+Your recycling submisssions:
+<% if @submissions %>
+  <ol>
+    <% @submissions.each do |sub| %>
+      <li>
+        Submission ID#<%= sub.id %>, created at <%= sub.created_at %>:
+        <% if sub.submission_groups %>
+          <ul>
+            <% sub.submission_groups.each do |subm_group| %>
+              <li>
+                <%= subm_group.quantity %> of <%= subm_group.material %>
+              </li>
+            <% end %>
+          </ul>
+        <% end %>
+      </li>
+    <% end %>
+  </ol>
+<% end %>
