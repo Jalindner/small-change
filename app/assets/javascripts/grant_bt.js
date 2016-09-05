@@ -1,14 +1,26 @@
 $(document).ready(function(){
-  clientTokenRequester();
+  if (window.location.pathname == '/grants/new') {
+    console.log("On the new grant page!")
+    grantClientTokenRequester();
+  }
+  else if (window.location.pathname == '/submissions/review') {
+    console.log("On the submissions review page!")
+    paymentClientTokenRequester();
+  }
+  else if (window.location.pathname == '/donations/new') {
+    console.log("On the donations page!")
+    donationClientTokenRequester();
+  }
+
 });
 
-function clientTokenRequester(){
+function grantClientTokenRequester(){
   $.get('/client_token').done(function(response){
-      nonceMaker(response);
+      grantNonceMaker(response);
   });
 }
 
-function nonceMaker(token){
+function grantNonceMaker(token){
   console.log("Starting noncemaker!");
   braintree.client.create({authorization: token}, function (clientErr, clientInstance) {
     console.log("Creating the client!");
