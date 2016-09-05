@@ -18,3 +18,13 @@
 p, li, a {
 	color: #263238;
 }
+
+.page-flexbox-wrapper {
+  display: flex;
+  min-height: 90vh;
+  flex-direction: column;
+}
+
+main {
+  flex: 1 1 auto;
+}

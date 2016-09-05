@@ -14,8 +14,7 @@
   </head>
 
   <body>
-
-
+    <div class="page-flexbox-wrapper">
     <nav class="card-panel light-green">
       <div class="navbar-wrapper container" id="relevantlinks">
        <a href="#" class="brand-logo left">logo here</a>
@@ -54,10 +53,14 @@
         </ul>
       </div>
     </nav>
-    <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
-    <div class="container">
+
+
+    <main class="container">
+      <p class="notice"><%= notice %></p>
+      <p class="alert"><%= alert %></p>
       <%= yield %>
+    </main>
+
     </div>
   </body>
   <footer class="page-footer light-green">
