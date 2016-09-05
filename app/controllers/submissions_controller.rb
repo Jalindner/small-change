@@ -48,6 +48,9 @@ class SubmissionsController < ApplicationController
   end
 
   def show
+    puts "+++++++++++++++++++++++++++++"
+    p recycler_session
+
   end
 
 

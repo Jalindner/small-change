@@ -1,6 +1,7 @@
 <div class="front">
     <%= link_to submission, class: 'pic-link' do %>
       <%= image_tag submission.image.url(:square) %>
+      <% if recycler_session != submission.recycler_id %>
       <%= link_to like_submission_path(submission), method: :put do %>
         Upvote
         <%= submission.get_upvotes.size %>
@@ -9,6 +10,7 @@
       <%= link_to dislike_submission_path(submission), method: :put do %>
         Downvote
         <%= submission.get_downvotes.size %>
+        <% end %>
       <% end %>
     <% end %>
   </div>
