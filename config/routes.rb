@@ -32,7 +32,7 @@ Rails.application.routes.draw do
   devise_for :charities
 
   get '/recyclers/:id' => 'recyclers#show'
-
+  get '/welcome/calculator' => 'welcome#calculator'
   root 'welcome#dashboard'
 
 end
