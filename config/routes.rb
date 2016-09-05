@@ -22,12 +22,17 @@ Rails.application.routes.draw do
     end
   end
 
-  get '/payments/process' => 'payments#process_payments', as: :process_payments
+  get '/payments/process_all' => 'payments#process_all_payments', as: :process_all_payments
+  get '/payments/process/:submission_id'  => 'payments#process_payment'
+
+
 
   devise_for :recyclers
   devise_for :sponsors
   devise_for :charities
 
+  get '/recyclers/:id' => 'recyclers#show'
+  get '/welcome/calculator' => 'welcome#calculator'
   root 'welcome#dashboard'
 
 end
