@@ -25,10 +25,6 @@ sub1 = Submission.create(recycler_id: rob.id )
 SubmissionGroup.create(submission_id: 1, material: "aluminum", quantity: 5)
 SubmissionGroup.create(submission_id: 1, material: "paper", quantity: 2)
 
-sub1.image.url = "http://www.alparalaska.com/wp/wp-content/uploads/2011/03/recyclables-composite.jpg"
-
 sub2 = Submission.create(recycler_id: rob.id )
 SubmissionGroup.create(submission_id: sub2.id, material: "HDPE", quantity: 4)
 SubmissionGroup.create(submission_id: sub2.id, material: "PET", quantity: 3)
-
-sub2.image.url = "http://www.mycariboonow.com/wp-content/uploads/2015/07/Recyclables.jpg"
