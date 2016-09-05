@@ -10,6 +10,24 @@ class Submission < ApplicationRecord
   validates :recycler_id, presence: true
 
   def materials
-    ['plastic', 'aluminum', 'glass', 'cardboard', 'paper']
+    [  'plastic drink bottle',
+      'plastic food container',
+      'laundry detergent bottle',
+      'gallon milk jug',
+      'aluminum beverage can',
+      'tin or steel food can',
+      'glass jar or bottle',
+      'large glass bottle',
+      'newspaper',
+      'magazine',
+      'junk mail',
+      'small stack of office paper',
+      'cardboard box',
+      'telephone book',
+      'paper bag',
+      'cereal box',
+      'paper towel roll',
+      'batteries'
+    ]
   end
 end
