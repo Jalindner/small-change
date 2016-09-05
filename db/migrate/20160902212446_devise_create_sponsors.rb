@@ -5,7 +5,7 @@ class DeviseCreateSponsors < ActiveRecord::Migration[5.0]
       t.string :name
 
       ## Database authenticatable
-      t.string :email,              null: false, default: ""
+      t.string :email,              null: false, default: "", unique:true
       t.string :encrypted_password, null: false, default: ""
 
       ## Recoverable
