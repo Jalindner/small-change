@@ -23,7 +23,8 @@
       <a class="dropdown-button right" data-activates="dropdown2">Admin tools:<i class="material-icons right">arrow_drop_down</i></a>
       <ul id="dropdown2" class="right dropdown-content">
         <li><%= link_to 'Show transactions report', '/grant_transactions_report' %></li>
-        <li><%= link_to 'Process payments', process_payments_path %></li>
+        <li><%= link_to 'Process individual payments', '/submissions' %></li>
+        <li><%= link_to 'Process all payments', process_all_payments_path %></li>
       </ul>
     </div>
         <% if current_recycler %>
