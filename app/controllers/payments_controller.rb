@@ -14,9 +14,7 @@ class PaymentsController < ApplicationController
       total = 0.00
 
       sub.submission_groups.each do |subm_group|
-        subm_group.quantity.times do
-          total += 0.01
-        end
+        total += (0.01 * subm_group.weight)
       end
       puts "About to create a payment with submission_id: #{sub.id}, grant_id: #{random_grant.id}, and amount: #{total}"
 

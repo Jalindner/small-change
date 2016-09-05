@@ -198,7 +198,7 @@
 <row name="material" null="1" autoincrement="0">
 <datatype>INTEGER</datatype>
 <default>NULL</default></row>
-<row name="quantity" null="1" autoincrement="0">
+<row name="weight" null="1" autoincrement="0">
 <datatype>INTEGER</datatype>
 <default>NULL</default></row>
 <key type="PRIMARY" name="">

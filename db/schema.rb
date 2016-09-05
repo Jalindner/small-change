@@ -100,7 +100,7 @@ ActiveRecord::Schema.define(version: 20160904212618) do
   create_table "submission_groups", force: :cascade do |t|
     t.integer  "submission_id"
     t.string   "material"
-    t.integer  "quantity"
+    t.float  "weight"
     t.datetime "created_at",    null: false
     t.datetime "updated_at",    null: false
   end
