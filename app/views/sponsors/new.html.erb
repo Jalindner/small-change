@@ -1,8 +1,9 @@
-<h4 class="gblue-grey-text text-blue-grey-darken-3">Sign up as a Sponsor</h4>
+<h4 class="blue-grey-text text-blue-grey-darken-3">Sign up as a Sponsor</h4><br>
 
 <%= form_for 'sponsor', url: sponsor_registration_path do |f| %>
   <%= devise_error_messages! %>
 
+<div class="row">
   <div class="input-field col s6">
     <%= f.label :email %><br />
     <%= f.email_field :email, autofocus: true %>
@@ -25,10 +26,19 @@
     <%= f.label :password_confirmation %><br />
     <%= f.password_field :password_confirmation, autocomplete: "off" %>
   </div>
-
+</div>
   <div class="actions btn waves-effect waves-light teal darken-2">
     <%= f.submit "Sign up" %>
   </div>
 <% end %>
+<br>
+<div class="lower-links">
+  <%= link_to "Sign in", newer_sponsor_session_path %><br>
 
-<%= render "devise/shared/links" %>
+  <%- if devise_mapping.recoverable? && controller_name != 'passwords' && controller_name != 'registrations' %>
+    <%= link_to "Forgot your password?", new_password_path(resource_name) %><br />
+  <% end -%>
+</div>
+
+
+

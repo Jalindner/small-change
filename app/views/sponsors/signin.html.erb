@@ -1,16 +1,17 @@
 <h4 class="blue-grey-text text-blue-grey-darken-3">Log in as a sponsor</h4>
+<br>
+  <div class="row">
+    <%= form_for 'sponsor', url: new_sponsor_session_path do |f| %>
+      <div class="input-field col s6">
+        <%= f.label :email %><br />
+        <%= f.email_field :email, autofocus: true %>
+      </div>
 
-<%= form_for 'sponsor', url: new_sponsor_session_path do |f| %>
-  <div class="input-field col s6">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true %>
+      <div class="input-field col s6">
+        <%= f.label :password %><br>
+        <%= f.password_field :password, autocomplete: "off" %>
+      </div>
   </div>
-
-  <div class="input-field col s6">
-    <%= f.label :password %><br />
-    <%= f.password_field :password, autocomplete: "off" %>
-  </div>
-
   <% if devise_mapping.rememberable? -%>
     <div class="input-field col s6">
       <%= f.check_box :remember_me %>
@@ -19,9 +20,14 @@
   <% end -%>
   <br>
   <div class="actions btn waves-effect waves-light teal darken-2">
-    <%= f.submit "Log in" %>
+    <%= f.submit "Log in" %><br>
   </div>
 <% end %>
 
-
-<%= render "devise/shared/links" %>
+<div class="lower-links">
+  <br>
+  <%= link_to "Sign up as a sponsor", newer_sponsor_registration_path %><br>
+  <%- if devise_mapping.recoverable? && controller_name != 'passwords' && controller_name != 'registrations' %>
+    <%= link_to "Forgot your password?", new_password_path(resource_name) %><br />
+  <% end -%>
+</div>

@@ -1,33 +1,43 @@
 <h4 class="blue-grey-text text-blue-grey-darken-3">Sign up as a Charity</h4>
-
-<%= form_for 'charity', url: charity_registration_path do |f| %>
+<br>
+<div class="row">
+  <%= form_for 'charity', url: charity_registration_path do |f| %>
   <%= devise_error_messages! %>
 
-  <div class="input-field col s6">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true %>
-  </div>
+    <div class="input-field col s6">
+      <%= f.label :email %><br />
+      <%= f.email_field :email, autofocus: true %>
+    </div>
 
-  <div class="input-field col s6">
-    <%= f.label :name %><br />
-    <%= f.text_field :name %>
-  </div>
+    <div class="input-field col s6">
+      <%= f.label :name %><br />
+      <%= f.text_field :name %>
+    </div>
 
-  <div class="input-field col s6">
-    <%= f.label :password %>
+    <div class="input-field col s6">
+      <%= f.label :password %>
     <% if @minimum_password_length %>
     <em>(<%= @minimum_password_length %> characters minimum)</em>
     <% end %><br />
     <%= f.password_field :password, autocomplete: "off" %>
-  </div>
+    </div>
 
-  <div class="input-field col s6">
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "off" %>
-  </div>
+    <div class="input-field col s6">
+      <%= f.label :password_confirmation %><br />
+      <%= f.password_field :password_confirmation, autocomplete: "off" %>
+    </div>
+</div>
   
   <div class="actions btn waves-effect waves-light teal darken-2">
     <%= f.submit "Sign up" %>
   </div>
 <% end %>
+<br>
+<div class="lower-links">
+<br>
+  <%= link_to "Sign in", newer_charity_session_path %><br>
+  <%- if devise_mapping.recoverable? && controller_name != 'passwords' && controller_name != 'registrations' %>
+    <%= link_to "Forgot your password?", new_password_path(resource_name) %><br />
+  <% end %>
+</div>
 
