@@ -3,10 +3,17 @@ class GrantsController < ApplicationController
     @grants = Grant.all
   end
 
+  def create
+    render plain: params[:grant].inspect
+  end
+
   def new
     if !current_sponsor
       redirect_to '/'
     end
+    puts "Got to the new method!!!!!!!!!!!!!!!!!!!!!!"
+    puts Grant
+    @grant = Grant.new
   end
 
   def generate_client_token
@@ -16,21 +23,24 @@ class GrantsController < ApplicationController
 
   def generate_transaction
     puts "Got to the generate_transaction method!!!!!!!!!!!!!!!!!!!"
-    puts "Our nonce is #{params['client-nonce']}, a type of #{params['client-nonce'].class}"
+
+    # puts "Our nonce is #{params['client-nonce']}, a type of #{params['client-nonce'].class}"
     puts "passing this amount: #{params[:amount]}, a type of #{params[:amount].class }"
 
 
-
-    new_transaction = Braintree::Transaction.sale(
-      amount: params[:amount],
-      payment_method_nonce: params['client-nonce'],
-      options: {submit_for_settlement: true}
-      )
-    puts "Transaction creation was successful!"
-    puts "it looks like this: #{new_transaction}, a type of #{new_transaction.class}"
+    # new_transaction = Braintree::Transaction.sale(
+    #   amount: params[:amount],
+    #   payment_method_nonce: params['client-nonce'],
+    #   options: {submit_for_settlement: true}
+    #   )
+    # puts "Transaction creation was successful!"
+    # puts "it looks like this: #{new_transaction}, a type of #{new_transaction.class}"
 
     puts "Now let's create a new grant object in our database!"
-    @new_grant = Grant.new(sponsor_id: params[:sponsor_id].to_i, amount: params[:amount].to_f)
+
+
+    @new_grant = Grant.new(amount: grant_params[:amount])
+    @new_grant.sponsor_id = current_sponsor.id
 
     if @new_grant.save
       puts "Grant saved to the database!!!!!!!!!!!!!!!"
@@ -50,7 +60,9 @@ class GrantsController < ApplicationController
     )
   end
 
-
+  def grant_params
+    params.require(:grant).permit(:'card-number', :cvv, :'expiration-date', :amount)
+  end
 
   def self.total
     return Grant.sum(:amount)

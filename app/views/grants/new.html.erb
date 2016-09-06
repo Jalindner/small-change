@@ -4,6 +4,32 @@ Fill out the form below to create a new grant:
 
 
     <form id="grant-form" action="/grants" method="post">
+
+
+    <%= form_tag("/grants", method: "post") do %>
+        <div id="error-message"></div>
+
+        <%= label_tag(:'grant[card-number]', "Card Number") %>
+        <%= text_field_tag(:'grant[card-number]') %>
+
+        <%= label_tag(:'grant[cvv]', "CVV") %>
+        <%= text_field_tag(:'grant[cvv]') %>
+
+        <%= label_tag(:'grant[expiration-date]', "Expiration Date") %>
+        <%= text_field_tag(:'grant[expiration-date]') %>
+
+        <%= label_tag(:'grant[amount]', "Amount") %>
+        <%= text_field_tag(:'grant[amount]') %>
+
+        <%= submit_tag("Submit a grant") %>
+        <!-- <input type="hidden" name="payment-method-nonce"> -->
+    <% end %>
+
+    <div id="transaction-success"></div>
+<% end %>
+
+
+<!--
         <div id="error-message"></div>
 
         <label for="card-number">Card Number</label>
@@ -19,8 +45,5 @@ Fill out the form below to create a new grant:
         <input type="text" name="amount" id="amount"></input>
 
         <!-- <input type="hidden" name="payment-method-nonce"> -->
-        <input id="submit-button" type="submit" value="Submit a grant">
-    </form>
+        <!-- <input id="submit-button" type="submit" value="Submit a grant"> -->
 
-    <div id="transaction-success"></div>
-<% end %>
