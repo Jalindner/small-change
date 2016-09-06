@@ -57,6 +57,7 @@ class PaymentsController < ApplicationController
           puts "Changing the status on the original submission"
           sub.status = "Paid"
           sub.save
+          redirect_to "/submissions/#{sub.id}"
         else
           puts "Error: not enough votes or vote count too low."
           # sub.status = "Rejected"
