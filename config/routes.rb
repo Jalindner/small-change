@@ -30,6 +30,8 @@ Rails.application.routes.draw do
     end
   end
 
+  resources :votes
+
   post '/payments' => 'payments#create'
   get '/payments/process_all' => 'payments#process_all_payments', as: :process_all_payments
   get '/payments/process/:submission_id'  => 'payments#process_payment'
