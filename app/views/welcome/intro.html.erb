@@ -1,9 +1,9 @@
 <h1>Welcome to smallchange!</h1>
-
-smallchange is a site that connects recyclers with sponsors
 <% flash.each do |key, value| %>
-  <div class="alert alert-<%= key %>"><%= value %></div>
+  <div class="alert"><%= value %></div>
 <% end %>
+smallchange is a site that connects recyclers with sponsors
+
 
 <div id="intro-col-1">
   <strong>Recyclers</strong> can submit information about the stuff they recycle. Once the submission has been vetted by other users, reyclers get paid!
@@ -18,3 +18,6 @@ smallchange is a site that connects recyclers with sponsors
 <div id="intro-col-3">
   <strong>Charities</strong> can accept donations from recyclers who want to do even more good, in their communities and throughout the world!
 </div>
+<% if recycler_session %>
+  <a href="/votes">Go vote on some Submissions!</a>
+<% end %>

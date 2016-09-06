@@ -7,6 +7,7 @@ class VotesController < ApplicationController
       if !votable_submissions.empty?
         @random_submission = votable_submissions.sample
       else
+        flash[:error] = "Wow! You've managed to vote on every submission!"
         redirect_to '/'
       end
 
