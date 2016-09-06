@@ -36,7 +36,7 @@
           </div>
         <% elsif current_charity %>
           <div class="right">
-            <%= link_to "logged in as #{current_charity.email}", "/charitys/#{current_charity.id}", id: "navbarlinks"%>|
+            <%= link_to "logged in as #{current_charity.email}", "/charities/#{current_charity.id}", id: "navbarlinks"%>|
             <%= link_to "sign out", destroy_charity_session_path, method: :delete %>
           </div>
         <% else %>
