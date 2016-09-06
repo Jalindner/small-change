@@ -54,8 +54,6 @@ class SubmissionsController < ApplicationController
   end
 
   def show
-    puts "+++++++++++++++++++++++++++++"
-    p recycler_session
 
   end
 
@@ -79,6 +77,7 @@ class SubmissionsController < ApplicationController
   def self.process_one_payment(submission)
     puts "Processing submission with id #{submission.id}"
   end
+
 
 private
   def submission_params

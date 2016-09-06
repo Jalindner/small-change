@@ -1,10 +1,14 @@
+
 class VotesController < ApplicationController
+
   def index
-    random_id = rand(1..Submission.count)
-    @random_submission = Submission.find(random_id)
-    puts "______________________"
-    puts current_recycler.id
-    puts @random_submission.recycler_id
-    puts "______________________"
+    votable_submissions = get_votable_submissions(current_recycler)
+    @random_submission = submissions.sample
+    puts '_______________________'
+    p @random_submission.recycler_id
+    p current_recycler.id
+    puts '_______________________'
   end
+
+
 end

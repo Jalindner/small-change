@@ -1,7 +1,7 @@
 <div class="front">
   <%= link_to submission, class: 'pic-link' do %>
     <%= image_tag submission.image.url(:square) %>
-    <% if current_recycler.id != submission.recycler_id && (submission.get_upvotes.size < 3 || submission.get_downvotes.size < 3)%>
+    <%# if current_recycler.id != submission.recycler_id  %>
       <div>
         <%= link_to like_submission_path(submission), method: :put do %>
           <i class="material-icons">thumb_up</i>
@@ -13,7 +13,9 @@
           <span class='vote-count'><%= submission.get_downvotes.size %></span>
         <% end %>
       </div>
-    <% end %>
+      <%# else %>
+        <!-- <p>This is your submission</p> -->
+    <%# end %>
   <% end %>
   <ul>
     <% submission.submission_groups.each do |subG| %>
