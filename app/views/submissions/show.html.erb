@@ -1,6 +1,5 @@
 <div>
-
-  <%= render @submission %>
-
+  <%= render @submission, locals: {value: @value} %>
 </div>
 
+<p><%= link_to "Submit more stuff!", new_submission_path %></p>
