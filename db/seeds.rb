@@ -8,6 +8,8 @@
 
 rob = Recycler.create(first_name: "Rob", last_name: "Dale", email: "robzd1@gmail.com", password: 'password')
 ver = Recycler.create(first_name: "Veronica", last_name: "Agurto", email: "Veronica@veronica.com", password: 'password')
+dob = Recycler.create(first_name: "Dob", last_name: "Rale", email: "dob@dob.dob", password: 'password')
+aer = Recycler.create(first_name: "Aeronica", last_name: "Vgurto", email: "aer@aer.aer", password: 'password')
 wholefoods = Sponsor.create(name: "Whole Foods", email: "info@wholefoods.com", password: 'password')
 redcross = Charity.create(name: "American Red Cross", email: "info@redcross.org", password: 'password')
 
