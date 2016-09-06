@@ -4,8 +4,8 @@
     <title>SmallChange</title>
     <%= csrf_meta_tags %>
 
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_link_tag    'application', media: 'all' %>
+    <%= javascript_include_tag 'application' %>
     <%= javascript_tag "window._token = '#{form_authenticity_token}'" %>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <script src="https://js.braintreegateway.com/web/3.0.2/js/client.min.js"></script>
@@ -16,8 +16,17 @@
   <body>
     <div class="page-flexbox-wrapper">
     <nav class="card-panel light-green">
-      <div class="navbar-wrapper container" id="relevantlinks">
-       <a href="#" class="brand-logo left">logo here</a>
+
+    <div class="navbar-wrapper container">
+     <a href="#" class="brand-logo left">smallchange</a>
+      <div id="admintools" class="right">
+      <a class="dropdown-button right" data-activates="dropdown2">Admin tools:<i class="material-icons right">arrow_drop_down</i></a>
+      <ul id="dropdown2" class="right dropdown-content">
+        <li><%= link_to 'Show transactions report', '/grant_transactions_report' %></li>
+        <li><%= link_to 'Process individual payments', '/submissions' %></li>
+        <li><%= link_to 'Process all payments', process_all_payments_path %></li>
+      </ul>
+    </div>
         <% if current_recycler %>
           <ul class="right">
             <li>Logged in as <%= current_recycler.email %></li>
@@ -45,16 +54,7 @@
           </ul>
         <% end %>
       </div>
-      <div id="admintools">
-        Admin tools:
-        <ul>
-          <li><%= link_to 'Show transactions report', '/grant_transactions_report' %></li>
-          <li><%= link_to 'Process individual payments', '/submissions' %></li>
-          <li><%= link_to 'Process all payments', process_all_payments_path %></li>
-        </ul>
-      </div>
     </nav>
-
 
     <main class="container">
       <p class="notice"><%= notice %></p>
