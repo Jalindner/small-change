@@ -18,13 +18,15 @@
     <nav class="card-panel light-green">
 
     <div class="navbar-wrapper container">
-     <a href="/" class="brand-logo left">smallchange</a>
+      <a href="/" class="brand-logo left"><img src="/images/nav_bar_logo.png" height=45 width=140></a>
       <div class="right">
 
     </div>
         <% if current_recycler %>
           <div class="right">
-            <%= link_to "logged in as #{current_recycler.email}", "/recyclers/#{current_recycler.id}", id: "navbarlinks"%> |
+            <%= link_to "logged in as #{current_recycler.email}", "/recyclers/#{current_recycler.id}", id: "navbarlinks"%>
+            |
+            <%= link_to "recycle your stuff!", new_submission_path, id: "navbarlinks" %>  |
             <%= link_to "sign out", destroy_recycler_session_path, method: :delete, id: "navbarlinks" %>
           </div>
         <% elsif current_sponsor %>
