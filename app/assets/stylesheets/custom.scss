@@ -1,17 +1,16 @@
-#relevantlinks {
-  display:inline-block;
-}
-
-#admintools {
-  display:inline-block;
-  float:right;
-}
-
 .lower-links a {
 	color: #263238;
 }
 
-.lower-links a:hover, link {
+.lower-links a:hover {
+	color: #90a4ae;
+}
+
+.link a {
+	color: #263238;
+}
+
+.link a:hover {
 	color: #90a4ae;
 }
 

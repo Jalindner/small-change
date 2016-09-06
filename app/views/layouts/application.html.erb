@@ -4,8 +4,8 @@
     <title>SmallChange</title>
     <%= csrf_meta_tags %>
 
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_link_tag    'application', media: 'all' %>
+    <%= javascript_include_tag 'application' %>
     <%= javascript_tag "window._token = '#{form_authenticity_token}'" %>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <script src="https://js.braintreegateway.com/web/3.0.2/js/client.min.js"></script>
@@ -55,7 +55,6 @@
       </div>
       <% end %>
     </nav>
-
 
     <main class="container">
       <p class="notice"><%= notice %></p>
