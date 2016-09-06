@@ -18,16 +18,15 @@
     <nav class="card-panel light-green">
 
     <div class="navbar-wrapper container">
-     <a href="#" class="brand-logo left">smallchange</a>
+     <a href="/" class="brand-logo left">smallchange</a>
       <div class="right">
 
     </div>
         <% if current_recycler %>
-          <ul class="right">
-            <li>Logged in as <%= current_recycler.email %></li>
-            <li><%= link_to "sign out", destroy_recycler_session_path, method: :delete %></li>
-            <li>Thanks for being a recycler!</li>
-          </ul>
+          <div class="right">
+            <%= link_to "logged in as #{current_recycler.email}", "/recyclers/#{current_recycler.id}", id: "navbarlinks"%> |
+            <%= link_to "sign out", destroy_recycler_session_path, method: :delete, id: "navbarlinks" %>
+          </div>
         <% elsif current_sponsor %>
           <ul class="right">
             <li>Logged in as <%= current_sponsor.email %></li>
@@ -46,15 +45,6 @@
           </ul>
         <% end %>
       </div>
-      <% if current_recycler && current_recycler.id = 1 %>
-        <ul>
-      <div id="admintools">
-        Admin tools:
-          <li><%= link_to 'Process individual payments', '/submissions' %></li>
-          <li><%= link_to 'Process all payments', process_all_payments_path %></li>
-        </ul>
-      </div>
-      <% end %>
     </nav>
 
     <main class="container">
@@ -66,9 +56,12 @@
     </div>
   </body>
   <footer class="page-footer light-green">
-    <div class="container footer-copyright light-green link-white">
+    <div id="secondarylogins" class="container footer-copyright light-green link-white">
       <%= link_to "for sponsors", new_sponsor_session_path %> |
       <%= link_to "for charities", new_charity_session_path %> |
+    </div>
+    <div id="grantstotal" class="container">
+      Total grants available: $<%= GrantsController.total %>
     </div>
   </footer>
 </html>
