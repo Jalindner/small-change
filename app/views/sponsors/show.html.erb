@@ -11,13 +11,11 @@
 Your grants:
 <ol>
   <% current_sponsor.grants.each do |grant| %>
-
-  <li>Created on <%= grant.created_at %> by <%= grant.sponsor.name %>.<br>
-  In the amount of $<%= grant.original_amount %>.<br>
-  Currently $<%= grant.amount %> remaining.<br></li>
-
-
-
+  <li>
+    <%= link_to "Grant ##{grant.id}", "/grants/#{grant.id}" %>, created on <%= grant.created_at %> by <%= grant.sponsor.name %>.<br>
+    In the amount of $<%= grant.original_amount %>.<br>
+    Currently $<%= grant.amount %> remaining.<br>
+  </li>
   <% end %>
 </ol>
 <% end %>
