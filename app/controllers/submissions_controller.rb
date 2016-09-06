@@ -16,13 +16,19 @@ class SubmissionsController < ApplicationController
 
   def new
     if recycler_session
-      @submission = Submission.new
 
-      @materials = @submission.materials
+      if current_recycler.find_voted_items.count >= count_recycler_votes_threshold(current_recycler)
+        @submission = Submission.new
 
-      @materials.count.times do
-        submission_group = @submission.submission_groups.build
-      end
+        @materials = @submission.materials
+
+        @materials.count.times do
+          submission_group = @submission.submission_groups.build
+        end
+    else
+      flash[:error] = 'You must vote for more submissions before you can make another submission'
+      redirect_to '/'
+    end
 
     else
       redirect_to '/recyclers/sign_in'

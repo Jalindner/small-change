@@ -1,9 +1,14 @@
 <%= form_for @submission, url: {action: 'create'} do |f| %>
 <%#= f.error_messages %>
+<!-- this div for uploading pictures via file selection -->
   <div>
     <%= f.label :image %>
     <%= f.file_field :image %>
   </div>
+
+<!-- this div for uploading pictures via webcam -->
+  <div></div>
+
   <% @index = 0  %>
   <div id='material-container' class='row'>
     <%= f.fields_for :submission_groups do |builder| %>

@@ -1,13 +1,13 @@
 module VotesHelper
 
-@votes_per_submission = 3
 
   def count_recycler_votes(recycler)
     recycler.find_voted_items.count
   end
 
   def count_recycler_votes_threshold(recycler)
-    recycler.submissions.count * @votes_per_submission
+    votes_per_submission = 3
+    recycler.submissions.count * votes_per_submission
   end
 
   def get_votable_submissions(recycler)
