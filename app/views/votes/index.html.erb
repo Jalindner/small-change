@@ -1,0 +1,9 @@
+<% if current_recycler.id != @random_submission.recycler_id %>
+  <div>
+    <%= render @random_submission %>
+  </div>
+<% else %>
+  <div>
+    <p>Nuttin to vote on here</p>
+  </div>
+<% end %>
