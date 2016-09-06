@@ -14,45 +14,55 @@ class PaymentsController < ApplicationController
     puts "found? #{sub}"
     puts "this submission is #{sub.id}, and it has #{sub.get_upvotes.size} upvotes"
 
-    if sub.get_upvotes.size > sub.get_downvotes.size && sub.get_upvotes.size >=2
+    if sub.get_upvotes.size > sub.get_downvotes.size && sub.get_upvotes.size >=3
       puts "Processing submission ##{sub.id}, made by #{sub.recycler} on #{sub.created_at}"
 
-      random_grant = Grant.find(rand(1..Grant.count))
+
       total = 0.00
 
       sub.submission_groups.each do |subm_group|
         total += (0.01 * subm_group.weight)
       end
-      puts "About to create a payment with submission_id: #{sub.id}, grant_id: #{random_grant.id}, and amount: #{total}"
 
-      payment = Payment.new(
-        submission_id: sub.id,
-        grant_id: random_grant.id,
-        amount: total
-        )
+      eligible_grants = Grant.where("amount >= #{total}")
 
-      # new_transaction = Braintree::Transaction.sale(
-      # amount: params[:amount],
-      # payment_method_nonce: params['client-nonce'],
-      # options: {submit_for_settlement: true}
-      # )
+      if eligible_grants
+        random_grant = Grant.find(rand(1..Grant.count))
 
-      if payment.save
-        puts "Payment saved!"
+
+        puts "About to create a payment with submission_id: #{sub.id}, grant_id: #{random_grant.id}, and amount: #{total}"
+
+        payment = Payment.new(
+          submission_id: sub.id,
+          grant_id: random_grant.id,
+          amount: total
+          )
+
+        # new_transaction = Braintree::Transaction.sale(
+        # amount: params[:amount],
+        # payment_method_nonce: params['client-nonce'],
+        # options: {submit_for_settlement: true}
+        # )
+
+        if payment.save
+          puts "Payment saved!"
+        else
+          puts "Payment not saved!"
+          puts payment.errors.full_messages
+        end
+
+        random_grant.amount -= total
+        random_grant.save
+        puts "Grant reduced to #{random_grant.amount}."
+        puts "Changing the status on the original submission"
+        sub.status = "Paid"
+        sub.save
       else
-        puts "Payment not saved!"
-        puts payment.errors.full_messages
-      end
-
-      random_grant.amount -= total
-      random_grant.save
-      puts "Grant reduced to #{random_grant.amount}."
-      puts "Changing the status on the original submission"
-      sub.status = "Paid"
-      sub.save
-    else # end of if sub.votes
-      puts "Error: not enough votes or vote count too low."
-      sub.status = "Rejected"
-    end # end of if sub.votes
+        puts "Error: not enough votes or vote count too low."
+        # sub.status = "Rejected"
+      end # end of if sub.votes
+    else
+      puts "Error: no grants are large enough to draw this payment from."
+    end # end of if eligible grants
   end #end of process_payment
 end #end of class

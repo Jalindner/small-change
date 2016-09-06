@@ -17,7 +17,7 @@
     <div class="page-flexbox-wrapper">
     <nav class="card-panel light-green">
       <div class="navbar-wrapper container" id="relevantlinks">
-       <a href="#" class="brand-logo left">logo here</a>
+       <a href="/" class="brand-logo left">logo here</a>
         <% if current_recycler %>
           <ul class="right">
             <li>Logged in as <%= current_recycler.email %></li>
@@ -45,14 +45,15 @@
           </ul>
         <% end %>
       </div>
+      <% if current_recycler && current_recycler.id = 1 %>
       <div id="admintools">
         Admin tools:
         <ul>
-          <li><%= link_to 'Show transactions report', '/grant_transactions_report' %></li>
           <li><%= link_to 'Process individual payments', '/submissions' %></li>
           <li><%= link_to 'Process all payments', process_all_payments_path %></li>
         </ul>
       </div>
+      <% end %>
     </nav>
 
 

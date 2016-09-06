@@ -4,7 +4,11 @@ class SubmissionsController < ApplicationController
   end
 
   def review
-    @submissions = Submission.all
+    if current_recycler && current_recycler.id = 1
+      @submissions = Submission.all
+    else
+      redirect_to root_url
+    end
   end
 
 
