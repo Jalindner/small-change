@@ -14,11 +14,19 @@ module VotesHelper
     votable_submissions = []
     submissions = Submission.where.not(recycler_id: recycler.id)
     submissions.each do |sub|
-      if !recycler.voted_for? sub
+      #if recycler.voted_for? sub
+      if !recycler_voted_for(recycler, sub)
         votable_submissions << sub
       end
     end
+    votable_submissions
 
+  end
+
+  def recycler_voted_for(recycler, sub)
+
+    all_recycler_submissions = recycler.find_voted_items
+    return all_recycler_submissions.include?(sub)
   end
 
 end
