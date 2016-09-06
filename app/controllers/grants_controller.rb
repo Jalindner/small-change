@@ -15,16 +15,21 @@ class GrantsController < ApplicationController
   end
 
   def create
+    if /\A\d{3}\z/ === grant_params[:cvv] && /\A\d{2}\S\d{4}\z/ === grant_params[:'expiration-date'] && /\A[0-9]{12}(?:[0-9]{4})/ === grant_params[:'card-number']
+      @new_grant = Grant.new(amount: grant_params[:amount], original_amount: grant_params[:amount])
+      @new_grant.sponsor_id = current_sponsor.id
 
-    @new_grant = Grant.new(amount: grant_params[:amount], original_amount: grant_params[:amount])
-    @new_grant.sponsor_id = current_sponsor.id
-
-    if @new_grant.save
-      redirect_to "/grants/#{@new_grant.id}"
+      if @new_grant.save
+        redirect_to "/grants/#{@new_grant.id}"
+      else
+        puts "Errors:"
+        puts @new_grant.errors.full_messages
+        redirect_to "/"
+      end
     else
-      puts "Errors:"
-      puts @new_grant.errors.full_messages
-      redirect_to "/"
+      puts "Error: credit card information invalid"
+      @errors = ["Error: Credit card information invalid"]
+      render '/grants/new'
     end
   end
 

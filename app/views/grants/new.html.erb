@@ -2,9 +2,13 @@
 Fill out the form below to create a new grant:
     <div id="sponsor-info" sponsorid="<%= current_sponsor.id %>"></div>
 
+    <% if @errors %>
+        <% @errors.each do |error| %>
+            <%= error %>
+        <% end %>
+    <% end %>
 
     <form id="grant-form" action="/grants" method="post">
-
 
     <%= form_tag("/grants", method: "post") do %>
         <div id="error-message"></div>
@@ -15,7 +19,7 @@ Fill out the form below to create a new grant:
         <%= label_tag(:'grant[cvv]', "CVV") %>
         <%= text_field_tag(:'grant[cvv]') %>
 
-        <%= label_tag(:'grant[expiration-date]', "Expiration Date") %>
+        <%= label_tag(:'grant[expiration-date]', "Expiration Date (MM/YYYY)") %>
         <%= text_field_tag(:'grant[expiration-date]') %>
 
         <%= label_tag(:'grant[amount]', "Amount") %>
