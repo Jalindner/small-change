@@ -15,24 +15,26 @@ class SubmissionsController < ApplicationController
   #before_action :authorize, only: [:edit, :update, :create, :delete]
 
   def new
-    if recycler_session
+    # COMMENTED OUT FOR TESTING
+    # UNCOMMENT FOR DEMO
+    # if recycler_session
 
-      if current_recycler.find_voted_items.count >= count_recycler_votes_threshold(current_recycler)
+    #   if current_recycler.find_voted_items.count >= count_recycler_votes_threshold(current_recycler)
         @submission = Submission.new
 
-        @materials = @submission.materials
+        @materials = @submission.materials.keys
 
         @materials.count.times do
           submission_group = @submission.submission_groups.build
         end
-    else
-      flash[:error] = 'You must vote for more submissions before you can make another submission'
-      redirect_to '/'
-    end
+    # else
+    #   flash[:error] = 'You must vote for more submissions before you can make another submission'
+    #   redirect_to '/'
+    # end
 
-    else
-      redirect_to '/recyclers/sign_in'
-    end
+    # else
+    #   redirect_to '/recyclers/sign_in'
+    # end
   end
 
   def create
