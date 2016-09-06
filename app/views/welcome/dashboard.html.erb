@@ -4,7 +4,7 @@
 <% if current_recycler %>
   <div id="recycler-info" recyclerid="<%= current_recycler.id %>"></div>
 
-  <h1>Welcome valued recycler!</h1>
+  <h1>Welcome recycler!</h1>
   <p>To date, you've submitted <%= current_recycler.submissions.count %> collection(s) of reyclables!</p>
   <p>You've received $<%= current_recycler.payments.sum(:amount) %> in payments!</p>
   <p>And you've donated $<%= current_recycler.donations.sum(:amount) %> to charities!</p>
@@ -12,24 +12,15 @@
 
 <% elsif current_sponsor %>
   <div id="sponsor-info" sponsorid="<%= current_sponsor.id %>"></div>
-  <h1>Welcome valued sponsor!</h1>
+  <h1>Welcome sponsor!</h1>
   <%= link_to "Submit a new grant", grants_new_path %>
 
 <% elsif current_charity %>
   <div id="charity-info" name="<%= current_charity.id %>"></div>
-  <h1>Welcome valued charity!</h1>
+  <h1>Welcome charity!</h1>
   <p>To date, you've received $<%= current_charity.donations.sum(:amount) %> through <%= current_charity.donations.count %> donations from recyclers!</p>
 <% end %>
 
-
 <div id="transaction-success"></div>
 
-<div class="link">
-  <%= link_to 'Show transactions report', '/grant_transactions_report' %>
-</div>
-
-<p>Total grants: $<%= GrantsController.total %></p>
-
-<input id="submit-button" type="submit" value="Pay $10" class="actions btn waves-effect waves-light teal darken-2">
-</form>
-<p><p><p><p><p><p><p>
+<p>Total grants available: $<%= GrantsController.total %></p>
