@@ -20,6 +20,8 @@
     <div class="navbar-wrapper container">
      <a href="#" class="brand-logo left">smallchange</a>
       <div class="right">
+
+    </div>
         <% if current_recycler %>
           <ul class="right">
             <li>Logged in as <%= current_recycler.email %></li>
@@ -35,7 +37,6 @@
         <% elsif current_charity %>
           <ul class="right">
             <li>Logged in as <%= current_charity.email %></li>
-    </div>
             <li><%= link_to "sign out", destroy_charity_session_path, method: :delete %></li>
             <li>Thanks for being a charity!</li>
           </ul>
@@ -45,6 +46,15 @@
           </ul>
         <% end %>
       </div>
+      <% if current_recycler && current_recycler.id = 1 %>
+      <div id="admintools">
+        Admin tools:
+        <ul>
+          <li><%= link_to 'Process individual payments', '/submissions' %></li>
+          <li><%= link_to 'Process all payments', process_all_payments_path %></li>
+        </ul>
+      </div>
+      <% end %>
     </nav>
 
     <main class="container">

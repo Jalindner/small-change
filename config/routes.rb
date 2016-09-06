@@ -10,10 +10,20 @@ Rails.application.routes.draw do
 
 
   get '/grants' => 'grants#index'
+  post '/grants' => 'grants#create'
   get '/grants/new' => 'grants#new'
-  post '/grants' => 'grants#generate_transaction'
-  get '/client_token' => 'grants#generate_client_token'
-  get '/grant_transactions_report' => 'grants#grant_transactions_report'
+  get '/grants/:grant_id' => 'grants#show'
+
+  # get '/client_token' => 'grants#generate_client_token'
+  # get '/grant_transactions_report' => 'grant_transactions_reportts#grant_transactions_report'
+
+
+  get '/donations' => 'donations#index'
+  get '/donations/new' => 'donations#new'
+  post '/donations' => 'donations#create'
+
+
+  get '/submissions/review' => 'submissions#review'
 
   resources :submissions do
     member do
@@ -22,6 +32,9 @@ Rails.application.routes.draw do
     end
   end
 
+  resources :votes
+
+  post '/payments' => 'payments#create'
   get '/payments/process_all' => 'payments#process_all_payments', as: :process_all_payments
   get '/payments/process/:submission_id'  => 'payments#process_payment'
 

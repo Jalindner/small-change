@@ -5,12 +5,12 @@ Your recycling submisssions:
   <ol>
     <% @submissions.each do |sub| %>
       <li>
-        Submission ID#<%= sub.id %>, created at <%= sub.created_at %>:
+        Submission id#<%= sub.id %>, created at <%= sub.created_at %> Status: <%= sub.status %>
         <% if sub.submission_groups %>
           <ul>
             <% sub.submission_groups.each do |subm_group| %>
               <li>
-                <%= subm_group.quantity %> of <%= subm_group.material %>
+                <%= subm_group.weight %> ounces - <%= subm_group.material %>
               </li>
             <% end %>
           </ul>

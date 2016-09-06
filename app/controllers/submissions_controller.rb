@@ -3,6 +3,15 @@ class SubmissionsController < ApplicationController
     @submissions = Submission.all
   end
 
+  def review
+    if current_recycler && current_recycler.id = 1
+      @submissions = Submission.all
+    else
+      redirect_to root_url
+    end
+  end
+
+
   before_action :find_submission, only: [:edit, :update, :show, :delete]
   #before_action :authorize, only: [:edit, :update, :create, :delete]
 
@@ -15,6 +24,7 @@ class SubmissionsController < ApplicationController
       @materials.count.times do
         submission_group = @submission.submission_groups.build
       end
+
     else
       redirect_to '/recyclers/sign_in'
     end
@@ -48,6 +58,9 @@ class SubmissionsController < ApplicationController
   end
 
   def show
+    puts "+++++++++++++++++++++++++++++"
+    p recycler_session
+
   end
 
 
@@ -73,7 +86,7 @@ class SubmissionsController < ApplicationController
 
 private
   def submission_params
-    params.require(:submission).permit(:recycler_id, submission_groups_attributes: [:material, :submission_id, :quantity])
+    params.require(:submission).permit(:recycler_id, submission_groups_attributes: [:material, :submission_id, :weight])
   end
 
   def find_submission

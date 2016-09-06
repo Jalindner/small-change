@@ -2,6 +2,8 @@ class AddAttachmentImageToSubmissions < ActiveRecord::Migration
   def self.up
     change_table :submissions do |t|
       t.attachment :image
+
+      # , null:false
     end
   end
 
