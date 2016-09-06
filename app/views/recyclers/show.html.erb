@@ -5,6 +5,7 @@
 <p>You've received $<%= current_recycler.payments.sum(:amount) %> in payments!</p>
 <p>And you've donated $<%= current_recycler.donations.sum(:amount) %> to charities!</p>
 <p><%= link_to "Submit your recycling!", new_submission_path %></p>
+<p> <%= link_to "Cast some votes!", votes_path %> </p>
 
 Your recycling submisssions:
 <% if @submissions %>

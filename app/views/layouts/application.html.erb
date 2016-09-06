@@ -30,17 +30,15 @@
             <%= link_to "sign out", destroy_recycler_session_path, method: :delete, id: "navbarlinks" %>
           </div>
         <% elsif current_sponsor %>
-          <ul class="right">
-            <li>Logged in as <%= current_sponsor.email %></li>
-            <li><%= link_to "sign out", destroy_sponsor_session_path, method: :delete %></li>
-            <li>Thanks for being a sponsor!</li>
-          </ul>
+          <div class="right">
+            <%= link_to "logged in as #{current_sponsor.email}", "/sponsors/#{current_sponsor.id}", id: "navbarlinks"%>|
+            <%= link_to "sign out", destroy_sponsor_session_path, method: :delete %>
+          </div>
         <% elsif current_charity %>
-          <ul class="right">
-            <li>Logged in as <%= current_charity.email %></li>
-            <li><%= link_to "sign out", destroy_charity_session_path, method: :delete %></li>
-            <li>Thanks for being a charity!</li>
-          </ul>
+          <div class="right">
+            <%= link_to "logged in as #{current_charity.email}", "/charities/#{current_charity.id}", id: "navbarlinks"%>|
+            <%= link_to "sign out", destroy_charity_session_path, method: :delete %>
+          </div>
         <% else %>
           <ul class="right">
             <li><%= link_to "sign up or log in", new_recycler_session_path %></li>

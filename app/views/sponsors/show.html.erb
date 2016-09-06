@@ -1,8 +1,24 @@
-  <div id="sponsor-info" sponsorid="<%= current_sponsor.id %>"></div>
-  <h1>Sponsor: <%= current_sponsor.name %></h1>
+<div id="sponsor-info" sponsorid="<%= current_sponsor.id %>"></div>
+<h1>Sponsor: <%= current_sponsor.name %></h1>
 
 <p>To date, you've submitted $<%= current_sponsor.grants.sum(:amount) %> in grants!</p>
 <p>Your grants have funded $<%= current_sponsor.payments.sum(:amount) %> in payments to recyclers!</p>
+
+
+
+
+<% if current_sponsor.grants %>
+Your grants:
+<ol>
+  <% current_sponsor.grants.each do |grant| %>
+  <li>
+    <%= link_to "Grant ##{grant.id}", "/grants/#{grant.id}" %>, created on <%= grant.created_at %> by <%= grant.sponsor.name %>.<br>
+    In the amount of $<%= grant.original_amount %>.<br>
+    Currently $<%= grant.amount %> remaining.<br>
+  </li>
+  <% end %>
+</ol>
+<% end %>
 
 
 <%= link_to "Submit a new grant", grants_new_path %>

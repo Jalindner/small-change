@@ -15,11 +15,9 @@ class SubmissionsController < ApplicationController
   #before_action :authorize, only: [:edit, :update, :create, :delete]
 
   def new
-    # COMMENTED OUT FOR TESTING
-    # UNCOMMENT FOR DEMO
-    # if recycler_session
+    if recycler_session
 
-    #   if current_recycler.find_voted_items.count >= count_recycler_votes_threshold(current_recycler)
+      if current_recycler.find_voted_items.count >= count_recycler_votes_threshold(current_recycler)
         @submission = Submission.new
 
         @materials = @submission.materials.keys
@@ -27,14 +25,15 @@ class SubmissionsController < ApplicationController
         @materials.count.times do
           submission_group = @submission.submission_groups.build
         end
-    # else
-    #   flash[:error] = 'You must vote for more submissions before you can make another submission'
-    #   redirect_to '/'
-    # end
+      else
+        flash[:notice] = 'You must vote for more submissions before you can make another submission'
+        redirect_to '/'
+      end
 
-    # else
-    #   redirect_to '/recyclers/sign_in'
-    # end
+    else
+      redirect_to '/recyclers/sign_in'
+    end
+
   end
 
   def create
@@ -42,7 +41,7 @@ class SubmissionsController < ApplicationController
     #@submission.recycler_id = submission_params[:recycler_id]
     @submission.recycler_id = current_recycler.id
 
-    if @submission.save
+    if @submission.save && @submission.image_file_name != nil && @submission.submission_groups.count != 0
       flash[:notice] = "Successfully created submission."
 
       submission_params[:submission_groups_attributes].each do |group|
@@ -55,19 +54,16 @@ class SubmissionsController < ApplicationController
           puts "error while creating the submission group: #{submission_group}"
           puts submission_group.errors.full_messages
         end
-
-    end
+      end
       #TODO: submission show
       redirect_to @submission
     else
-      render :new
+      flash[:error] = "Sorry, but you were missing some info"
+      redirect_to '/submissions/new'
     end
   end
 
   def show
-
-    puts "+++++++++++++++++++++++++++++"
-    p recycler_session
     submission = Submission.find(params[:id])
     @value = 0.0
     submission.submission_groups.each do |subm_group|
@@ -79,13 +75,19 @@ class SubmissionsController < ApplicationController
   def upvote
     @submission = Submission.find(params[:id])
     @submission.upvote_by current_recycler
-    redirect_to @submission
+    if @submission.get_upvotes.size >= 3
+      @submission.status = 'approved'
+    end
+    redirect_to '/votes'
   end
 
   def downvote
     @submission = Submission.find(params[:id])
     @submission.downvote_by current_recycler
-    redirect_to @submission
+    if @submission.get_downvotes.size >= 3
+      @submission.status = 'denied'
+    end
+    redirect_to '/votes'
   end
 
   def self.process_all_payments
