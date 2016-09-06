@@ -5,7 +5,7 @@
   <%= f.label :material, "#{@materials[@index]}" %><br />
   <%= f.hidden_field :material, value: "#{@materials[@index]}" %>
   <%= f.label :weight, "weight in oz" %><br />
-  <%= f.number_field :weight %><br />
+  <%= f.number_field :weight,  min: '0' %><br />
 
   <!--<%#= f.check_box :_destroy %>
   <%#= f.label :_destroy, "Remove Submission group" %> -->
