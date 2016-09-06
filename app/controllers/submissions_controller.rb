@@ -1,6 +1,5 @@
 class SubmissionsController < ApplicationController
   def index
-    @submissions = Submission.all
   end
 
   def review
@@ -60,6 +59,11 @@ class SubmissionsController < ApplicationController
   def show
     puts "+++++++++++++++++++++++++++++"
     p recycler_session
+    submission = Submission.find(params[:id])
+    @value = 0.0
+    submission.submission_groups.each do |subm_group|
+      @value += (0.01 * subm_group.weight)
+    end
 
   end
 
