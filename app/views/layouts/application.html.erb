@@ -47,9 +47,9 @@
         <% end %>
       </div>
       <% if current_recycler && current_recycler.id = 1 %>
+        <ul>
       <div id="admintools">
         Admin tools:
-        <ul>
           <li><%= link_to 'Process individual payments', '/submissions' %></li>
           <li><%= link_to 'Process all payments', process_all_payments_path %></li>
         </ul>
