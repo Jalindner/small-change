@@ -42,7 +42,7 @@ aer = Recycler.create(first_name: "Aeronica", last_name: "Vgurto", email: "aer@a
 
 wholefoods = Sponsor.create(name: "Whole Foods", email: "info@wholefoods.com", password: 'password')
 
-wfGrant = Grant.create(sponsor_id: wholefoods.id, amount: 500)
+wfGrant = Grant.create(sponsor_id: wholefoods.id, amount: 500, original)
 psGrant = Grant.create(sponsor_id: petsmart.id, amount: 350)
 sbGrant = Grant.create(sponsor_id: starbucks.id, amount: 650)
 
