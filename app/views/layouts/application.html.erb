@@ -16,8 +16,12 @@
   <body>
     <div class="page-flexbox-wrapper">
     <nav class="card-panel light-green">
-      <div class="navbar-wrapper container" id="relevantlinks">
-       <a href="/" class="brand-logo left">logo here</a>
+
+    <div class="navbar-wrapper container">
+     <a href="#" class="brand-logo left">smallchange</a>
+      <div class="right">
+
+    </div>
         <% if current_recycler %>
           <ul class="right">
             <li>Logged in as <%= current_recycler.email %></li>
@@ -37,11 +41,8 @@
             <li>Thanks for being a charity!</li>
           </ul>
         <% else %>
-          <a class="dropdown-button right" data-activates="dropdown1">register or sign in as a:<i class="material-icons right">arrow_drop_down</i></a>
-          <ul id="dropdown1" class="right dropdown-content">
-            <li><%= link_to "recycler", new_recycler_session_path %></li>
-            <li><%= link_to "sponsor", new_sponsor_session_path %></li>
-            <li><%= link_to "charity", new_charity_session_path %></li>
+          <ul class="right">
+            <li><%= link_to "sign up or log in", new_recycler_session_path %></li>
           </ul>
         <% end %>
       </div>
@@ -65,6 +66,9 @@
     </div>
   </body>
   <footer class="page-footer light-green">
-    <div class="container footer-copyright light-green center">placeholder text for footer</div>
+    <div class="container footer-copyright light-green link-white">
+      <%= link_to "for sponsors", new_sponsor_session_path %> |
+      <%= link_to "for charities", new_charity_session_path %> |
+    </div>
   </footer>
 </html>
