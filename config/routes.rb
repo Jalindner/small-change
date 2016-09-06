@@ -10,10 +10,11 @@ Rails.application.routes.draw do
 
 
   get '/grants' => 'grants#index'
+  post '/grants' => 'grants#create'
   get '/grants/new' => 'grants#new'
-  post '/grants' => 'grants#generate_transaction'
-  get '/client_token' => 'grants#generate_client_token'
-  get '/grant_transactions_report' => 'grant_transactions_reportts#grant_transactions_report'
+  get '/grants/:grant_id' => 'grants#show'
+  # get '/client_token' => 'grants#generate_client_token'
+  # get '/grant_transactions_report' => 'grant_transactions_reportts#grant_transactions_report'
 
 
   get '/donations' => 'donations#index'
@@ -42,8 +43,12 @@ Rails.application.routes.draw do
   devise_for :sponsors
   devise_for :charities
 
+  get '/sponsors/:id' => 'sponsors#show'
+  get '/charities/:id' => 'charities#show'
   get '/recyclers/:id' => 'recyclers#show'
+
   get '/welcome/calculator' => 'welcome#calculator'
-  root 'welcome#dashboard'
+
+  root 'welcome#intro'
 
 end

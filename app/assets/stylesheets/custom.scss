@@ -1,5 +1,5 @@
 .lower-links a {
-	color: #263238;
+	color: #37474f;
 }
 
 .lower-links a:hover {
@@ -14,6 +14,10 @@
 	color: #90a4ae;
 }
 
+.link-white a {
+	color: white;
+}
+
 p, li, a {
 	color: #263238;
 }
@@ -26,4 +30,10 @@ p, li, a {
 
 main {
   flex: 1 1 auto;
+}
+
+
+#navbarlinks {
+  margin: 5px 10px 5px 10px
+
 }

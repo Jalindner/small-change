@@ -1,0 +1,3 @@
+<div id="charity-info" name="<%= current_charity.id %>"></div>
+<h1>Charity: <%= current_charity.name %></h1>
+<p>To date, you've received $<%= current_charity.donations.sum(:amount) %> through <%= current_charity.donations.count %> donations from recyclers!</p>

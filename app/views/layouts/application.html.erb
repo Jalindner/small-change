@@ -18,21 +18,17 @@
     <nav class="card-panel light-green">
 
     <div class="navbar-wrapper container">
-     <a href="#" class="brand-logo left">smallchange</a>
-      <div id="admintools" class="right">
-      <a class="dropdown-button right" data-activates="dropdown2">Admin tools:<i class="material-icons right">arrow_drop_down</i></a>
-      <ul id="dropdown2" class="right dropdown-content">
-        <li><%= link_to 'Show transactions report', '/grant_transactions_report' %></li>
-        <li><%= link_to 'Process individual payments', '/submissions' %></li>
-        <li><%= link_to 'Process all payments', process_all_payments_path %></li>
-      </ul>
+      <a href="/" class="brand-logo left"><img src="/images/nav_bar_logo.png" height=45 width=140></a>
+      <div class="right">
+
     </div>
         <% if current_recycler %>
-          <ul class="right">
-            <li>Logged in as <%= current_recycler.email %></li>
-            <li><%= link_to "sign out", destroy_recycler_session_path, method: :delete %></li>
-            <li>Thanks for being a recycler!</li>
-          </ul>
+          <div class="right">
+            <%= link_to "logged in as #{current_recycler.email}", "/recyclers/#{current_recycler.id}", id: "navbarlinks"%>
+            |
+            <%= link_to "recycle your stuff!", new_submission_path, id: "navbarlinks" %>  |
+            <%= link_to "sign out", destroy_recycler_session_path, method: :delete, id: "navbarlinks" %>
+          </div>
         <% elsif current_sponsor %>
           <ul class="right">
             <li>Logged in as <%= current_sponsor.email %></li>
@@ -46,11 +42,8 @@
             <li>Thanks for being a charity!</li>
           </ul>
         <% else %>
-          <a class="dropdown-button right" data-activates="dropdown1">register or sign in as a:<i class="material-icons right">arrow_drop_down</i></a>
-          <ul id="dropdown1" class="right dropdown-content">
-            <li><%= link_to "recycler", new_recycler_session_path %></li>
-            <li><%= link_to "sponsor", new_sponsor_session_path %></li>
-            <li><%= link_to "charity", new_charity_session_path %></li>
+          <ul class="right">
+            <li><%= link_to "sign up or log in", new_recycler_session_path %></li>
           </ul>
         <% end %>
       </div>
@@ -65,6 +58,12 @@
     </div>
   </body>
   <footer class="page-footer light-green">
-    <div class="container footer-copyright light-green center">placeholder text for footer</div>
+    <div id="secondarylogins" class="container footer-copyright light-green link-white">
+      <%= link_to "for sponsors", new_sponsor_session_path %> |
+      <%= link_to "for charities", new_charity_session_path %> |
+    </div>
+    <div id="grantstotal" class="container">
+      Total grants available: $<%= GrantsController.total %>
+    </div>
   </footer>
 </html>

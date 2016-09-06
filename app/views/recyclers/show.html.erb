@@ -1,21 +1,19 @@
-User: <%= current_recycler.first_name %> <%= current_recycler.last_name %>
+<div id="recycler-info" recyclerid="<%= current_recycler.id %>"></div>
+
+<h1>Welcome <%= current_recycler.first_name %>!</h1>
+<p>To date, you've submitted <%= current_recycler.submissions.count %> collection(s) of reyclables!</p>
+<p>You've received $<%= current_recycler.payments.sum(:amount) %> in payments!</p>
+<p>And you've donated $<%= current_recycler.donations.sum(:amount) %> to charities!</p>
+<p><%= link_to "Submit your recycling!", new_submission_path %></p>
 
 Your recycling submisssions:
 <% if @submissions %>
   <ol>
     <% @submissions.each do |sub| %>
       <li>
-        Submission ID#<%= sub.id %>, created at <%= sub.created_at %>:
-        <% if sub.submission_groups %>
-          <ul>
-            <% sub.submission_groups.each do |subm_group| %>
-              <li>
-                <%= subm_group.weight %> ounces of <%= subm_group.material %>
-              </li>
-            <% end %>
-          </ul>
-        <% end %>
+        <%= link_to "Submission id##{sub.id}", "/submissions/#{sub.id}" %>, created at <%= sub.created_at %> Status: <%= sub.status %>
       </li>
     <% end %>
   </ol>
+  <p>Disagree with a submission decision? <a href="mailto:example@example.example">Email us</a>.</p>
 <% end %>

@@ -1,7 +1,13 @@
 
 <div>
-  <%= render @random_submission %>
+	<% if current_recycler.id != @random_submission.recycler_id %>
+	  <div>
+	    <%= render @random_submission %>
+	  </div>
+	<% else %>
+	  <div>
+	    <p>Nothing to vote on here</p>
+	  </div>
+	<% end %>
+	<a href="/votes">Find another one.</a>
 </div>
-
-
-<a href="/votes">Find another one.</a>

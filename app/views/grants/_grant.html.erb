@@ -1,0 +1,8 @@
+<% if @new_grant %>
+  <h1>Grant id#<%= @new_grant.id %></h1>
+  Created on <%= @new_grant.created_at %> by <%= @new_grant.sponsor.name %>.<br>
+  In the amount of $<%= @new_grant.original_amount %>.<br>
+  Currently $<%= @new_grant.amount %> remaining.<br>
+<% else %>
+  Grant not found
+<% end %>
