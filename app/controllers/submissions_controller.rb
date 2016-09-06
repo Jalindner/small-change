@@ -16,13 +16,19 @@ class SubmissionsController < ApplicationController
 
   def new
     if recycler_session
-      @submission = Submission.new
 
-      @materials = @submission.materials
+      if current_recycler.find_voted_items.count >= count_recycler_votes_threshold(current_recycler)
+        @submission = Submission.new
 
-      @materials.count.times do
-        submission_group = @submission.submission_groups.build
-      end
+        @materials = @submission.materials
+
+        @materials.count.times do
+          submission_group = @submission.submission_groups.build
+        end
+    else
+      flash[:error] = 'You must vote for more submissions before you can make another submission'
+      redirect_to '/'
+    end
 
     else
       redirect_to '/recyclers/sign_in'
@@ -57,6 +63,7 @@ class SubmissionsController < ApplicationController
   end
 
   def show
+
     puts "+++++++++++++++++++++++++++++"
     p recycler_session
     submission = Submission.find(params[:id])
@@ -64,7 +71,6 @@ class SubmissionsController < ApplicationController
     submission.submission_groups.each do |subm_group|
       @value += (0.01 * subm_group.weight)
     end
-
   end
 
 
@@ -87,6 +93,7 @@ class SubmissionsController < ApplicationController
   def self.process_one_payment(submission)
     puts "Processing submission with id #{submission.id}"
   end
+
 
 private
   def submission_params
