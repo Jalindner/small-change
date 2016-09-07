@@ -76,16 +76,40 @@ class SubmissionsController < ApplicationController
     @submission = Submission.find(params[:id])
     @submission.upvote_by current_recycler
     if @submission.get_upvotes.size >= 3
-      @submission.status = 'approved'
-    end
-    redirect_to '/votes'
-  end
+      @submission.status = 'Approved'
+
+      total = 0.00
+
+      @submission.submission_groups.each do |subm_group|
+        total += (0.01 * subm_group.weight)
+      end
+
+      eligible_grants = Grant.where("amount >= #{total}")
+
+      if eligible_grants
+        random_grant = Grant.find(rand(1..Grant.count))
+        payment = Payment.new(
+          submission_id: @submission.id,
+          grant_id: random_grant.id,
+          amount: total
+          )
+        if !payment.save
+          puts payment.errors.full_messages
+        end
+        random_grant.amount -= total
+        random_grant.save
+        @submission.status = "Paid"
+      end
+
+      @submission.save
+    end # end of if @submission.get_upvotes.size >= 3
+  end # end of def upvote
 
   def downvote
     @submission = Submission.find(params[:id])
     @submission.downvote_by current_recycler
     if @submission.get_downvotes.size >= 3
-      @submission.status = 'denied'
+      @submission.status = 'Denied'
     end
     redirect_to '/votes'
   end
