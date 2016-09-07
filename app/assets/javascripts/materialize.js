@@ -3,4 +3,5 @@ $(document).ready(function(){
 	// 	$(this).removeClass('active');
 	// });
 	$(".dropdown-button").dropdown();
+  $('select').material_select();
 };
