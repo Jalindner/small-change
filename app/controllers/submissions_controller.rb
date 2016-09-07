@@ -65,10 +65,6 @@ class SubmissionsController < ApplicationController
 
   def show
     submission = Submission.find(params[:id])
-    @value = 0.0
-    submission.submission_groups.each do |subm_group|
-      @value += (0.01 * subm_group.weight)
-    end
   end
 
 
@@ -121,6 +117,7 @@ class SubmissionsController < ApplicationController
   def self.process_one_payment(submission)
     puts "Processing submission with id #{submission.id}"
   end
+
 
 
 private

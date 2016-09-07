@@ -22,7 +22,7 @@ class Submission < ApplicationRecord
 
       glass: ['glass jar or bottle',
       'large glass bottle'],
-      
+
       paper: ['newspaper',
       'magazine',
       'junk mail',
@@ -32,6 +32,16 @@ class Submission < ApplicationRecord
       'paper bag',
       'cereal box',
       'paper towel roll'] }
+  end
+
+  def value
+    value = 0.0
+
+    self.submission_groups.each do |subm_group|
+      value += (0.01 * subm_group.weight)
+    end
+
+    value
   end
 
 end
