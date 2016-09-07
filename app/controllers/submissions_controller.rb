@@ -20,19 +20,20 @@ class SubmissionsController < ApplicationController
       if current_recycler.find_voted_items.count >= count_recycler_votes_threshold(current_recycler)
         @submission = Submission.new
 
-        @materials = @submission.materials
+        @materials = @submission.materials.keys
 
         @materials.count.times do
           submission_group = @submission.submission_groups.build
         end
-    else
-      flash[:notice] = 'You must vote for more submissions before you can make another submission'
-      redirect_to '/'
-    end
+      else
+        flash[:notice] = 'You must vote for more submissions before you can make another submission'
+        redirect_to '/'
+      end
 
     else
       redirect_to '/recyclers/sign_in'
     end
+
   end
 
   def create
