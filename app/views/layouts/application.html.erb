@@ -16,8 +16,7 @@
   <body>
     <div class="page-flexbox-wrapper">
     <nav class="card-panel green">
-
-    <div class="navbar-wrapper container">
+    <div class="navbar fixed container">
       <a href="/" class="brand-logo left"><img src="/images/nav_bar_logo.png" height=45 width=140></a>
       <div class="right">
 
@@ -60,7 +59,7 @@
       <%= link_to "for sponsors", new_sponsor_session_path %> |
       <%= link_to "for charities", new_charity_session_path %> |
     </div>
-    <div id="grantstotal" class="container">
+    <div id="grantstotal" class="container white-text text-white">
       Total grants available: $<%= GrantsController.total %>
     </div>
   </footer>
