@@ -4,10 +4,10 @@
     <title>SmallChange</title>
     <%= csrf_meta_tags %>
 
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <%= stylesheet_link_tag    'application', media: 'all' %>
     <%= javascript_include_tag 'application' %>
     <%= javascript_tag "window._token = '#{form_authenticity_token}'" %>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <script src="https://js.braintreegateway.com/web/3.0.2/js/client.min.js"></script>
     <script src="https://js.braintreegateway.com/web/3.0.2/js/hosted-fields.min.js"></script>
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
@@ -52,7 +52,6 @@
     </nav>
 
     <main class="container">
-
 
       <%= yield %>
     </main>
