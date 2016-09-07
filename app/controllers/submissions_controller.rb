@@ -26,8 +26,7 @@ class SubmissionsController < ApplicationController
           submission_group = @submission.submission_groups.build
         end
       else
-        flash[:notice] = 'You must vote for more submissions before you can make another submission'
-        redirect_to '/'
+        redirect_to '/votes'
       end
 
     else
