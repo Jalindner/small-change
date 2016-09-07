@@ -1,4 +1,4 @@
-$(document).ready(function(){
+function calcsetup(){
 
   $('#calculatorlist').on('click', 'button', function(){
     var buttonName = $(this).attr('name');
@@ -37,4 +37,4 @@ $(document).ready(function(){
     console.log("newTotalWeight is " + newTotalWeight);
     $('#weight-total').text(newTotalWeight);
   }); //end of button selector
-}); //end of doc ready
+}; //end of calc setup function

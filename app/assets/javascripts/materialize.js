@@ -1,10 +1,5 @@
-$(document).ready(function(){
-	// $(".dropdown-button").focusout(function() {
-	// 	$(this).removeClass('active');
-	// });
-	$(".dropdown-button").dropdown();
-
+function materializeTasks(){
+  console.log("materializing!");
   $('select').materialize_select();
-
-  //$('select').material_select();
-};
+  $(".dropdown-button").dropdown();
+}
