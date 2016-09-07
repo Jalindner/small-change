@@ -18,9 +18,9 @@ Rails.application.routes.draw do
 
 
   get '/donations' => 'donations#index'
-  get '/donations/new' => 'donations#new'
+  get '/donations/new' => 'donations#new', as: :new_donation
   post '/donations' => 'donations#create'
-
+  get '/donations/:id' => 'donations#show'
 
   get '/submissions/review' => 'submissions#review'
 

@@ -10,7 +10,12 @@ class DonationsController < ApplicationController
   def create
     new_donation = Donation.new(donation_params)
     new_donation.recycler_id = current_recycler.id
-    new_donation.save
+    new_donation.charity_id = params[:charity_id]
+    if new_donation.save
+      redirect_to "/donations/#{new_donation.id}"
+    else
+      render '/donations/new'
+    end
 
     # new_transaction = Braintree::Transaction.sale(
     # amount: donation_params[:amount],
@@ -22,6 +27,11 @@ class DonationsController < ApplicationController
   def new
     @donation = Donation.new
   end
+
+  def show
+    @donation = Donation.find(params[:id])
+  end
+
 
   private
   def donation_params
