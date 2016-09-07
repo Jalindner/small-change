@@ -41,7 +41,7 @@ class SubmissionsController < ApplicationController
     #@submission.recycler_id = submission_params[:recycler_id]
     @submission.recycler_id = current_recycler.id
 
-    if @submission.save && @submission.image_file_name != nil && @submission.submission_groups.count != 0
+    if @submission.save
       flash[:notice] = "Successfully created submission."
 
       submission_params[:submission_groups_attributes].each do |group|
