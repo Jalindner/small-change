@@ -16,4 +16,9 @@ class Recycler < ApplicationRecord
   has_many :donations
   has_many :charities, through: :donations
 
+
+  def needed_votes
+    (self.submissions.count * 3) - self.find_voted_items.count
+  end
+
 end
