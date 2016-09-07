@@ -60,13 +60,15 @@
     </div>
   </body>
   <footer class="page-footer green">
-    <div id="secondarylogins" class="container green link-white white-text text-white right">
-      <%= link_to "for sponsors", new_sponsor_session_path %> |
-      <%= link_to "for charities", new_charity_session_path %> | 
-    </div>
-    <br>
-    <div id="grantstotal" class="center container white-text text-white left">
+    <div id="grantstotal" class="container center white-text text-white">
       Total grants available: $<%= GrantsController.total %>
     </div>
+    <div class="row">
+      <div id="secondarylogins" class="container green link-white white-text text-white col s6 offset-s2">
+        <%= link_to "for sponsors", new_sponsor_session_path %> |
+        <%= link_to "for charities", new_charity_session_path %> 
+      </div>
+    </div>
+    <br>
   </footer>
 </html>
