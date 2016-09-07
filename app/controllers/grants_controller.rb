@@ -20,11 +20,9 @@ class GrantsController < ApplicationController
 
 
   def create
-
-
-    p grant_params[:'expiration-date']
-    p params[:year]
-    if /\A\d{3}\z/ === grant_params[:cvv] && /\A\d{2}\S\d{4}\z/ === grant_params[:'expiration-date'] && /\A[0-9]{12}(?:[0-9]{4})/ === grant_params[:'card-number']
+    expiration_date = params[:month] + '-' + params[:year]
+    p expiration_date
+    if /\A\d{3}\z/ === grant_params[:cvv] && /\A\d{2}\S\d{4}\z/ === expiration_date && /\A[0-9]{12}(?:[0-9]{4})/ === grant_params[:'card-number']
       @new_grant = Grant.new(amount: grant_params[:amount], original_amount: grant_params[:amount])
       @new_grant.sponsor_id = current_sponsor.id
 
