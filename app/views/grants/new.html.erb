@@ -19,8 +19,10 @@ Fill out the form below to create a new grant:
         <%= label_tag(:'grant[cvv]', "CVV") %>
         <%= text_field_tag(:'grant[cvv]') %>
 
-        <%= label_tag(:'grant[expiration-date]', "Expiration Date (MM/YYYY)") %>
-        <%= text_field_tag(:'grant[expiration-date]') %>
+        <%= label_tag(:'grant[expiration-date]', "Expiration date")%>
+        <%#= text_field_tag(:'grant[expiration-date]') %>
+        <%= select_tag 'month', options_for_select(1..12), class: "browser-default" %>
+        <%= select_tag 'year', options_for_select(Date.today.year..Date.today.year+20), class: 'browser-default' %>
 
         <%= label_tag(:'grant[amount]', "Amount") %>
         <%= text_field_tag(:'grant[amount]') %>

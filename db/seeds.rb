@@ -19,7 +19,7 @@ end
 materials = ["plastic drink bottle", "plastic food container", "laundry detergent bottle", "gallon milk jug", "aluminum beverage can", "tin or steel food can", "glass jar or bottle", "large glass bottle", "newspaper", "magazine", "junk mail", "small stack of office paper", "cardboard box", "telephone book", "paper bag", "cereal box", "paper towel roll", "batteries"]
 
 100.times do
-  newsub = Submission.create(recycler_id: rand(1..100))
+  newsub = Submission.create(recycler_id: rand(1..100), image: File.new("#{Rails.root}/public/happy-earth.jpg"))
 
   rand(1..4).times do
   SubmissionGroup.create(submission_id: newsub.id, material: materials[rand(0..materials.length)], weight: rand(1..3).to_f)
@@ -36,13 +36,13 @@ end
 ############## sponsors/grants
 starbucks = Sponsor.create(name: "Starbucks", email: "info@starbucks.com", password: 'password')
 petsmart = Sponsor.create(name: "Petsmart", email: "info@petsmart.com", password: 'password')
-=======
+
 dob = Recycler.create(first_name: "Dob", last_name: "Rale", email: "dob@dob.dob", password: 'password')
 aer = Recycler.create(first_name: "Aeronica", last_name: "Vgurto", email: "aer@aer.aer", password: 'password')
 
 wholefoods = Sponsor.create(name: "Whole Foods", email: "info@wholefoods.com", password: 'password')
 
-wfGrant = Grant.create(sponsor_id: wholefoods.id, amount: 500, original)
+wfGrant = Grant.create(sponsor_id: wholefoods.id, amount: 500, original_amount: 500)
 psGrant = Grant.create(sponsor_id: petsmart.id, amount: 350)
 sbGrant = Grant.create(sponsor_id: starbucks.id, amount: 650)
 

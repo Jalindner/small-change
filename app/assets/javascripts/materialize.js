@@ -3,5 +3,8 @@ $(document).ready(function(){
 	// 	$(this).removeClass('active');
 	// });
 	$(".dropdown-button").dropdown();
-  $('select').material_select();
+
+  $('select').materialize_select();
+
+  //$('select').material_select();
 };
