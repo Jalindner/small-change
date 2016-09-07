@@ -1,9 +1,21 @@
-<h1>Welcome to smallchange!</h1>
 <% flash.each do |key, value| %>
-  <div class="alert"><%= value %></div>
-<% end %>
-smallchange is a site that connects recyclers with sponsors
+  <div class="alert">
 
+    <% if value == 'You must vote for more submissions before you can make another submission' %>
+      You must <%= link_to "vote on #{current_recycler.needed_votes} more submissions", '/votes' %> before you can make another submission.
+      <%= link_to "why?", why_path %>
+    <% else %>
+      <%= value %>
+    <% end %>
+  </div>
+
+
+
+<% end %>
+
+<h1>Welcome to smallchange!</h1>
+
+smallchange is a site that connects recyclers with sponsors
 
 <div id="intro-col-1">
   <strong>Recyclers</strong> can submit information about the stuff they recycle. Once the submission has been vetted by other users, reyclers get paid!
@@ -18,6 +30,3 @@ smallchange is a site that connects recyclers with sponsors
 <div id="intro-col-3">
   <strong>Charities</strong> can accept donations from recyclers who want to do even more good, in their communities and throughout the world!
 </div>
-<% if recycler_session %>
-  <a href="/votes">Go vote on some Submissions!</a>
-<% end %>
