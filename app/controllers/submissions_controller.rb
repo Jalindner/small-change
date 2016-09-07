@@ -102,6 +102,7 @@ class SubmissionsController < ApplicationController
 
       @submission.save
     end # end of if @submission.get_upvotes.size >= 3
+    redirect_to '/votes'
   end # end of def upvote
 
   def downvote
