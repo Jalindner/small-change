@@ -87,19 +87,14 @@ class SubmissionsController < ApplicationController
       eligible_grants = Grant.where("amount >= #{total}")
 
       if eligible_grants
-        puts "eligible grants"
         random_grant = Grant.find(rand(1..Grant.count))
         payment = Payment.new(
           submission_id: @submission.id,
           grant_id: random_grant.id,
           amount: total
           )
-        puts "test 1"
         if !payment.save
-          puts "test 1"
           puts payment.errors.full_messages
-        else
-          puts "payment saved"
         end
         random_grant.amount -= total
         random_grant.save
