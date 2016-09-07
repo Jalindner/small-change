@@ -92,8 +92,11 @@ class SubmissionsController < ApplicationController
         if !payment.save
           puts payment.errors.full_messages
         end
+        @submission.recycler.funds += total
+        @submission.recycler.save
         random_grant.amount -= total
         random_grant.save
+
         @submission.status = "Paid"
       end
 
