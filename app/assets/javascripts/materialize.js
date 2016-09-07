@@ -7,4 +7,4 @@ $(document).ready(function(){
   $('select').materialize_select();
 
   //$('select').material_select();
-};
+});
