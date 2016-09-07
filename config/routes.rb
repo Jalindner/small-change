@@ -37,7 +37,7 @@ Rails.application.routes.draw do
   get '/payments/process_all' => 'payments#process_all_payments', as: :process_all_payments
   get '/payments/process/:submission_id'  => 'payments#process_payment'
 
-
+  get '/welcome/whywevote' => 'welcome#whywevote', as: :why
 
   devise_for :recyclers
   devise_for :sponsors

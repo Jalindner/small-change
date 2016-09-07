@@ -2,7 +2,7 @@
 
 <h1>Welcome <%= current_recycler.first_name %>!</h1>
 <p>To date, you've submitted <%= current_recycler.submissions.count %> collection(s) of reyclables!</p>
-<p>You've received $<%= current_recycler.payments.sum(:amount) %> in payments!</p>
+<p>You've received $<%= current_recycler.funds %> in payments!</p>
 <p>And you've donated $<%= current_recycler.donations.sum(:amount) %> to charities!</p>
 <p><%= link_to "Submit your recycling!", new_submission_path %></p>
 <p> <%= link_to "Cast some votes!", votes_path %> </p>

@@ -6,4 +6,7 @@ class WelcomeController < ApplicationController
   def intro
   end
 
+  def whywevote
+  end
+
 end

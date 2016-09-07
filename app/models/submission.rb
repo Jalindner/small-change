@@ -34,4 +34,14 @@ class Submission < ApplicationRecord
       'paper towel roll'] }
   end
 
+  def value
+    value = 0.0
+
+    self.submission_groups.each do |subm_group|
+      value += (0.01 * subm_group.weight)
+    end
+
+    value
+  end
+
 end

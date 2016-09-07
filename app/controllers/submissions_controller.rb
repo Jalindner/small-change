@@ -26,8 +26,7 @@ class SubmissionsController < ApplicationController
           submission_group = @submission.submission_groups.build
         end
       else
-        flash[:notice] = 'You must vote for more submissions before you can make another submission'
-        redirect_to '/'
+        redirect_to '/votes'
       end
 
     else
@@ -65,10 +64,6 @@ class SubmissionsController < ApplicationController
 
   def show
     submission = Submission.find(params[:id])
-    @value = 0.0
-    submission.submission_groups.each do |subm_group|
-      @value += (0.01 * subm_group.weight)
-    end
   end
 
 
@@ -96,13 +91,17 @@ class SubmissionsController < ApplicationController
         if !payment.save
           puts payment.errors.full_messages
         end
+        @submission.recycler.funds += total
+        @submission.recycler.save
         random_grant.amount -= total
         random_grant.save
+
         @submission.status = "Paid"
       end
 
       @submission.save
     end # end of if @submission.get_upvotes.size >= 3
+    redirect_to '/votes'
   end # end of def upvote
 
   def downvote
@@ -121,6 +120,7 @@ class SubmissionsController < ApplicationController
   def self.process_one_payment(submission)
     puts "Processing submission with id #{submission.id}"
   end
+
 
 
 private
