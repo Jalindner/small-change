@@ -41,7 +41,7 @@ class SubmissionsController < ApplicationController
     #@submission.recycler_id = submission_params[:recycler_id]
     @submission.recycler_id = current_recycler.id
 
-    if @submission.save && @submission.image_file_name != nil && @submission.submission_groups.count != 0
+    if @submission.save
       flash[:notice] = "Successfully created submission."
 
       submission_params[:submission_groups_attributes].each do |group|
@@ -65,10 +65,6 @@ class SubmissionsController < ApplicationController
 
   def show
     submission = Submission.find(params[:id])
-    @value = 0.0
-    submission.submission_groups.each do |subm_group|
-      @value += (0.01 * subm_group.weight)
-    end
   end
 
 
@@ -76,16 +72,40 @@ class SubmissionsController < ApplicationController
     @submission = Submission.find(params[:id])
     @submission.upvote_by current_recycler
     if @submission.get_upvotes.size >= 3
-      @submission.status = 'approved'
-    end
-    redirect_to '/votes'
-  end
+      @submission.status = 'Approved'
+
+      total = 0.00
+
+      @submission.submission_groups.each do |subm_group|
+        total += (0.01 * subm_group.weight)
+      end
+
+      eligible_grants = Grant.where("amount >= #{total}")
+
+      if eligible_grants
+        random_grant = Grant.find(rand(1..Grant.count))
+        payment = Payment.new(
+          submission_id: @submission.id,
+          grant_id: random_grant.id,
+          amount: total
+          )
+        if !payment.save
+          puts payment.errors.full_messages
+        end
+        random_grant.amount -= total
+        random_grant.save
+        @submission.status = "Paid"
+      end
+
+      @submission.save
+    end # end of if @submission.get_upvotes.size >= 3
+  end # end of def upvote
 
   def downvote
     @submission = Submission.find(params[:id])
     @submission.downvote_by current_recycler
     if @submission.get_downvotes.size >= 3
-      @submission.status = 'denied'
+      @submission.status = 'Denied'
     end
     redirect_to '/votes'
   end
@@ -97,6 +117,7 @@ class SubmissionsController < ApplicationController
   def self.process_one_payment(submission)
     puts "Processing submission with id #{submission.id}"
   end
+
 
 
 private

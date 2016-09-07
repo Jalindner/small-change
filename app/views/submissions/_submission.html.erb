@@ -23,7 +23,14 @@
     <% end %>
   </ul>
   Submitted by <%= "#{submission.recycler.first_name} #{submission.recycler.last_name}" %><br>
-  Value of this submission is <%= @value %><br>
+  Value of this submission is $<%= submission.value %><br>
   Current status: <%= submission.status %>
 </div>
 
+<div>
+  <% if current_recycler.find_voted_items.count < count_recycler_votes_threshold(current_recycler) %>
+    You need to vote <%= count_recycler_votes_threshold(current_recycler) -  current_recycler.find_voted_items.count %> more times before you can submit more recyclabes!
+  <% else %>
+    You've voted enough to <%= link_to "submit your own recyclables!", new_submission_path %>
+  <% end %>
+</div>
