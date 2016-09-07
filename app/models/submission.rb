@@ -2,7 +2,7 @@ class Submission < ApplicationRecord
   acts_as_votable
   has_many :payments
   has_many :submission_groups
-  #validates_presence_of :submission_groups
+
   belongs_to :recycler
   accepts_nested_attributes_for :submission_groups
   has_attached_file :image, styles: { square: '200x200#' }
