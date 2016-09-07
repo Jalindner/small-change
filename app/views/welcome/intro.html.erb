@@ -1,23 +1,28 @@
-<h1>Welcome to smallchange!</h1>
-<% flash.each do |key, value| %>
-  <div class="alert"><%= value %></div>
-<% end %>
-smallchange is a site that connects recyclers with sponsors
+<div class='container'>
+	<h1 class="center">Welcome to smallchange!</h1>
+	<% flash.each do |key, value| %>
+	  <div class="alert"><%= value %></div>
+	<% end %>
+
+	<p class="center"><strong> | smallchange is a site that connects recyclers with sponsors | </strong></p>
+
+	<div class="row">
+		<div class="card-panel green lighten-5 hoverable col s12 m4 l4 center-align">
+		  <p><strong>Recyclers</strong> can submit information about the stuff they recycle. Once the submission has been vetted by other users, reyclers get paid!</p>
+		</div>
 
 
-<div id="intro-col-1">
-  <strong>Recyclers</strong> can submit information about the stuff they recycle. Once the submission has been vetted by other users, reyclers get paid!
+		<div class="card-panel green lighten-5 hoverable col s12 m4 l4 center-align">
+		  <p><strong>Sponsors</strong> can make a grant to support recyclers. When recyclers get paid, sponsors connect with a community of like-minded people!</p>
+		</div>
+
+
+		<div class="card-panel green lighten-5 hoverable col s12 m4 l4 center-align">
+		  <p><strong>Charities</strong> can accept donations from recyclers who want to do even more good, in their communities and throughout the world!</p>
+		</div>
+	</div>
+
+	<% if recycler_session %>
+	  <a href="/votes">Go vote on some Submissions!</a>
+	<% end %>
 </div>
-
-
-<div id="intro-col-2">
-  <strong>Sponsors</strong> can make a grant to support recyclers. When recyclers get paid, sponsors connect with a community of like-minded people!
-</div>
-
-
-<div id="intro-col-3">
-  <strong>Charities</strong> can accept donations from recyclers who want to do even more good, in their communities and throughout the world!
-</div>
-<% if recycler_session %>
-  <a href="/votes">Go vote on some Submissions!</a>
-<% end %>
