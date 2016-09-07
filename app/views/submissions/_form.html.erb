@@ -5,10 +5,15 @@
 <!-- this div for uploading pictures via webcam -->
   <div></div>
 
+
+
+
+
+
   <% @index = 0  %>
   <div id='material-container' class='row'>
     <%= f.fields_for :submission_groups do |builder| %>
-      <% @material = @materials[@index] %>
+      <% @material = @main_materials[@index].category %>
       <%= render "submission_group_fields", :f => builder %>
       <% @index += 1 %>
     <% end %>

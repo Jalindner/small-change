@@ -20,11 +20,22 @@ class SubmissionsController < ApplicationController
       if current_recycler.find_voted_items.count >= count_recycler_votes_threshold(current_recycler)
         @submission = Submission.new
 
-        @materials = @submission.materials.keys
+        @main_materials = MaterialObject.select(:category).distinct
+        @sub_materials = MaterialObject.select(:subcategory).distinct
 
-        @materials.count.times do
+        # sub_materials_number = 0
+        # @main_materials.each do |mat|
+        #   sub_materials_count += Submission.materials[mat].count
+        # end
+
+        @main_materials.count.times do
           submission_group = @submission.submission_groups.build
         end
+
+        # @sub_materials.count.times do
+        #   submission_group = @submission.submission_groups.build
+        # end
+
       else
         redirect_to '/votes'
       end
