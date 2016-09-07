@@ -21,7 +21,7 @@ class SubmissionsController < ApplicationController
         @submission = Submission.new
 
         @main_materials = MaterialObject.select(:category).distinct
-        @sub_materials = MaterialObject.select(:subcategory).distinct
+        sub_materials = MaterialObject.select(:subcategory).distinct
 
         # sub_materials_number = 0
         # @main_materials.each do |mat|
@@ -32,7 +32,7 @@ class SubmissionsController < ApplicationController
           submission_group = @submission.submission_groups.build
         end
 
-        # @sub_materials.count.times do
+        # sub_materials.count.times do
         #   submission_group = @submission.submission_groups.build
         # end
 
@@ -59,6 +59,7 @@ class SubmissionsController < ApplicationController
 
         submission_group = SubmissionGroup.new(group_params)
         submission_group.submission_id = @submission.id
+
         if !submission_group.save
           #TODO: error management when creating submission_groups in the template
           puts "error while creating the submission group: #{submission_group}"
