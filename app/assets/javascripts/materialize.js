@@ -1,5 +1,5 @@
 function materializeTasks(){
   console.log("materializing!");
-  $('select').materialize_select();
+  $('select').material_select();
   $(".dropdown-button").dropdown();
 }
