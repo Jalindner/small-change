@@ -5,6 +5,8 @@ class DeviseCreateRecyclers < ActiveRecord::Migration[5.0]
       t.string :first_name
       t.string :last_name
 
+      t.float :funds, null: false, default: 0.0
+
       ## Database authenticatable
       t.string :email,              null: false, default: "", unique:true
       t.string :encrypted_password, null: false, default: ""

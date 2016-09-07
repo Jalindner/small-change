@@ -12,6 +12,7 @@ class DonationsController < ApplicationController
     new_donation.recycler_id = current_recycler.id
     new_donation.charity_id = params[:charity_id]
     if new_donation.save
+      current_recycler.funds -= new_donation.amount
       redirect_to "/donations/#{new_donation.id}"
     else
       render '/donations/new'
@@ -26,6 +27,7 @@ class DonationsController < ApplicationController
 
   def new
     @donation = Donation.new
+    @funds = current_recycler.funds
   end
 
   def show
