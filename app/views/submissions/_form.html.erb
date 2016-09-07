@@ -5,10 +5,16 @@
 <!-- this div for uploading pictures via webcam -->
   <div></div>
 
+
+
+
+
+
   <% @index = 0  %>
   <div id='material-container' class='row'>
     <%= f.fields_for :submission_groups do |builder| %>
-      <% @material = @materials[@index] %>
+      <% @material = @main_materials[@index].category %>
+
       <%= render "submission_group_fields", :f => builder %>
       <% @index += 1 %>
     <% end %>
@@ -19,7 +25,7 @@
     <%= f.file_field :image %>
   </div>
   <br>
-  <div class="actions btn waves-effect waves-light green darken-4">
+  <div class="actions btn waves-effect waves-light teal darken-2">
     <%= f.submit "Submit" %>
   </div>
 <% end %>

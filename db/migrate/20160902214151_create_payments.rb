@@ -3,7 +3,7 @@ class CreatePayments < ActiveRecord::Migration[5.0]
     create_table :payments do |t|
       t.integer :grant_id, null:false
       t.integer :submission_id, null:false
-      t.float :amount
+      t.float :amount, presicion: 2
       t.timestamps null:false
     end
   end
