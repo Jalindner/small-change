@@ -29,13 +29,12 @@
                 <%= select_tag :month, options_for_select(["01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12"]) %>
                 <%= select_tag :year, options_for_select(Date.today.year..Date.today.year+20) %>
                 <%= hidden_field_tag(:'grant[expiration-date]', "#{:month}-#{:year}") %>
-                <%#= date_select :'grant[expiration-date]', { :start_year => Date.today.year, :end_year => (Date.today.year+10), :use_two_digit_numbers => true,:use_month_numbers => true, :disable => :day } %>
+                <%= label_tag(:'grant[amount]', "Amount") %>
+                <%= text_field_tag(:'grant[amount]') %>
               </div>
             </div>
-          <%#= select_year(Date.today, :start_year => Time.now.year, :end_year => Time.now.year + 30, :field_name => :'grant[expiration-date] )' %>
           <div class="center actions btn waves-effect waves-light green darken-4">
-            <%= label_tag(:'grant[amount]', "Amount") %>
-            <%= text_field_tag(:'grant[amount]') %>
+
 
             <%= submit_tag("Submit a grant") %>
           </div>

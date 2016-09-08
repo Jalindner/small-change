@@ -25,6 +25,9 @@ Rails.application.configure do
 
     config.cache_store = :null_store
   end
+  ENV['DWOLLA_API_KEY'] = "9oa2TMC3oD3WbGYHh1CAi0aUk1cpi4huXTmgsCKvDFsrNgPKXp"
+  ENV['DWOLLA_API_SECRET'] = "jwb0lwKOffeFBp7dlsUueyr8V3f6xhmpUqZYOf3ecQ97x4ipzq"
+
 
   # Do care if the mailer can't send.
   config.action_mailer.raise_delivery_errors = true
