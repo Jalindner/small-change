@@ -39,15 +39,10 @@
         Current status: <%= submission.status %>
     <% end %>
 
-
     <% if submission.status == "Paid" %>
       <p>Paid for by this sponsor!</p>
       <p><%= image_tag submission.payments.first.grant.sponsor.logo.url, class: "border" %>
     <% end %>
-
-
-
-
 
      <p>Value of this submission is $<%= submission.value %></p>
 
