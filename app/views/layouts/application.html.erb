@@ -35,13 +35,16 @@
         <a href="#" data-activates="slide-out" class="button-collapse right"><i class="material-icons">menu</i></a>
           </div>
         <% elsif current_sponsor %>
-          <div class="right">
-            <%= link_to "logged in as #{current_sponsor.email}", "/sponsors/#{current_sponsor.id}", id: "navbarlinks"%>|
-            <%= link_to "sign out", destroy_sponsor_session_path, method: :delete %>
+          <ul id="slide-out" class="side-nav">
+            <li><div class="userView">
+            <%= link_to "#{current_sponsor.email}", "/sponsors/#{current_sponsor.id}", id: "navbarlinks"%>|
+            <%= link_to "sign out", destroy_sponsor_session_path, method: :delete %></li>
+          </ul>
+          <a href="#" data-activates="slide-out" class="button-collapse right"><i class="material-icons">menu</i></a>
           </div>
         <% elsif current_charity %>
           <div class="right">
-            <%= link_to "logged in as #{current_charity.email}", "/charities/#{current_charity.id}", id: "navbarlinks"%>|
+            <%= link_to "#{current_charity.email}", "/charities/#{current_charity.id}", id: "navbarlinks"%>|
             <%= link_to "sign out", destroy_charity_session_path, method: :delete %>
           </div>
         <% else %>
