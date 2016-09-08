@@ -2,7 +2,7 @@
 	<br><br>
 	<div class="row">
 		<div class="col s6">
-			<h4>Welcome<%= current_recycler.first_name %>!</h4>
+			<h4>Welcome<%= " #{current_recycler.first_name}" %>!</h4>
 			<p>- To date, you've submitted <%= current_recycler.submissions.count %> collection(s) of recyclables<br>
 			- You've received $<%= number_with_precision(current_recycler.funds, precision: 2) %> in payments<br>
 			- You've donated $<%= number_with_precision(current_recycler.donations.sum(:amount), precision: 2) %> to charities</p>
@@ -14,9 +14,9 @@
 				<%= link_to "Donate to charity!", new_donation_path %></p>
 			</div>
 	</div>
-		
+
 	<div class="lower-links center">
-		<b>Your recycling submissions:</b> 
+		<b>Your recycling submissions:</b>
 		<% if @submissions %>
 		  <ul class="card-panel collection">
 		    <% @submissions.each do |sub| %>
