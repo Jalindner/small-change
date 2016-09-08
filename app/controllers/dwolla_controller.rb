@@ -7,7 +7,10 @@ class DwollaController < ApplicationController
     Dwolla::api_key = "0gX6rdOus0Ciq7f7lksjxoEcmaDlGol4PZsb6Lgkfsism7AwtW"
     Dwolla::api_secret = "8Ud96ZoI8c8fywXxTfOGrSJyEhnsWX6WDxt4xbygnA6w5aXx77"
 
-    redirect_uri = 'http://localhost:3000/oauth_return'
+    redirect_uri = 'https://small-change.herokuapp.com/oauth_return'
+
+
+
     @oauth_url = Dwolla::OAuth.get_auth_url(redirect_uri)
   end
 
