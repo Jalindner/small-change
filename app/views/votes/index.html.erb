@@ -1,13 +1,15 @@
 
-<div>
+<div class="blue-grey-text text-blue-grey-darken-3">
 	<% if current_recycler.id != @random_submission.recycler_id %>
 	  <div>
 	    <%= render @random_submission %>
 	  </div>
 	<% else %>
 	  <div>
-	    <p>Nothing to vote on here</p>
+	    <p  class="blue-grey-text text-blue-grey-darken-3">Nothing to vote on here</p>
 	  </div>
 	<% end %>
-	<a href="/votes">Find another one.</a>
+	<div>
+		<a href="/votes">Find another one.</a>
+	</div>
 </div>
