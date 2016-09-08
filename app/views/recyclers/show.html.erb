@@ -7,7 +7,7 @@
 			- You've received $<%= number_with_precision(current_recycler.funds, precision: 2) %> in payments<br>
 			- You've donated $<%= number_with_precision(current_recycler.donations.sum(:amount), precision: 2) %> to charities</p>
 		</div>
-			<div class="col s6 lower-links">
+			<div class="col s6 l6 lower-links">
 				<br><br>
 				<p><%= link_to "Submit your recycling!", new_submission_path %><br>
 				<%= link_to "Cast some votes!", votes_path %><br>
@@ -15,20 +15,18 @@
 			</div>
 	</div>
 		
-		<div class="divider"></div>
-			<div class="lower-links center">
-			<br>
-				<b>Your recycling submissions:</b> 
-				<% if @submissions %>
-				  <ul class="collection">
-				    <% @submissions.each do |sub| %>
-				      <li class="collection-item avatar">
-				      	<%= image_tag sub.image.url(), class: "circle border-thin" %>
-				        <%= link_to "Submission id##{sub.id}", "/submissions/#{sub.id}" %> || Created at <%= sub.created_at.strftime("%Y-%m-%d") %> || Status: <%= sub.status %>
-				      </li>
-				    <% end %>
-				  </ul>
-				  <p>Disagree with a submission decision? <a href="mailto:example@example.example">Email us</a>.</p>
-				<% end %>
-			</div>
+	<div class="lower-links center">
+		<b>Your recycling submissions:</b> 
+		<% if @submissions %>
+		  <ul class="card-panel collection">
+		    <% @submissions.each do |sub| %>
+		      <li class="collection-item avatar">
+		      	<%= image_tag sub.image.url(), class: "circle border-thin" %>
+		        <%= link_to "Submission id##{sub.id}", "/submissions/#{sub.id}" %> || Created at <%= sub.created_at.strftime("%Y-%m-%d") %> || Status: <%= sub.status %>
+		      </li>
+		    <% end %>
+		  </ul>
+		  <p>Disagree with a submission decision? <a href="mailto:example@example.example">Email us</a>.</p>
+		<% end %>
+	</div>
 </div>
