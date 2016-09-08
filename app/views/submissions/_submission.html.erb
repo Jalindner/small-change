@@ -1,24 +1,27 @@
 <div class="front blue-grey-text text-blue-grey-darken-3 row">
   <br><br><br>
   <div class="col s12 l6 center">
-    <%= link_to submission, class: 'pic-link hover' do %>
+    <%= link_to submission, class: 'pic-link' do %>
       <%= image_tag submission.image.url(), class: 'border' %>
       <% if current_recycler.id != submission.recycler_id  %>
-        <%= link_to like_submission_path(submission), method: :put do %>
-          <i class="material-icons">thumb_up</i>
-          <span class='vote-count'><%= submission.get_upvotes.size %></span>
-        <% end %>
-        <%= link_to dislike_submission_path(submission), method: :put do %>
-          <i class="material-icons">thumb_down</i>
-          <span class='vote-count'><%= submission.get_downvotes.size %></span>
-        <% end %>
-        <% else %>
-          <p class="blue-grey-text text-blue-grey-darken-3">This is your submission.</p>
-          <i class="material-icons">thumb_up</i>
-          <span class='vote-count'><%= submission.get_upvotes.size %></span>
-          <i class="material-icons">thumb_down</i>
-          <span class='vote-count'><%= submission.get_downvotes.size %></span>
-      <% end %>
+      <br><br>
+        <div class="center">
+          <%= link_to like_submission_path(submission), method: :put do %>
+            <i class="material-icons">thumb_up</i>
+            <span class='vote-count'><%= submission.get_upvotes.size %></span>
+          <% end %>
+          <%= link_to dislike_submission_path(submission), method: :put do %>
+            <i class="material-icons">thumb_down</i>
+            <span class='vote-count'><%= submission.get_downvotes.size %></span>
+          <% end %>
+          <% else %>
+            <p class="blue-grey-text text-blue-grey-darken-3">This is your submission.</p>
+            <i class="material-icons">thumb_up</i>
+            <span class='vote-count'><%= submission.get_upvotes.size %></span>
+            <i class="material-icons">thumb_down</i>
+            <span class='vote-count'><%= submission.get_downvotes.size %></span>
+          <% end %>
+        </div>
     <% end %>
   </div>
   <div class="col s12 l6">
@@ -43,17 +46,12 @@
         Current status: <%= submission.status %>
     <% end %>
 
-
     <% if submission.status == "Paid" %>
       <p>Paid for by this sponsor!</p>
       <p><%= image_tag submission.payments.first.grant.sponsor.logo.url, class: "border" %>
     <% end %>
 
-
-
-
-
-     <p>Value of this submission is $<%= submission.value %></p>
+    <p>Value of this submission is $<%= number_with_precision(submission.value, precision: 2) %></p>
 
     <div class="blue-grey-text text-blue-grey-darken-3">
       <% if current_recycler.find_voted_items.count < count_recycler_votes_threshold(current_recycler) %>
@@ -61,6 +59,7 @@
       <% else %>
         You've voted enough to <%= link_to "submit your own recyclables!", new_submission_path, class: "lower-links" %>
       <% end %>
+      <p class="lower-links"><%= link_to "Submit more stuff!", new_submission_path %></p>
     </div>
   </div>
 </div>
