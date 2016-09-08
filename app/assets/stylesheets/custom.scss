@@ -41,4 +41,12 @@ main {
 #navbarlinks {
   margin: 5px 10px 5px 10px
 }
-	
+
+.inputfile {
+  width: 0.1px;
+  height: 0.1px;
+  opacity: 0;
+  overflow: hidden;
+  position: absolute;
+  z-index: -1;
+}

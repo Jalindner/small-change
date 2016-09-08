@@ -6,7 +6,7 @@
 	<p class="center blue-grey-text text-blue-grey-darken-3"><strong> | connecting recyclers with sponsors | </strong></p>
 
 <% flash.each do |key, value| %>
-  <div class="alert">
+  <div class="alert blue-grey-text text-blue-grey-darken-3">
 
     <% if value == 'You must vote for more submissions before you can make another submission' %>
       You must <%= link_to "vote on #{current_recycler.needed_votes} more submissions", '/votes' %> before you can make another submission.
