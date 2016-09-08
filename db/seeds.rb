@@ -12,23 +12,414 @@ require 'faker'
 rob = Recycler.create(first_name: "Rob", last_name: "Dale", email: "robzd1@gmail.com", password: 'password')
 ver = Recycler.create(first_name: "Veronica", last_name: "Agurto", email: "Veronica@veronica.com", password: 'password')
 
-100.times do
+20.times do
   Recycler.create(first_name: Faker::Name.first_name, last_name: Faker::Name.last_name, email: Faker::Internet.email, password: 'password')
 end
 
-materials = ["plastic drink bottle", "plastic food container", "laundry detergent bottle", "gallon milk jug", "aluminum beverage can", "tin or steel food can", "glass jar or bottle", "large glass bottle", "newspaper", "magazine", "junk mail", "small stack of office paper", "cardboard box", "telephone book", "paper bag", "cereal box", "paper towel roll", "batteries"]
+materials = [
+  "plastic drink bottle",
+  "plastic food container",
+"laundry detergent bottle",
+"gallon milk jug",
+"aluminum beverage can",
+"tin or steel food can",
+"glass jar or bottle",
+"large glass bottle",
+"newspaper",
+"magazine",
+"junk mail",
+"small stack of office paper",
+"cardboard box",
+"telephone book",
+"paper bag",
+"cereal box",
+"paper towel roll",
+"batteries"]
 
-100.times do
-  newsub = Submission.create(recycler_id: rand(1..100), image: File.new("#{Rails.root}/public/happy-earth.jpg"))
 
-  rand(1..4).times do
-  SubmissionGroup.create(submission_id: newsub.id, material: materials[rand(0..materials.length)], weight: rand(1..3).to_f)
-  end
-end
 
-200.times do
-  submission = Submission.find(rand(1..100))
-  submission.upvote_by Recycler.find(rand(1..100))
+newsub = Submission.create(recycler_id: rand(1..22), image: File.new("#{Rails.root}/public/recycling_pics/IMAG0346.jpg"))
+
+
+
+
+newsub = Submission.create(recycler_id: rand(1..22), image: File.new("#{Rails.root}/public/recycling_pics/IMAG0347.jpg"))
+#can
+SubmissionGroup.create(submission_id: newsub.id, material: materials[4], weight: 0.5)
+#small stack of office paper
+SubmissionGroup.create(submission_id: newsub.id, material: materials[11], weight: 0.3)
+#newspaper
+SubmissionGroup.create(submission_id: newsub.id, material: materials[8], weight: 0.1)
+
+
+newsub = Submission.create(recycler_id: rand(1..22), image: File.new("#{Rails.root}/public/recycling_pics/IMAG0348.jpg"))
+#plastic drink bottle
+SubmissionGroup.create(submission_id: newsub.id, material: materials[0], weight: 0.5)
+#plastic drink bottle
+SubmissionGroup.create(submission_id: newsub.id, material: materials[0], weight: 0.5)
+#plastic food container
+SubmissionGroup.create(submission_id: newsub.id, material: materials[1], weight: 0.5)
+#glass jar or bottle
+SubmissionGroup.create(submission_id: newsub.id, material: materials[6], weight: 1.1)
+#can
+SubmissionGroup.create(submission_id: newsub.id, material: materials[4], weight: 0.5)
+
+
+
+newsub = Submission.create(recycler_id: rand(1..22), image: File.new("#{Rails.root}/public/recycling_pics/IMAG0349.jpg"))
+#plastic drink bottle
+SubmissionGroup.create(submission_id: newsub.id, material: materials[0], weight: 0.5)
+#plastic food container
+SubmissionGroup.create(submission_id: newsub.id, material: materials[1], weight: 0.5)
+#glass jar or bottle
+SubmissionGroup.create(submission_id: newsub.id, material: materials[6], weight: 1.1)
+
+
+
+newsub = Submission.create(recycler_id: rand(1..22), image: File.new("#{Rails.root}/public/recycling_pics/IMAG0350.jpg"))
+#can
+SubmissionGroup.create(submission_id: newsub.id, material: materials[4], weight: 0.5)
+#can
+SubmissionGroup.create(submission_id: newsub.id, material: materials[4], weight: 0.5)
+#plastic drink bottle
+SubmissionGroup.create(submission_id: newsub.id, material: materials[0], weight: 0.5)
+#cereal box
+SubmissionGroup.create(submission_id: newsub.id, material: materials[15], weight: 0.4)
+
+
+
+newsub = Submission.create(recycler_id: rand(1..22), image: File.new("#{Rails.root}/public/recycling_pics/IMAG0351.jpg"))
+#small stack of office paper
+SubmissionGroup.create(submission_id: newsub.id, material: materials[11], weight: 0.3)
+#newspaper
+SubmissionGroup.create(submission_id: newsub.id, material: materials[8], weight: 0.1)
+#cereal box
+SubmissionGroup.create(submission_id: newsub.id, material: materials[15], weight: 0.4)
+#cereal box
+SubmissionGroup.create(submission_id: newsub.id, material: materials[15], weight: 0.4)
+
+
+
+newsub = Submission.create(recycler_id: rand(1..22), image: File.new("#{Rails.root}/public/recycling_pics/IMAG0352.jpg"))
+#small stack of office paper
+SubmissionGroup.create(submission_id: newsub.id, material: materials[11], weight: 0.3)
+#newspaper
+SubmissionGroup.create(submission_id: newsub.id, material: materials[8], weight: 0.1)
+#cereal box
+SubmissionGroup.create(submission_id: newsub.id, material: materials[15], weight: 0.4)
+
+
+
+newsub = Submission.create(recycler_id: rand(1..22), image: File.new("#{Rails.root}/public/recycling_pics/IMAG0353.jpg"))
+#plastic drink bottle
+SubmissionGroup.create(submission_id: newsub.id, material: materials[0], weight: 0.5)
+#plastic food container
+SubmissionGroup.create(submission_id: newsub.id, material: materials[1], weight: 0.5)
+#can
+SubmissionGroup.create(submission_id: newsub.id, material: materials[4], weight: 0.5)
+#can
+SubmissionGroup.create(submission_id: newsub.id, material: materials[4], weight: 0.5)
+#small stack of office paper
+SubmissionGroup.create(submission_id: newsub.id, material: materials[11], weight: 0.3)
+#newspaper
+SubmissionGroup.create(submission_id: newsub.id, material: materials[8], weight: 0.1)
+#cereal box
+SubmissionGroup.create(submission_id: newsub.id, material: materials[15], weight: 0.4)
+
+
+
+newsub = Submission.create(recycler_id: rand(1..22), image: File.new("#{Rails.root}/public/recycling_pics/IMAG0354.jpg"))
+#can
+SubmissionGroup.create(submission_id: newsub.id, material: materials[4], weight: 0.5)
+#can
+SubmissionGroup.create(submission_id: newsub.id, material: materials[4], weight: 0.5)
+#glass jar or bottle
+SubmissionGroup.create(submission_id: newsub.id, material: materials[6], weight: 1.1)
+
+
+
+newsub = Submission.create(recycler_id: rand(1..22), image: File.new("#{Rails.root}/public/recycling_pics/IMAG0355.jpg"))
+#plastic drink bottle
+SubmissionGroup.create(submission_id: newsub.id, material: materials[0], weight: 0.5)
+#plastic food container
+SubmissionGroup.create(submission_id: newsub.id, material: materials[1], weight: 0.5)
+#newspaper
+SubmissionGroup.create(submission_id: newsub.id, material: materials[8], weight: 0.1)
+#junk mail
+SubmissionGroup.create(submission_id: newsub.id, material: materials[10], weight: 0.1)
+
+
+
+
+newsub = Submission.create(recycler_id: rand(1..22), image: File.new("#{Rails.root}/public/recycling_pics/IMAG0356.jpg"))
+#can
+SubmissionGroup.create(submission_id: newsub.id, material: materials[4], weight: 0.5)
+#newspaper
+SubmissionGroup.create(submission_id: newsub.id, material: materials[8], weight: 0.1)
+#junk mail
+SubmissionGroup.create(submission_id: newsub.id, material: materials[10], weight: 0.1)
+
+
+
+newsub = Submission.create(recycler_id: rand(1..22), image: File.new("#{Rails.root}/public/recycling_pics/IMAG0357.jpg"))
+#plastic drink bottle
+SubmissionGroup.create(submission_id: newsub.id, material: materials[0], weight: 0.5)
+#cereal box
+SubmissionGroup.create(submission_id: newsub.id, material: materials[15], weight: 0.4)
+#newspaper
+SubmissionGroup.create(submission_id: newsub.id, material: materials[8], weight: 0.1)
+
+
+newsub = Submission.create(recycler_id: rand(1..22), image: File.new("#{Rails.root}/public/recycling_pics/IMAG0358.jpg"))
+#plastic drink bottle
+SubmissionGroup.create(submission_id: newsub.id, material: materials[0], weight: 0.5)
+#plastic drink bottle
+SubmissionGroup.create(submission_id: newsub.id, material: materials[0], weight: 0.5)
+#plastic food container
+SubmissionGroup.create(submission_id: newsub.id, material: materials[1], weight: 0.5)
+#glass jar or bottle
+SubmissionGroup.create(submission_id: newsub.id, material: materials[6], weight: 1.1)
+#can
+SubmissionGroup.create(submission_id: newsub.id, material: materials[4], weight: 0.5)
+#can
+SubmissionGroup.create(submission_id: newsub.id, material: materials[4], weight: 0.5)
+
+
+newsub = Submission.create(recycler_id: rand(1..22), image: File.new("#{Rails.root}/public/recycling_pics/IMAG0359.jpg"))
+#plastic drink bottle
+SubmissionGroup.create(submission_id: newsub.id, material: materials[0], weight: 0.5)
+#plastic drink bottle
+SubmissionGroup.create(submission_id: newsub.id, material: materials[0], weight: 0.5)
+#plastic food container
+SubmissionGroup.create(submission_id: newsub.id, material: materials[1], weight: 0.5)
+#cereal box
+SubmissionGroup.create(submission_id: newsub.id, material: materials[15], weight: 0.4)
+#cereal box
+SubmissionGroup.create(submission_id: newsub.id, material: materials[15], weight: 0.4)
+
+
+newsub = Submission.create(recycler_id: rand(1..22), image: File.new("#{Rails.root}/public/recycling_pics/IMAG0360.jpg"))
+#plastic drink bottle
+SubmissionGroup.create(submission_id: newsub.id, material: materials[0], weight: 0.5)
+#glass jar or bottle
+SubmissionGroup.create(submission_id: newsub.id, material: materials[6], weight: 1.1)
+#cereal box
+SubmissionGroup.create(submission_id: newsub.id, material: materials[15], weight: 0.4)
+#cereal box
+SubmissionGroup.create(submission_id: newsub.id, material: materials[15], weight: 0.4)
+
+
+
+newsub = Submission.create(recycler_id: rand(1..22), image: File.new("#{Rails.root}/public/recycling_pics/IMAG0361.jpg"))
+#plastic drink bottle
+SubmissionGroup.create(submission_id: newsub.id, material: materials[0], weight: 0.5)
+#small stack of office paper
+SubmissionGroup.create(submission_id: newsub.id, material: materials[11], weight: 0.3)
+#can
+SubmissionGroup.create(submission_id: newsub.id, material: materials[4], weight: 0.5)
+#cereal box
+SubmissionGroup.create(submission_id: newsub.id, material: materials[15], weight: 0.4)
+
+
+
+newsub = Submission.create(recycler_id: rand(1..22), image: File.new("#{Rails.root}/public/recycling_pics/IMAG0362.jpg"))
+#plastic drink bottle
+SubmissionGroup.create(submission_id: newsub.id, material: materials[0], weight: 0.5)
+#plastic food container
+SubmissionGroup.create(submission_id: newsub.id, material: materials[1], weight: 0.5)
+#newspaper
+SubmissionGroup.create(submission_id: newsub.id, material: materials[8], weight: 0.1)
+#cereal box
+SubmissionGroup.create(submission_id: newsub.id, material: materials[15], weight: 0.4)
+
+
+
+newsub = Submission.create(recycler_id: rand(1..22), image: File.new("#{Rails.root}/public/recycling_pics/IMAG0363.jpg"))
+#plastic drink bottle
+SubmissionGroup.create(submission_id: newsub.id, material: materials[0], weight: 0.5)
+#plastic drink bottle
+SubmissionGroup.create(submission_id: newsub.id, material: materials[0], weight: 0.5)
+#plastic food container
+SubmissionGroup.create(submission_id: newsub.id, material: materials[1], weight: 0.5)
+#glass jar or bottle
+SubmissionGroup.create(submission_id: newsub.id, material: materials[6], weight: 1.1)
+#can
+SubmissionGroup.create(submission_id: newsub.id, material: materials[4], weight: 0.5)
+#can
+SubmissionGroup.create(submission_id: newsub.id, material: materials[4], weight: 0.5)
+#small stack of office paper
+SubmissionGroup.create(submission_id: newsub.id, material: materials[11], weight: 0.3)
+#newspaper
+SubmissionGroup.create(submission_id: newsub.id, material: materials[8], weight: 0.1)
+#cereal box
+SubmissionGroup.create(submission_id: newsub.id, material: materials[15], weight: 0.4)
+#cereal box
+SubmissionGroup.create(submission_id: newsub.id, material: materials[15], weight: 0.4)
+
+
+
+newsub = Submission.create(recycler_id: rand(1..22), image: File.new("#{Rails.root}/public/recycling_pics/IMAG0364.jpg"))
+#plastic drink bottle
+SubmissionGroup.create(submission_id: newsub.id, material: materials[0], weight: 0.5)
+#plastic drink bottle
+SubmissionGroup.create(submission_id: newsub.id, material: materials[0], weight: 0.5)
+#plastic food container
+SubmissionGroup.create(submission_id: newsub.id, material: materials[1], weight: 0.5)
+#glass jar or bottle
+SubmissionGroup.create(submission_id: newsub.id, material: materials[6], weight: 1.1)
+#can
+SubmissionGroup.create(submission_id: newsub.id, material: materials[4], weight: 0.5)
+#can
+SubmissionGroup.create(submission_id: newsub.id, material: materials[4], weight: 0.5)
+#small stack of office paper
+SubmissionGroup.create(submission_id: newsub.id, material: materials[11], weight: 0.3)
+#newspaper
+SubmissionGroup.create(submission_id: newsub.id, material: materials[8], weight: 0.1)
+#cereal box
+SubmissionGroup.create(submission_id: newsub.id, material: materials[15], weight: 0.4)
+#cereal box
+SubmissionGroup.create(submission_id: newsub.id, material: materials[15], weight: 0.4)
+
+
+
+newsub = Submission.create(recycler_id: rand(1..22), image: File.new("#{Rails.root}/public/recycling_pics/IMAG0365.jpg"))
+#plastic drink bottle
+SubmissionGroup.create(submission_id: newsub.id, material: materials[0], weight: 0.5)
+#plastic drink bottle
+SubmissionGroup.create(submission_id: newsub.id, material: materials[0], weight: 0.5)
+#plastic food container
+SubmissionGroup.create(submission_id: newsub.id, material: materials[1], weight: 0.5)
+#glass jar or bottle
+SubmissionGroup.create(submission_id: newsub.id, material: materials[6], weight: 1.1)
+#can
+SubmissionGroup.create(submission_id: newsub.id, material: materials[4], weight: 0.5)
+#can
+SubmissionGroup.create(submission_id: newsub.id, material: materials[4], weight: 0.5)
+#small stack of office paper
+SubmissionGroup.create(submission_id: newsub.id, material: materials[11], weight: 0.3)
+#newspaper
+SubmissionGroup.create(submission_id: newsub.id, material: materials[8], weight: 0.1)
+#cereal box
+SubmissionGroup.create(submission_id: newsub.id, material: materials[15], weight: 0.4)
+#cereal box
+SubmissionGroup.create(submission_id: newsub.id, material: materials[15], weight: 0.4)
+
+
+
+newsub = Submission.create(recycler_id: rand(1..22), image: File.new("#{Rails.root}/public/recycling_pics/IMAG0366.jpg"))
+#plastic drink bottle
+SubmissionGroup.create(submission_id: newsub.id, material: materials[0], weight: 0.5)
+#can
+SubmissionGroup.create(submission_id: newsub.id, material: materials[4], weight: 0.5)
+#can
+SubmissionGroup.create(submission_id: newsub.id, material: materials[4], weight: 0.5)
+#small stack of office paper
+SubmissionGroup.create(submission_id: newsub.id, material: materials[11], weight: 0.3)
+#newspaper
+SubmissionGroup.create(submission_id: newsub.id, material: materials[8], weight: 0.1)
+
+
+newsub = Submission.create(recycler_id: rand(1..22), image: File.new("#{Rails.root}/public/recycling_pics/IMAG0367.jpg"))
+#plastic drink bottle
+SubmissionGroup.create(submission_id: newsub.id, material: materials[0], weight: 0.5)
+#plastic food container
+SubmissionGroup.create(submission_id: newsub.id, material: materials[1], weight: 0.5)
+#cereal box
+SubmissionGroup.create(submission_id: newsub.id, material: materials[15], weight: 0.4)
+#cereal box
+SubmissionGroup.create(submission_id: newsub.id, material: materials[15], weight: 0.4)
+#glass jar or bottle
+SubmissionGroup.create(submission_id: newsub.id, material: materials[6], weight: 1.1)
+
+
+newsub = Submission.create(recycler_id: rand(1..22), image: File.new("#{Rails.root}/public/recycling_pics/IMAG0368.jpg"))
+#plastic drink bottle
+SubmissionGroup.create(submission_id: newsub.id, material: materials[0], weight: 0.5)
+#can
+SubmissionGroup.create(submission_id: newsub.id, material: materials[4], weight: 0.5)
+#can
+SubmissionGroup.create(submission_id: newsub.id, material: materials[4], weight: 0.5)
+#small stack of office paper
+SubmissionGroup.create(submission_id: newsub.id, material: materials[11], weight: 0.3)
+#newspaper
+SubmissionGroup.create(submission_id: newsub.id, material: materials[8], weight: 0.1)
+
+
+
+newsub = Submission.create(recycler_id: rand(1..22), image: File.new("#{Rails.root}/public/recycling_pics/IMAG0369.jpg"))
+#plastic drink bottle
+SubmissionGroup.create(submission_id: newsub.id, material: materials[0], weight: 0.5)
+#plastic drink bottle
+SubmissionGroup.create(submission_id: newsub.id, material: materials[0], weight: 0.5)
+#plastic food container
+SubmissionGroup.create(submission_id: newsub.id, material: materials[1], weight: 0.5)
+#glass jar or bottle
+SubmissionGroup.create(submission_id: newsub.id, material: materials[6], weight: 1.1)
+#can
+SubmissionGroup.create(submission_id: newsub.id, material: materials[4], weight: 0.5)
+#can
+SubmissionGroup.create(submission_id: newsub.id, material: materials[4], weight: 0.5)
+#small stack of office paper
+SubmissionGroup.create(submission_id: newsub.id, material: materials[11], weight: 0.3)
+#newspaper
+SubmissionGroup.create(submission_id: newsub.id, material: materials[8], weight: 0.1)
+#cereal box
+SubmissionGroup.create(submission_id: newsub.id, material: materials[15], weight: 0.4)
+#cereal box
+SubmissionGroup.create(submission_id: newsub.id, material: materials[15], weight: 0.4)
+
+
+newsub = Submission.create(recycler_id: rand(1..22), image: File.new("#{Rails.root}/public/recycling_pics/IMAG0370.jpg"))
+#plastic drink bottle
+SubmissionGroup.create(submission_id: newsub.id, material: materials[0], weight: 0.5)
+#plastic drink bottle
+SubmissionGroup.create(submission_id: newsub.id, material: materials[0], weight: 0.5)
+#plastic food container
+SubmissionGroup.create(submission_id: newsub.id, material: materials[1], weight: 0.5)
+#glass jar or bottle
+SubmissionGroup.create(submission_id: newsub.id, material: materials[6], weight: 1.1)
+#can
+SubmissionGroup.create(submission_id: newsub.id, material: materials[4], weight: 0.5)
+#can
+SubmissionGroup.create(submission_id: newsub.id, material: materials[4], weight: 0.5)
+#small stack of office paper
+SubmissionGroup.create(submission_id: newsub.id, material: materials[11], weight: 0.3)
+#newspaper
+SubmissionGroup.create(submission_id: newsub.id, material: materials[8], weight: 0.1)
+#cereal box
+SubmissionGroup.create(submission_id: newsub.id, material: materials[15], weight: 0.4)
+#cereal box
+SubmissionGroup.create(submission_id: newsub.id, material: materials[15], weight: 0.4)
+
+
+
+newsub = Submission.create(recycler_id: rand(1..22), image: File.new("#{Rails.root}/public/recycling_pics/IMAG0371.jpg"))
+#can
+SubmissionGroup.create(submission_id: newsub.id, material: materials[4], weight: 0.5)
+
+
+newsub = Submission.create(recycler_id: rand(1..22), image: File.new("#{Rails.root}/public/recycling_pics/IMAG0372.jpg"))
+#plastic drink bottle
+SubmissionGroup.create(submission_id: newsub.id, material: materials[0], weight: 0.5)
+#cereal box
+SubmissionGroup.create(submission_id: newsub.id, material: materials[15], weight: 0.4)
+#cereal box
+SubmissionGroup.create(submission_id: newsub.id, material: materials[15], weight: 0.4)
+
+
+newsub = Submission.create(recycler_id: rand(1..22), image: File.new("#{Rails.root}/public/recycling_pics/IMAG0373.jpg"))
+#plastic drink bottle
+SubmissionGroup.create(submission_id: newsub.id, material: materials[0], weight: 0.5)
+#cereal box
+SubmissionGroup.create(submission_id: newsub.id, material: materials[15], weight: 0.4)
+#cereal box
+SubmissionGroup.create(submission_id: newsub.id, material: materials[15], weight: 0.4)
+
+
+
+35.times do
+  submission = Submission.find(rand(1..28))
+  submission.upvote_by Recycler.find(rand(1..22))
 end
 
 
@@ -58,8 +449,8 @@ acs = Charity.create(name: "The American Cancer Society", email: "info@cancer.or
 unitedway = Charity.create(name: "The United Way", email: "info@unitedway.org", password: 'password')
 redcross = Charity.create(name: "American Red Cross", email: "info@redcross.org", password: 'password')
 
-20.times do
-  Donation.create(recycler_id: rand(1..100), charity_id: rand(1..3), amount: rand(1..15).to_f)
+5.times do
+  Donation.create(recycler_id: rand(1..22), charity_id: rand(1..3), amount: rand(1..15).to_f)
 end
 ##############
 
