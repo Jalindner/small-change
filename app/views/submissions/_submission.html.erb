@@ -53,7 +53,9 @@
       <% if current_recycler.find_voted_items.count < count_recycler_votes_threshold(current_recycler) %>
         You need to vote <%= count_recycler_votes_threshold(current_recycler) - current_recycler.find_voted_items.count %> more times before you can submit more recyclables.
       <% else %>
-        You've voted enough to <%= link_to "submit your own recyclables!", new_submission_path, class: "lower-links" %>
+        <div class="lower-links">
+        You've voted enough to <%= link_to "submit your own recyclables!", new_submission_path %>
+        </div>
       <% end %>
       <p class="lower-links"><%= link_to "Submit more stuff!", new_submission_path %></p>
     </div>
