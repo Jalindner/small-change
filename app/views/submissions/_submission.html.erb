@@ -1,5 +1,5 @@
 <div class="front">
-  <%= link_to submission, class: 'pic-link' do %>
+  <%= link_to submission, class: 'pic-link materialboxed' do %>
     <%= image_tag submission.image.url(:square) %>
     <% if current_recycler.id != submission.recycler_id  %>
       <div>
@@ -14,7 +14,7 @@
         <% end %>
       </div>
       <% else %>
-        <p>This is your submission</p>
+        <p class="blue-grey-text text-blue-grey-darken-3">This is your submission</p>
     <% end %>
   <% end %>
   <ul>
