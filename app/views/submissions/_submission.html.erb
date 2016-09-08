@@ -39,17 +39,20 @@
         Current status: <%= submission.status %>
     <% end %>
 
-
     <% if submission.status == "Paid" %>
       <p>Paid for by this sponsor!</p>
       <p><%= image_tag submission.payments.first.grant.sponsor.logo.url, class: "border" %>
     <% end %>
 
+<<<<<<< HEAD
 
 
 
 
      <p>Value of this submission is $<%= number_with_precision(submission.value, precision: 2) %></p>
+=======
+     <p>Value of this submission is $<%= submission.value %></p>
+>>>>>>> 38fa9764bfda532346b44d978831de5c12c5bb09
 
     <div class="blue-grey-text text-blue-grey-darken-3">
       <% if current_recycler.find_voted_items.count < count_recycler_votes_threshold(current_recycler) %>
@@ -57,6 +60,7 @@
       <% else %>
         You've voted enough to <%= link_to "submit your own recyclables!", new_submission_path, class: "lower-links" %>
       <% end %>
+      <p class="lower-links"><%= link_to "Submit more stuff!", new_submission_path %></p>
     </div>
   </div>
 </div>
