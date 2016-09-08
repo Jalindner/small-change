@@ -1,16 +1,16 @@
-<div id="sponsor-info" sponsorid="<%= current_sponsor.id %>"></div>
-<h1>Sponsor: <%= current_sponsor.name %></h1>
-<%= image_tag current_sponsor.logo.url(), class: 'border-sponsor' %>
-<p>To date, you've submitted $<%= current_sponsor.grants.sum(:amount) %> in grants!</p>
-<p>Your grants have funded $<%= current_sponsor.payments.sum(:amount) %> in payments to recyclers!</p>
+<div id="sponsor-info" sponsorid="<%= @sponsor.id %>"></div>
+<h1>Sponsor: <%= @sponsor.name %></h1>
+<%= image_tag @sponsor.logo.url(), class: 'border-sponsor' %>
+<p>To date, <%= @sponsor.name %> has submitted $<%= @sponsor.grants.sum(:amount) %> in grants!</p>
+<p>Grants from <%= @sponsor.name %> have funded $<%= @sponsor.payments.sum(:amount) %> in payments to recyclers!</p>
 
 
 
 
-<% if current_sponsor.grants %>
+<% if @sponsor.grants %>
 Your grants:
 <ol>
-  <% current_sponsor.grants.each do |grant| %>
+  <% @sponsor.grants.each do |grant| %>
   <li>
     <%= link_to "Grant ##{grant.id}", "/grants/#{grant.id}" %>, created on <%= grant.created_at %> by <%= grant.sponsor.name %>.<br>
     In the amount of $<%= grant.original_amount %>.<br>
@@ -20,5 +20,7 @@ Your grants:
 </ol>
 <% end %>
 
+<% if current_sponsor %>
+  <%= link_to "Submit a new grant", grants_new_path %>
+<% end %>
 
-<%= link_to "Submit a new grant", grants_new_path %>
