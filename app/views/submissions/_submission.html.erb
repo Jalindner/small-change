@@ -49,7 +49,7 @@
 
 
 
-     <p>Value of this submission is $<%= submission.value %></p>
+     <p>Value of this submission is $<%= number_with_precision(submission.value, precision: 2) %></p>
 
     <div class="blue-grey-text text-blue-grey-darken-3">
       <% if current_recycler.find_voted_items.count < count_recycler_votes_threshold(current_recycler) %>
