@@ -1,5 +1,3 @@
-require 'faker'
-
 # This file should contain all the record creation needed to seed the database with its default values.
 # The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
 #
@@ -9,13 +7,8 @@ require 'faker'
 #   Character.create(name: 'Luke', movie: movies.first)
 
 ############## recyclers/submissions/votes
-rob = Recycler.create(first_name: "Rob", last_name: "Dale", email: "robzd1@gmail.com", password: 'password')
-ver = Recycler.create(first_name: "Veronica", last_name: "Agurto", email: "Veronica@veronica.com", password: 'password')
 
-20.times do
-
-  Recycler.create(first_name: Faker::Name.first_name, last_name: Faker::Name.last_name, email: Faker::Internet.email, password: 'password')
-end
+require 'faker'
 
 materials = [
   "plastic drink bottle",
@@ -36,6 +29,29 @@ materials = [
 "cereal box",
 "paper towel roll",
 "batteries"]
+
+20.times do
+  Recycler.create(first_name: Faker::Name.first_name, last_name: Faker::Name.last_name, email: Faker::Internet.email, password: 'password')
+end
+
+rob = Recycler.create(first_name: "Rob", last_name: "Dale", email: "robzd1@gmail.com", password: 'password')
+ver = Recycler.create(first_name: "Veronica", last_name: "Agurto", email: "Veronica@veronica.com", password: 'password')
+
+# account for our demo
+bob = Recycler.create(first_name: "Joe", last_name: "Demo", email: "demo@aol.com", password: 'dbcdbc')
+
+newsub = Submission.create(recycler_id: bob.id, image: File.new("#{Rails.root}/public/recycling_pics/IMAG0349.jpg"))
+#plastic drink bottle
+SubmissionGroup.create(submission_id: newsub.id, material: materials[0], weight: 0.5)
+#plastic food container
+SubmissionGroup.create(submission_id: newsub.id, material: materials[1], weight: 0.5)
+#glass jar or bottle
+SubmissionGroup.create(submission_id: newsub.id, material: materials[6], weight: 1.1)
+
+############ recyclers / submissions / votes
+
+
+
 
 newsub = Submission.create(recycler_id: rand(1..22), image: File.new("#{Rails.root}/public/recycling_pics/IMAG0346.jpg"))
 #can
@@ -427,14 +443,9 @@ end
 
 
 
-##############
-
 ############## sponsors/grants
 starbucks = Sponsor.create(name: "Starbucks", email: "info@starbucks.com", password: 'password', logo: File.new("#{Rails.root}/public/starbucks.jpeg"))
 petsmart = Sponsor.create(name: "Petsmart", email: "info@petsmart.com", password: 'password')
-
-dob = Recycler.create(first_name: "Dob", last_name: "Rale", email: "dob@dob.dob", password: 'password')
-aer = Recycler.create(first_name: "Aeronica", last_name: "Vgurto", email: "aer@aer.aer", password: 'password')
 
 wholefoods = Sponsor.create(name: "Whole Foods", email: "info@wholefoods.com", password: 'password')
 
@@ -452,7 +463,6 @@ redcross = Charity.create(name: "American Red Cross", email: "info@redcross.org"
 
 5.times do
   Donation.create(recycler_id: rand(1..22), charity_id: rand(1..3), amount: rand(1..15).to_f)
-
 end
 ##############
 
