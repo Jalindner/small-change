@@ -1,6 +1,6 @@
 <div class="front blue-grey-text text-blue-grey-darken-3 row">
   <br><br><br>
-  <div class="col s12 l6 center"> 
+  <div class="col s12 l6 center">
     <%= link_to submission, class: 'pic-link materialboxed' do %>
       <%= image_tag submission.image.url(:square), class: 'border' %>
       <% if current_recycler.id != submission.recycler_id  %>
@@ -26,11 +26,17 @@
     </ul>
   <div class="divider"></div>
   <br>
-  <h5>Submission Stats</h5>
-    Submitted by <%= "#{submission.recycler.first_name} #{submission.recycler.last_name}" %>
-    <br>
+
+    <% if submission.recycler == current_recycler %>
+      <h5>Submission Stats</h5>
+        Submitted by <%= "#{submission.recycler.first_name} #{submission.recycler.last_name}" %>
+        <br>
+
+        Current status: <%= submission.status %>
+    <% end %>
+
+
     Value of this submission is $<%= submission.value %><br>
-    Current status: <%= submission.status %>
 
     <div class="blue-grey-text text-blue-grey-darken-3">
       <% if current_recycler.find_voted_items.count < count_recycler_votes_threshold(current_recycler) %>
@@ -39,5 +45,5 @@
         You've voted enough to <%= link_to "submit your own recyclables!", new_submission_path, class: "lower-links" %>
       <% end %>
     </div>
-  </div> 
+  </div>
 </div>
