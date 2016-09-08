@@ -55,3 +55,16 @@ main {
   border: 5px solid #42a5f5; 
   border-radius: 8%;
 }
+
+.input-field label {
+ color: #000;
+}
+/* label focus color */
+.input-field input[type=text]:focus + label {
+ color: #000;
+}
+
+.input-field input[type=text]:focus {
+ border-bottom: 1px solid #000;
+ box-shadow: 0 1px 0 0 #000;
+ }
