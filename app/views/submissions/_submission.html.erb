@@ -2,7 +2,7 @@
   <br><br><br>
   <div class="col s12 l6 center">
     <%= link_to submission, class: 'pic-link hover' do %>
-      <%= image_tag submission.image.url(), class: 'border' %>
+      <%= image_tag submission.image.url(), class: 'border-submission' %>
       <% if current_recycler.id != submission.recycler_id  %>
         <%= link_to like_submission_path(submission), method: :put do %>
           <i class="material-icons">thumb_up</i>
