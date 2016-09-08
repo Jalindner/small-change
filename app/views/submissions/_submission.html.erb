@@ -1,40 +1,42 @@
-<div class="front blue-grey-text text-blue-grey-darken-3">
+<div class="front blue-grey-text text-blue-grey-darken-3 row">
   <br>
-  <%= link_to submission, class: 'pic-link materialboxed' do %>
-    <%= image_tag submission.image.url(:square), class: 'border' %>
-    <% if current_recycler.id != submission.recycler_id  %>
-      <div>
-        <div class="">
-          <p>Look ok?</p>
-          <%= link_to like_submission_path(submission), method: :put do %>
-            <i class="material-icons">thumb_up</i>
-            <span class='vote-count'><%= submission.get_upvotes.size %></span>
-          <% end %>
-
-          <%= link_to dislike_submission_path(submission), method: :put do %>
-            <i class="material-icons">thumb_down</i>
-            <span class='vote-count'><%= submission.get_downvotes.size %></span>
-          <% end %>
+  <div class="col s12 l6"> 
+    <%= link_to submission, class: 'pic-link materialboxed center' do %>
+      <%= image_tag submission.image.url(:square), class: 'border' %>
+      <% if current_recycler.id != submission.recycler_id  %>
+        <div>
+          <div class="">
+            <%= link_to like_submission_path(submission), method: :put do %>
+              <i class="material-icons">thumb_up</i>
+              <span class='vote-count'><%= submission.get_upvotes.size %></span>
+            <% end %>
+            <%= link_to dislike_submission_path(submission), method: :put do %>
+              <i class="material-icons">thumb_down</i>
+              <span class='vote-count'><%= submission.get_downvotes.size %></span>
+            <% end %>
+          </div>
         </div>
-      </div>
-      <% else %>
-        <p class="blue-grey-text text-blue-grey-darken-3">This is your submission</p>
+        <% else %>
+          <p class="blue-grey-text text-blue-grey-darken-3">This is your submission</p>
+      <% end %>
     <% end %>
-  <% end %>
-  <ul>
+  </div>
+  <div class="col s12 l6">
+    <ul>
     <% submission.submission_groups.each do |subG| %>
       <li><%= subG.material %>: <%= subG.weight %> oz</li>
     <% end %>
-  </ul>
-  Submitted by <%= "#{submission.recycler.first_name} #{submission.recycler.last_name}" %><br>
-  Value of this submission is $<%= submission.value %><br>
-  Current status: <%= submission.status %>
-</div>
+    </ul>
+    Submitted by <%= "#{submission.recycler.first_name} #{submission.recycler.last_name}" %><br>
+    Value of this submission is $<%= submission.value %><br>
+    Current status: <%= submission.status %>
 
-<div class="blue-grey-text text-blue-grey-darken-3">
-  <% if current_recycler.find_voted_items.count < count_recycler_votes_threshold(current_recycler) %>
-    You need to vote <%= count_recycler_votes_threshold(current_recycler) -  current_recycler.find_voted_items.count %> more times before you can submit more recyclables!
-  <% else %>
-    You've voted enough to <%= link_to "submit your own recyclables!", new_submission_path %>
-  <% end %>
+    <div class="blue-grey-text text-blue-grey-darken-3">
+      <% if current_recycler.find_voted_items.count < count_recycler_votes_threshold(current_recycler) %>
+        You need to vote <%= count_recycler_votes_threshold(current_recycler) -  current_recycler.find_voted_items.count %> more times before you can submit more recyclables!
+      <% else %>
+        You've voted enough to <%= link_to "submit your own recyclables!", new_submission_path %>
+      <% end %>
+    </div>
+  </div> 
 </div>
