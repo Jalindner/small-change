@@ -26,3 +26,5 @@
 coverage
 
 .DS_Store
+
+.coveralls.yml
