@@ -1,14 +1,14 @@
 <div id="charity-info" name="<%= current_charity.id %>"></div>
-<h1>Charity: <%= current_charity.name %></h1>
+<h4 class="blue-grey-text text-blue-grey-darken-3"><%= current_charity.name %></h4>
 <p>To date, you've received $<%= current_charity.donations.sum(:amount) %> through <%= current_charity.donations.count %> donations from recyclers!</p>
-
-
-
-The following recyclers have donated to you:
-<% if current_charity.recyclers %>
-  <ul>
-    <% current_charity.recyclers.each do |recycler| %>
-      <li><%= recycler.first_name %> <%= recycler.last_name %></li>
-    <% end %>
-  </ul>
-<% end %>
+<!-- style note: need to test this, blank on styling -->
+<div>
+	The following recyclers have donated to you:
+	<% if current_charity.recyclers %>
+	  <ul>
+	    <% current_charity.recyclers.each do |recycler| %>
+	      <li><%= recycler.first_name %> <%= recycler.last_name %></li>
+	    <% end %>
+	  </ul>
+	<% end %>
+</div>

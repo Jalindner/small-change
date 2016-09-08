@@ -1,3 +1,9 @@
+.cards-container {
+  -webkit-column-gap: 40px; 
+  -moz-column-gap: 40px; 
+  column-gap: 40px;
+}
+
 .lower-links a {
 	color: #37474f;
 }
@@ -35,3 +41,35 @@ main {
 #navbarlinks {
   margin: 5px 10px 5px 10px
 }
+
+.inputfile {
+  width: 0.1px;
+  height: 0.1px;
+  opacity: 0;
+  overflow: hidden;
+  position: absolute;
+  z-index: -1;
+}
+
+.border {
+  border: 5px solid #42a5f5; 
+  border-radius: 8%;
+}
+
+.border-sponsor {
+  border: 5px solid #b0bec5; 
+  border-radius: 8%;
+}
+
+.input-field label {
+ color: #000;
+}
+/* label focus color */
+.input-field input[type=text]:focus + label {
+ color: #000;
+}
+
+.input-field input[type=text]:focus {
+ border-bottom: 1px solid #000;
+ box-shadow: 0 1px 0 0 #000;
+ }

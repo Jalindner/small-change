@@ -12,24 +12,26 @@
     <%= f.password_field :password, autocomplete: "off" %>
   </div>
 
+</div>
+  <div class="center">
   <% if devise_mapping.rememberable? -%>
     <div class="input-field col s6">
       <%= f.check_box :remember_me %>
       <%= f.label :remember_me %>
     </div>
   <% end -%>
-</div>
-
   <br>
-  <div class="actions btn waves-effect waves-light green darken-4">
-    <%= f.submit "Log in" %>
-  </div>
-<% end %>
 
-<div class="lower-links">
-  <br>
-<%= link_to "Sign up", newer_charity_registration_path %><br>
-  <%- if devise_mapping.recoverable? && controller_name != 'passwords' && controller_name != 'registrations' %>
-    <%= link_to "Forgot your password?", new_password_path(resource_name) %><br /> 
+    <div class="actions btn waves-effect waves-light green darken-4">
+      <%= f.submit "Log in" %>
+    </div>
   <% end %>
+
+  <div class="lower-links">
+    <br>
+  <%= link_to "Sign up", newer_charity_registration_path %><br>
+    <%- if devise_mapping.recoverable? && controller_name != 'passwords' && controller_name != 'registrations' %>
+      <%= link_to "Forgot your password?", new_password_path(resource_name) %><br /> 
+  <% end %>
+  </div>
 </div>

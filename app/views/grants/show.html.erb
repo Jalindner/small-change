@@ -1,8 +1,10 @@
-<% if @grant %>
-  <h3>Thank you for supporting recycling!</h3>
-  Created on <%= @grant.created_at %> by <%= @grant.sponsor.name %>.<br>
-  In the amount of $<%= @grant.original_amount %>.<br>
-  Currently $<%= @grant.amount %> remaining.<br>
-<% else %>
-  Grant not found
-<% end %>
+<div class="blue-grey-text text-blue-grey-darken-3">
+	<% if @grant %>
+		<br><br>
+	  <h4>Thank you for supporting recycling!</h4>
+	  Created on <%= @grant.created_at.strftime("%m/%d/%Y") %> by <%= @grant.sponsor.name %> in the amount of $<%= @grant.original_amount %>.<br>
+	  Currently, $<%= @grant.amount %> remaining.<br>
+	<% else %>
+	  Grant not found.
+	<% end %>
+</div>

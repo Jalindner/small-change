@@ -1,25 +1,26 @@
+<br><br>
 <h4 class="blue-grey-text text-blue-grey-darken-4">Sign up as a Recycler</h4>
 <br>
 <%= form_for 'recycler', url: recycler_registration_path do |f| %>
   <%= devise_error_messages! %>
 
   <div class="row">
-    <div class="input-field col s12">
+    <div class="input-field col s12 l12">
       <%= f.label :email %><br>
       <%= f.email_field :email, autofocus: true %>
     </div>
 
-    <div class="input-field col s6">
+    <div class="input-field col s12 l6">
       <%= f.label :first_name %><br>
       <%= f.text_field :first_name %>
     </div>
 
-    <div class="input-field col s6">
+    <div class="input-field col s12 l6">
       <%= f.label :last_name %><br>
       <%= f.text_field :last_name %>
     </div>
 
-    <div class="field input-field col s6">
+    <div class="input-field col s12 l6">
       <%= f.label :password %>
       <% if @minimum_password_length %>
       <em>(<%= @minimum_password_length %> characters minimum)</em>
@@ -27,20 +28,21 @@
       <%= f.password_field :password, autocomplete: "off" %>
     </div>
 
-    <div class="input-field col s6">
+    <div class="input-field col s12 l6">
       <%= f.label :password_confirmation %><br>
       <%= f.password_field :password_confirmation, autocomplete: "off" %>
     </div>
   </div>
-
-    <div class="actions btn waves-effect waves-light green darken-4">
-      <%= f.submit "Sign up" %>
-    </div>
+    <div class="center">
+      <div class="cactions btn waves-effect waves-light green darken-4">
+        <%= f.submit "Sign up" %>
+      </div>
 <% end %>
-<br>
-<div class="lower-links">
-<%= link_to "Already registered? Sign in!", newer_recycler_session_path %><br>
-  <%- if devise_mapping.recoverable? && controller_name != 'passwords' && controller_name != 'registrations' %>
-      <%= link_to "Forgot your password?", new_password_path(resource_name) %><br />
-  <% end -%>
-</div>
+    <br><br>
+    <div class="lower-links">
+    <%= link_to "Already registered? Sign in!", newer_recycler_session_path %><br>
+      <%- if devise_mapping.recoverable? && controller_name != 'passwords' && controller_name != 'registrations' %><br>
+          <%= link_to "Forgot your password?", new_password_path(resource_name) %><br />
+      <% end -%>
+    </div>
+    </div>

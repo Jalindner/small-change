@@ -1,9 +1,11 @@
-All donations:
+<div class="blue-grey-text text-blue-grey-darken-3">
+	All donations:
 
-<% if @donations %>
-  <ol>
-    <% @donations.each do |donation| %>
-      <li>donation #<%= donation.id %>, in the amount of $<%= donation.amount %> created by <%= donation.recycler.first_name %> on <%= donation.created_at %></li>
-    <% end %>
-  </ol>
-<% end %>
+	<% if @donations %>
+	  <ol>
+	    <% @donations.each do |donation| %>
+	      <li>donation #<%= donation.id %>, in the amount of $<%= donation.amount %> created by <%= donation.recycler.first_name %> on <%= donation.created_at %></li>
+	    <% end %>
+	  </ol>
+	<% end %>
+</div>

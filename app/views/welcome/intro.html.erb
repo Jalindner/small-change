@@ -1,10 +1,12 @@
 <div class='container'>
-	<h1 class="center">Welcome to smallchange!</h1>
+	<div class="center flowtext">
+		<img src="/images/small-logo.png">
+	</div>
 
 	<p class="center blue-grey-text text-blue-grey-darken-3"><strong> | connecting recyclers with sponsors | </strong></p>
 
 <% flash.each do |key, value| %>
-  <div class="alert">
+  <div class="alert blue-grey-text text-blue-grey-darken-3">
 
     <% if value == 'You must vote for more submissions before you can make another submission' %>
       You must <%= link_to "vote on #{current_recycler.needed_votes} more submissions", '/votes' %> before you can make another submission.
@@ -13,32 +15,32 @@
       <%= value %>
     <% end %>
   </div>
+
 <% end %>
 
 	<div class="row">
-		<div class="card-panel z-depth-1 lighten-1 col s12 m4 l4 center-align">
-		  <p><strong><u>Recyclers</u></strong><br> submit information about the stuff they recycle. Once the submission has been vetted by other users, reyclers get paid!</p>
+		<div class="card-panel z-depth-1 blue-grey lighten-4 col s12 l4 offset-s1 center-align">
+		  <p><i class="material-icons">loop</i><strong><u>Recyclers</u></strong><br> submit information about the stuff they recycle. Once the submission has been vetted by other users, recyclers get paid!</p>
 		</div>
 
-		<div class="card-panel z-depth-1 lighten-1 col s12 m4 l4 center-align">
-		  <p><strong><u>Sponsors</u></strong><br> make a grant to support recyclers. When recyclers get paid, sponsors connect with a community of like-minded people!</p>
+		<div class="card-panel z-depth-1 blue-grey lighten-4 col s12 l4 offset-s1 center-align">
+		  <p><i class="material-icons">loop</i><strong><u>Sponsors</u></strong><br> make a grant to support recyclers. When recyclers get paid, sponsors connect with a community of like-minded people!</p>
 		</div>
 
-		<div class="card-panel z-depth-1 lighten-1 col s12 m4 l4 center-align">
-		  <p><strong><u>Charities</u></strong><br> accept donations from recyclers who want to do even more good, in their communities and throughout the world!</p>
+		<div class="card-panel z-depth-1 blue-grey lighten-4 col s12 l4 offset-s1 center-align">
+		  <p><i class="material-icons">loop</i><strong><u>Charities</u></strong><br> accept donations from recyclers who want to do even more good, in their communities and throughout the world!</p>
 		</div>
 	</div>
-<<<<<<< HEAD
-
-  <div>
-    <h3>Our Current Highest Granting Sponsor!</h3>
-    <%= image_tag @highest_granting_sponsor.logo.url(:display) %>
+	<div class="divider"></div>
+  <div class="center blue-grey-text text-blue-grey-darken-3">
+    <h5>Our Current Highest Granting Sponsor</h5>
+    <%= image_tag @highest_granting_sponsor.logo.url(:display), class: 'border-sponsor' %>
     <h5><%= @highest_granting_sponsor.name %></h5>
     <h5><%= @highest_grant.amount %></h5>
-  </div>
 
 	<% if recycler_session %>
 	  <a href="/votes">Go vote on some Submissions!</a>
 	<% end %>
+  </div>
 </div>
 

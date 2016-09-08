@@ -1,12 +1,14 @@
-All grants:
+<div class="blue-grey-text text-blue-grey-darken-3">
+	All grants:
 
-<% if @grants %>
-  <ol>
-    <% @grants.each do |grant| %>
-      <li>
-        <%= link_to "Grant ##{grant.id}", "grants/#{grant.id}" %>, in the amount of $<%= grant.amount %> created by <%= grant.sponsor.name %> on <%= grant.created_at %></li>
-    <% end %>
-  </ol>
-<% end %>
+	<% if @grants %>
+	  <ol>
+	    <% @grants.each do |grant| %>
+	      <li>
+	        <%= link_to "Grant ##{grant.id}", "grants/#{grant.id}" %>, in the amount of $<%= grant.amount %> created by <%= grant.sponsor.name %> on <%= grant.created_at %></li>
+	    <% end %>
+	  </ol>
+	<% end %>
 
-<p>Total of all grants: $<%= GrantsController.total %></p>
+	<p>Total of all grants: $<%= GrantsController.total %></p>
+</div>
