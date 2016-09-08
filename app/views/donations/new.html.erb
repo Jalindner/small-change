@@ -1,18 +1,21 @@
-<% if @funds != 0.0 %>
-  You currently have $<%= @funds %> in payments accrued.
+<div class="blue-grey-text text-blue-grey-darken-3">
+<br><br>
+  <% if @funds != 0.0 %>
+    You currently have $<%= @funds %> in payments accrued.
 
-  <%= form_for @donation, url: {action: 'create'}, html: {id: "donation-form"} do |f| %>
+    <%= form_for @donation, url: {action: 'create'}, html: {id: "donation-form"} do |f| %>
 
-  <%= f.label :amount %><br>
-  <%= f.number_field :amount %><br>
+    <%= f.label :amount %><br>
+    <%= f.number_field :amount %><br>
 
-  <%= f.label :charity_id %><br>
-  <% @charities = Charity.all %>
-  <%= select_tag :charity_id, options_for_select(@charities.collect{ |c| [c.name, c.id] }), class: "browser-default" %>
+    <%= f.label :charity_id %><br>
+    <% @charities = Charity.all %>
+    <%= select_tag :charity_id, options_for_select(@charities.collect{ |c| [c.name, c.id] }), class: "browser-default" %>
 
-  <%= f.submit "Submit a new donation" %></p>
+    <%= f.submit "Submit a new donation" %></p>
 
+    <% end %>
+  <% else %>
+    You don't currently have any funds! <%= link_to "Recycle your stuff", new_submission_path, class: :'lower-links' %> to earn payments!
   <% end %>
-<% else %>
-  You don't currently have any funds! <%= link_to "Recycle your stuff", new_submission_path %> to earn payments!
-<% end %>
+</div>
