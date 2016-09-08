@@ -49,6 +49,8 @@ group :development, :test do
   gem 'simplecov', :require => false
   gem 'rspec-rails'
   gem 'capybara'
+  gem 'coveralls', :require => false
+
 end
 
 group :development do
