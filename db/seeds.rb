@@ -20,7 +20,7 @@ material_categories =
   'tin or steel food can' => 0.1},
 
   glass: {'glass jar or bottle' => 0.1,
-  'large glass bottle' => 0.3},
+  'large glass bottle(750mL or more)' => 0.3},
 
   paper: {'newspaper' => 0.2,
   'magazine' => 0.2,
