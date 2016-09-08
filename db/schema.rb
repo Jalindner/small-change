@@ -42,7 +42,7 @@ ActiveRecord::Schema.define(version: 20160907163831) do
   end
 
   create_table "grants", force: :cascade do |t|
-    t.integer  "sponsor_id",      null: false
+    t.integer  "sponsor_id"
     t.float    "original_amount"
     t.float    "amount"
     t.datetime "created_at",      null: false
@@ -108,7 +108,7 @@ ActiveRecord::Schema.define(version: 20160907163831) do
   end
 
   create_table "submission_groups", force: :cascade do |t|
-    t.integer  "submission_id", null: false
+    t.integer  "submission_id"
     t.string   "material"
     t.float    "weight"
     t.datetime "created_at",    null: false
