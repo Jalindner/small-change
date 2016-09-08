@@ -1,5 +1,6 @@
 <div class="blue-grey-text text-blue-grey-darken-3">
 	<% if @grant %>
+		<br><br>
 	  <h4>Thank you for supporting recycling!</h4>
 	  Created on <%= @grant.created_at.strftime("%m/%d/%Y") %> by <%= @grant.sponsor.name %> in the amount of $<%= @grant.original_amount %>.<br>
 	  Currently, $<%= @grant.amount %> remaining.<br>

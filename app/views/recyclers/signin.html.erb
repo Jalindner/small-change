@@ -3,35 +3,36 @@
 <div class="row">
   <div class="col s6 l12">
     <%= form_for 'recycler', url: new_recycler_session_path do |f| %>
-      <div class="input-field col s6">
+      <div class="input-field col s12 l6">
         <%= f.label :email %><br />
         <%= f.email_field :email, autofocus: true %>
       </div>
 
-      <div class="input-field col s6">
+      <div class="input-field col s12 l6">
         <%= f.label :password %><br />
         <%= f.password_field :password, autocomplete: "off" %>
       </div>
   </div>
 </div>
-  <div class="actions btn waves-effect waves-light green darken-4">
-    <%= f.submit "Log in" %>
-  </div>
-  
-  <% if devise_mapping.rememberable? -%>
-    <div class="field">
-       <br>
-      <%= f.check_box :remember_me %>
-      <%= f.label :remember_me %>
+  <div class="center">
+      <div class="actions btn waves-effect waves-light green darken-4">
+        <%= f.submit "Log in" %>
+      </div>
+      <% if devise_mapping.rememberable? -%>
+        <div class="field">
+           <br>
+          <%= f.check_box :remember_me %>
+          <%= f.label :remember_me %>
+        </div>
+      <% end -%>
+    <% end %>
+
+    <br>
+
+    <div class="lower-links">
+      <%= link_to "Sign up", newer_recycler_registration_path %><br>
+      <%- if devise_mapping.recoverable? && controller_name != 'passwords' && controller_name != 'registrations' %>
+      <%= link_to "Forgot your password?", new_password_path(resource_name) %><br />
+      <% end -%>
     </div>
-  <% end -%>
-<% end %>
-
-<br>
-
-<div class="lower-links">
-  <%= link_to "Sign up", newer_recycler_registration_path %><br>
-  <%- if devise_mapping.recoverable? && controller_name != 'passwords' && controller_name != 'registrations' %>
-  <%= link_to "Forgot your password?", new_password_path(resource_name) %><br />
-  <% end -%>
-</div>
+  </div>  
