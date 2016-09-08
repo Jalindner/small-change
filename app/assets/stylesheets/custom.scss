@@ -1,3 +1,9 @@
+.cards-container {
+  -webkit-column-gap: 40px; 
+  -moz-column-gap: 40px; 
+  column-gap: 40px;
+}
+
 .lower-links a {
 	color: #37474f;
 }
