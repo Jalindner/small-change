@@ -22,10 +22,7 @@
     <div class="page-flexbox-wrapper">
     <nav class="green">
     <div class="navbar fixed container">
-      <a href="/" class="brand-logo left"><img src="/images/nav_bar_logo.png" height=45 width=140></a>
-      <div class="right">
-
-    </div>
+      <a href="/" class="brand-logo left"><img src="/images/nav_bar_logo.png" height=66 width=180></a>
         <% if current_recycler %>
           <div class="right">
             <%= link_to "logged in as #{current_recycler.email}", "/recyclers/#{current_recycler.id}", id: "navbarlinks"%>
@@ -52,20 +49,19 @@
     </nav>
 
     <main class="container">
-
       <%= yield %>
     </main>
 
     </div>
   </body>
   <footer class="page-footer green">
-    <div id="grantstotal" class="container center white-text text-white">
-      Total grants available: $<%= GrantsController.total %>
-    </div>
-    <div class="row">
-      <div id="secondarylogins" class="container green link-white white-text text-white col s6 offset-s2">
+    <div class="row center">
+      <div id="grantstotal" class="container center white-text text-white col s6 left ">
+        <b>Total grants available: $<%= number_with_precision(GrantsController.total, precision: 2) %></b>
+      </div>
+      <div id="secondarylogins" class="container green link-white white-text text-white col s6 right">
         <%= link_to "for sponsors", new_sponsor_session_path %> |
-        <%= link_to "for charities", new_charity_session_path %> 
+        <%= link_to "for charities", new_charity_session_path %>
       </div>
     </div>
     <br>

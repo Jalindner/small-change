@@ -1,15 +1,16 @@
-All submissions:
+<div class="blue-grey-text text-blue-grey-darken-3">
+	All submissions:
 
-<% if @submissions %>
-  <ol>
-    <% @submissions.each do |sub| %>
-      <li>Submission #<%= sub.id %>, created by <%= sub.recycler.first_name %> <%= sub.recycler.last_name %> on <%= sub.created_at %>. Status: <%= sub.status %>
-        <% if sub.get_upvotes %><%= sub.get_upvotes.size %> upvotes<% end %>
+	<% if @submissions %>
+	  <ol>
+	    <% @submissions.each do |sub| %>
+	      <li>Submission #<%= sub.id %>, created by <%= sub.recycler.first_name %> <%= sub.recycler.last_name %> on <%= sub.created_at %>. Status: <%= sub.status %>
+	        <% if sub.get_upvotes %><%= sub.get_upvotes.size %> upvotes<% end %>
 
-      <%= link_to "Process", "/payments/process/#{sub.id}", id: "process-link" %>
-      </li>
-    <% end %>
-  </ol>
-<% end %>
-
+	      <%= link_to "Process", "/payments/process/#{sub.id}", id: "process-link" %>
+	      </li>
+	    <% end %>
+	  </ol>
+	<% end %>
+</div>
 

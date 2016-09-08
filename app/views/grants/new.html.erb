@@ -1,45 +1,50 @@
-<% if current_sponsor %>
-Fill out the form below to create a new grant:
-    <div id="sponsor-info" sponsorid="<%= current_sponsor.id %>"></div>
+<div class="blue-grey-text text-blue-grey-darken-3">
+<br><br><br>
+  <% if current_sponsor %>
+  Fill out the form below to create a new grant:
+  <br><br>
+      <div id="sponsor-info" sponsorid="<%= current_sponsor.id %>"></div>
 
-    <% if @errors %>
-        <% @errors.each do |error| %>
-            <%= error %>
-        <% end %>
-    <% end %>
+      <% if @errors %>
+          <% @errors.each do |error| %>
+              <%= error %>
+          <% end %>
+      <% end %>
 
-    <form id="grant-form" action="/grants" method="post">
+      <form id="grant-form" action="/grants" method="post">
 
-    <%= form_tag("/grants", method: "post") do %>
-        <div id="error-message"></div>
+      <%= form_tag("/grants", method: "post") do %>
+          <div id="error-message"></div>
+            <div class="browser-default">
+              <div class="row">
+                <%= label_tag(:'grant[card-number]', "Card Number") %>
+                <%= text_field_tag(:'grant[card-number]') %>
 
-        <div class="browser-default">
-          <%= label_tag(:'grant[card-number]', "Card Number") %>
-          <%= text_field_tag(:'grant[card-number]') %>
+                <%= label_tag(:'grant[cvv]', "CVV") %>
+                <%= text_field_tag(:'grant[cvv]') %>
 
-          <%= label_tag(:'grant[cvv]', "CVV") %>
-          <%= text_field_tag(:'grant[cvv]') %>
+                <%= label_tag(:'grant[expiration-date]', "Expiration date")%>
+                <%#= text_field_tag(:'grant[expiration-date]') %>
 
-          <%= label_tag(:'grant[expiration-date]', "Expiration date")%>
-          <%#= text_field_tag(:'grant[expiration-date]') %>
+                <%= select_tag :month, options_for_select(["01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12"]) %>
+                <%= select_tag :year, options_for_select(Date.today.year..Date.today.year+20) %>
+                <%= hidden_field_tag(:'grant[expiration-date]', "#{:month}-#{:year}") %>
+                <%#= date_select :'grant[expiration-date]', { :start_year => Date.today.year, :end_year => (Date.today.year+10), :use_two_digit_numbers => true,:use_month_numbers => true, :disable => :day } %>
+              </div>
+            </div>
+          <%#= select_year(Date.today, :start_year => Time.now.year, :end_year => Time.now.year + 30, :field_name => :'grant[expiration-date] )' %>
+          <div class="center actions btn waves-effect waves-light green darken-4">
+            <%= label_tag(:'grant[amount]', "Amount") %>
+            <%= text_field_tag(:'grant[amount]') %>
 
-          <%= select_tag :month, options_for_select(["01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12"]) %>
-          <%= select_tag :year, options_for_select(Date.today.year..Date.today.year+20) %>
-          <%= hidden_field_tag(:'grant[expiration-date]', "#{:month}-#{:year}") %>
-          <%#= date_select :'grant[expiration-date]', { :start_year => Date.today.year, :end_year => (Date.today.year+10), :use_two_digit_numbers => true,:use_month_numbers => true, :disable => :day } %>
-        </div>
-        <%#= select_year(Date.today, :start_year => Time.now.year, :end_year => Time.now.year + 30, :field_name => :'grant[expiration-date] )' %>
+            <%= submit_tag("Submit a grant") %>
+          </div>
+          <!-- <input type="hidden" name="payment-method-nonce"> -->
+      <% end %>
 
-        <%= label_tag(:'grant[amount]', "Amount") %>
-        <%= text_field_tag(:'grant[amount]') %>
-
-        <%= submit_tag("Submit a grant") %>
-        <!-- <input type="hidden" name="payment-method-nonce"> -->
-    <% end %>
-
-    <div id="transaction-success"></div>
-<% end %>
-
+      <div id="transaction-success"></div>
+  <% end %>
+</div>
 
 <!--
         <div id="error-message"></div>

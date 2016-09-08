@@ -42,7 +42,7 @@ ActiveRecord::Schema.define(version: 20160908001553) do
   end
 
   create_table "grants", force: :cascade do |t|
-    t.integer  "sponsor_id",      null: false
+    t.integer  "sponsor_id"
     t.float    "original_amount"
     t.float    "amount"
     t.datetime "created_at",      null: false

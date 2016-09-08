@@ -26,15 +26,19 @@ materials = ["plastic drink bottle", "plastic food container", "laundry detergen
   end
 end
 
-300.times do
+200.times do
   submission = Submission.find(rand(1..100))
   submission.upvote_by Recycler.find(rand(1..100))
 end
 
+
+
+
+
 ##############
 
 ############## sponsors/grants
-starbucks = Sponsor.create(name: "Starbucks", email: "info@starbucks.com", password: 'password')
+starbucks = Sponsor.create(name: "Starbucks", email: "info@starbucks.com", password: 'password', logo: File.new("#{Rails.root}/public/starbucks.jpeg"))
 petsmart = Sponsor.create(name: "Petsmart", email: "info@petsmart.com", password: 'password')
 
 dob = Recycler.create(first_name: "Dob", last_name: "Rale", email: "dob@dob.dob", password: 'password')
