@@ -7,6 +7,11 @@ class SponsorsController < ApplicationController
     end
   end
 
+  def show
+    @sponsor = Sponsor.find(params[:id])
+  end
+
+
   def sign_up
     @sponsor = Sponsor.new(logo_params)
 
@@ -25,4 +30,8 @@ class SponsorsController < ApplicationController
   def logo_params
     params.require(:sponsor).permit(:logo)
   end
+
+
+
+
 end
