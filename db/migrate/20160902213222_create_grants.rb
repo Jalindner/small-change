@@ -3,7 +3,7 @@ class CreateGrants < ActiveRecord::Migration[5.0]
     create_table :grants do |t|
       t.integer :sponsor_id, null:false
       t.float :original_amount
-      t.float :amount, presicion: 2
+      t.float :amount, precision: 2
       t.timestamps null:false
     end
   end
