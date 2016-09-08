@@ -28,15 +28,14 @@
 		  <p><strong><u>Charities</u></strong><br> accept donations from recyclers who want to do even more good, in their communities and throughout the world!</p>
 		</div>
 	</div>
-<<<<<<< HEAD
-
+<% if Sponsor.all.count != 0 %>
   <div>
     <h3>Our Current Highest Granting Sponsor!</h3>
     <%= image_tag @highest_granting_sponsor.logo.url(:display) %>
     <h5><%= @highest_granting_sponsor.name %></h5>
     <h5><%= @highest_grant.amount %></h5>
   </div>
-
+<% end %>
 	<% if recycler_session %>
 	  <a href="/votes">Go vote on some Submissions!</a>
 	<% end %>
