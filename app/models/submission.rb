@@ -5,7 +5,7 @@ class Submission < ApplicationRecord
 
   belongs_to :recycler
   accepts_nested_attributes_for :submission_groups
-  has_attached_file :image, styles: { square: '200x200#' }
+  has_attached_file :image
   validates_presence_of :image
   validates_attachment_content_type :image, :content_type => /^image\/(jpg|jpeg|pjpeg|png|x-png|gif)$/, :message => 'file type is not allowed (only jpeg/png/gif images)'
 
