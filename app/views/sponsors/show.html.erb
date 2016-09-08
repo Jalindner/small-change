@@ -1,20 +1,29 @@
-<div id="sponsor-info" sponsorid="<%= @sponsor.id %>">
- <h4>Sponsor: <%= @sponsor.name %></h4>
- <%= image_tag @sponsor.logo.url(), class: 'border-sponsor' %>
-	 <p>To date, <%= @sponsor.name %> has submitted $<%= @sponsor.grants.sum(:amount) %> in grants!</p>
-	 <p>Grants from <%= @sponsor.name %> have funded $<%= @sponsor.payments.sum(:amount) %> in payments to recyclers!</p>
- 	<% if @sponsor.grants %>
-	  Your grants:
-	  <ol>
-	    <% @sponsor.grants.each do |grant| %>
-	    <li>
-	      <%= link_to "Grant ##{grant.id}", "/grants/#{grant.id}" %>, created on <%= grant.created_at %> by <%= grant.sponsor.name %>.<br>
-	      In the amount of $<%= grant.original_amount %>.<br>
+<div id="sponsor-info" sponsorid="<%= @sponsor.id %>" class="blue-grey-text text-blue-grey-darken-3">
+	<br><br>
+	<div class="row">
+		<div class="col s12 l6">
+		<h4><%= @sponsor.name %></h4>
+	 		<%= image_tag @sponsor.logo.url(), class: 'border-sponsor' %>
+	 	</div>
+	 	<br><br>
+	 	<div class="col s12 l6">
+		  <p>To date, <%= @sponsor.name %> has submitted 
+		  $<%= number_with_precision(@sponsor.grants.sum(:amount), precision: 2) %> in grants.</p>
+		  <p>Grants from <%= @sponsor.name %> have funded $<%= number_with_precision(@sponsor.payments.sum(:amount), precision: 2) %> in payments to recyclers.</p>
+		 	<% if @sponsor.grants %>
+			  Your grants:
+			  <ol>
+			    <% @sponsor.grants.each do |grant| %>
+			    <li>
+			      <%= link_to "Grant ##{grant.id}", "/grants/#{grant.id}" %>, created on <%= grant.created_at %> by <%= grant.sponsor.name %>.<br>
+			      In the amount of $<%= grant.original_amount %>.<br>
+			  	<% end %>
+			  </ol>
 	  	<% end %>
-	  </ol>
-  <% end %>
-   
- 	<% if current_sponsor %>
-    <%= link_to "Submit a new grant", grants_new_path %>
- 	<% end %>
+	   
+		 	<% if current_sponsor %>
+		    <%= link_to "Submit a new grant", grants_new_path %>
+		 	<% end %>
+	  </div>
+	</div>
 </div>
