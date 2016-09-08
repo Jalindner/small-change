@@ -87,7 +87,7 @@ class SubmissionsController < ApplicationController
       total = 0.00
 
       @submission.submission_groups.each do |subm_group|
-        total += (0.01 * subm_group.weight)
+        total += (0.01 * subm_group.quantity)
       end
 
       eligible_grants = Grant.where("amount >= #{total}")
@@ -136,7 +136,7 @@ class SubmissionsController < ApplicationController
 
 private
   def submission_params
-    params.require(:submission).permit(:recycler_id, submission_groups_attributes: [:material, :submission_id, :weight])
+    params.require(:submission).permit(:recycler_id, submission_groups_attributes: [:material, :submission_id, :quantity])
   end
 
   def find_submission

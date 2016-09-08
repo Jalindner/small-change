@@ -25,7 +25,11 @@
     <h5>Recycling Stats</h5>
     <ul>
     <% submission.submission_groups.each do |subG| %>
-      <li><%= subG.material %>: <%= subG.weight %> oz</li>
+      <% item_display = "#{subG.quantity} #{subG.material}" %>
+      <% if subG.quantity > 1 %>
+        <% item_display = item_display + 's' %>
+      <% end %>
+      <li><%= item_display %></li>
     <% end %>
     </ul>
   <div class="divider"></div>
