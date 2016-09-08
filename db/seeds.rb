@@ -82,6 +82,9 @@ ver = Recycler.create(first_name: "Veronica", last_name: "Agurto", email: "Veron
 # account for our demo
 bob = Recycler.create(first_name: "Joe", last_name: "Demo", email: "demo@aol.com", password: 'dbcdbc')
 
+bob.funds = 4.35
+bob.save
+
 newsub = Submission.create(recycler_id: bob.id, image: File.new("#{Rails.root}/public/recycling_pics/IMAG0349.jpg"))
 #plastic drink bottle
 SubmissionGroup.create(submission_id: newsub.id, material: materials[0], quantity: 1)
@@ -90,6 +93,9 @@ SubmissionGroup.create(submission_id: newsub.id, material: materials[1], quantit
 #glass jar or bottle
 SubmissionGroup.create(submission_id: newsub.id, material: materials[6], quantity: 1)
 
+3.times do
+  newsub.upvote_by Recycler.find(23)
+end
 ############ recyclers / submissions / votes
 
 
