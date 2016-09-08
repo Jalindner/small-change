@@ -43,9 +43,12 @@
           <a href="#" data-activates="slide-out" class="button-collapse right"><i class="material-icons">menu</i></a>
           </div>
         <% elsif current_charity %>
-          <div class="right">
+          <ul id="slide-out" class="side-nav">
+            <li><div class="userView">
             <%= link_to "#{current_charity.email}", "/charities/#{current_charity.id}", id: "navbarlinks"%>|
-            <%= link_to "sign out", destroy_charity_session_path, method: :delete %>
+            <%= link_to "sign out", destroy_charity_session_path, method: :delete %></li>
+            </ul>
+            <a href="#" data-activates="slide-out" class="button-collapse right"><i class="material-icons">menu</i></a>
           </div>
         <% else %>
           <ul class="right">
