@@ -22,7 +22,7 @@
     <div class="page-flexbox-wrapper">
     <nav class="green">
     <div class="navbar fixed container">
-      <a href="/" class="brand-logo left"><img src="/images/nav_bar_logo.png" height=66 width=180></a>
+      <a href="/" class="brand-logo left padded"><img src="/images/nav_bar_logo.png" height=66 width=180></a>
         <% if current_recycler %>
           <div class="right">
             <%= link_to "logged in as #{current_recycler.email}", "/recyclers/#{current_recycler.id}", id: "navbarlinks"%>
