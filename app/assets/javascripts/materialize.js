@@ -4,7 +4,11 @@ function materializeTasks(){
 };
 
 function sideNav() {
-$(".button-collapse").sideNav();
+$(".button-collapse").sideNav({
+    menuWidth: 200, 
+    edge: 'right',
+    closeOnClick: true
+  });
 };
 
 function collapseButton() {

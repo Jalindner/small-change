@@ -3,7 +3,7 @@ $(document).ready(function(){
   materializeTasks();
   dwollaStuff();
   sideNav();
-  collapseButton(); 
+  // collapseButton(); 
   // calcsetup();
 
 });
