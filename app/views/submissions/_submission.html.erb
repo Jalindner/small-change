@@ -1,8 +1,8 @@
 <div class="front blue-grey-text text-blue-grey-darken-3 row">
   <br><br><br>
   <div class="col s12 l6 center">
-    <%= link_to submission, class: 'pic-link' do %>
-      <%= image_tag submission.image.url(), class: 'border' %>
+    <%= link_to submission, class: 'pic-link hover' do %>
+      <%= image_tag submission.image.url(), class: 'border-submission' %>
       <% if current_recycler.id != submission.recycler_id  %>
       <br><br>
         <div class="center">
@@ -28,7 +28,11 @@
     <h5>Recycling Stats</h5>
     <ul>
     <% submission.submission_groups.each do |subG| %>
-      <li>- <%= subG.material %>: <%= subG.weight %> oz</li>
+      <% item_display = "#{subG.quantity} #{subG.material}" %>
+      <% if subG.quantity > 1 %>
+        <% item_display = item_display + 's' %>
+      <% end %>
+      <li><%= item_display %></li>
     <% end %>
     </ul>
   <div class="divider"></div>
