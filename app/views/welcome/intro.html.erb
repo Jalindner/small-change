@@ -31,4 +31,16 @@
 		  <p><i class="material-icons">loop</i><strong><u>Charities</u></strong><br> accept donations from recyclers who want to do even more good, in their communities and throughout the world!</p>
 		</div>
 	</div>
+	<div class="divider"></div>
+  <div class="center blue-grey-text text-blue-grey-darken-3">
+    <h5>Our Current Highest Granting Sponsor</h5>
+    <%= image_tag @highest_granting_sponsor.logo.url(:display), class: 'border-sponsor' %>
+    <h5><%= @highest_granting_sponsor.name %></h5>
+    <h5><%= @highest_grant.amount %></h5>
+
+	<% if recycler_session %>
+	  <a href="/votes">Go vote on some Submissions!</a>
+	<% end %>
+  </div>
 </div>
+

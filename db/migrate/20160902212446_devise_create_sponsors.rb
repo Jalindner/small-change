@@ -42,4 +42,6 @@ class DeviseCreateSponsors < ActiveRecord::Migration[5.0]
     # add_index :sponsors, :confirmation_token,   unique: true
     # add_index :sponsors, :unlock_token,         unique: true
   end
+
+
 end

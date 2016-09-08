@@ -26,6 +26,10 @@
     <%= f.label :password_confirmation %><br />
     <%= f.password_field :password_confirmation, autocomplete: "off" %>
   </div>
+  <div class='input-field col s6'>
+    <%= f.label :logo %>
+    <%= f.file_field :logo %>
+  </div>
 </div>
   <div class="actions btn waves-effect waves-light green darken-4">
     <%= f.submit "Sign up" %>

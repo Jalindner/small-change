@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160907163831) do
+ActiveRecord::Schema.define(version: 20160908001553) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -42,7 +42,7 @@ ActiveRecord::Schema.define(version: 20160907163831) do
   end
 
   create_table "grants", force: :cascade do |t|
-    t.integer  "sponsor_id",      null: false
+    t.integer  "sponsor_id"
     t.float    "original_amount"
     t.float    "amount"
     t.datetime "created_at",      null: false
@@ -99,6 +99,10 @@ ActiveRecord::Schema.define(version: 20160907163831) do
     t.inet     "last_sign_in_ip"
     t.datetime "created_at",                          null: false
     t.datetime "updated_at",                          null: false
+    t.string   "logo_file_name"
+    t.string   "logo_content_type"
+    t.integer  "logo_file_size"
+    t.datetime "logo_updated_at"
     t.index ["email"], name: "index_sponsors_on_email", unique: true, using: :btree
     t.index ["reset_password_token"], name: "index_sponsors_on_reset_password_token", unique: true, using: :btree
   end
@@ -108,7 +112,7 @@ ActiveRecord::Schema.define(version: 20160907163831) do
   end
 
   create_table "submission_groups", force: :cascade do |t|
-    t.integer  "submission_id", null: false
+    t.integer  "submission_id"
     t.string   "material"
     t.float    "weight"
     t.datetime "created_at",    null: false

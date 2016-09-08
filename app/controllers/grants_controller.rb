@@ -12,10 +12,6 @@ class GrantsController < ApplicationController
       redirect_to '/'
     end
     @grant = Grant.new
-    @months = ["01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12"]
-    puts '______________________________'
-    p @months
-    puts '______________________________'
   end
 
 

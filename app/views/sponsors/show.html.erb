@@ -1,6 +1,6 @@
 <div id="sponsor-info" sponsorid="<%= current_sponsor.id %>"></div>
 <h1>Sponsor: <%= current_sponsor.name %></h1>
-
+<%= image_tag current_sponsor.logo.url(:display) %>
 <p>To date, you've submitted $<%= current_sponsor.grants.sum(:amount) %> in grants!</p>
 <p>Your grants have funded $<%= current_sponsor.payments.sum(:amount) %> in payments to recyclers!</p>
 
