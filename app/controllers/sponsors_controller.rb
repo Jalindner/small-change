@@ -7,7 +7,7 @@ class SponsorsController < ApplicationController
     end
   end
 
-  def create
+  def sign_up
     @sponsor = Sponsor.new(logo_params)
 
     if @sponsor.save
