@@ -94,7 +94,7 @@ SubmissionGroup.create(submission_id: newsub.id, material: materials[1], quantit
 SubmissionGroup.create(submission_id: newsub.id, material: materials[6], quantity: 1)
 
 3.times do
-  newsub.upvote_by Recycler.find(23)
+  newsub.upvote_by Recycler.find(rand(1..23))
 end
 ############ recyclers / submissions / votes
 
