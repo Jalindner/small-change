@@ -5,7 +5,7 @@
 #   git config --global core.excludesfile '~/.gitignore_global'
 
 # Ignore private braintree keys
-/config/initializers/braintree.rb
+/environments/development.rb
 
 # Ignore bundler config.
 /.bundle
@@ -26,3 +26,5 @@
 coverage
 
 .DS_Store
+
+/config/local_env.yml

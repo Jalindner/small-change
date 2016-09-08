@@ -17,12 +17,22 @@ Rails.application.routes.draw do
   # get '/grant_transactions_report' => 'grant_transactions_reportts#grant_transactions_report'
 
 
+
+
+
   get '/donations' => 'donations#index'
   get '/donations/new' => 'donations#new', as: :new_donation
   post '/donations' => 'donations#create'
   get '/donations/:id' => 'donations#show'
 
   get '/submissions/review' => 'submissions#review'
+
+
+#dwolla stuff
+  get '/dwolla/home'
+  get '/oauth_return' => 'dwolla#oauth_return'
+  # post '/dwolla/request_token'
+
 
   resources :submissions do
     member do
@@ -38,6 +48,7 @@ Rails.application.routes.draw do
   get '/payments/process/:submission_id'  => 'payments#process_payment'
 
   get '/welcome/whywevote' => 'welcome#whywevote', as: :why
+
 
   devise_for :recyclers
   devise_for :sponsors
