@@ -1,5 +1,4 @@
 function submissionButtonSetups() {
-  console.log("in the sub button setups");
   $('#ooonew_submission').on('submit', function(event) {
     event.preventDefault();
     /* Act on the event */
@@ -8,6 +7,5 @@ function submissionButtonSetups() {
       event.preventDefault();
       /* Act on the event */
     });
-
   });
 };
