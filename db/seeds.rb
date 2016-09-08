@@ -12,8 +12,27 @@ require 'faker'
 rob = Recycler.create(first_name: "Rob", last_name: "Dale", email: "robzd1@gmail.com", password: 'password')
 ver = Recycler.create(first_name: "Veronica", last_name: "Agurto", email: "Veronica@veronica.com", password: 'password')
 
-20.times do
 
+
+# account for our demo
+bob = Recycler.create(first_name: "Bob", last_name: "Testman", email: "bob@aol.com", password: 'dbc')
+
+newsub = Submission.create(recycler_id: bob.id, image: File.new("#{Rails.root}/public/recycling_pics/IMAG0349.jpg"))
+#plastic drink bottle
+SubmissionGroup.create(submission_id: newsub.id, material: materials[0], weight: 0.5)
+#plastic food container
+SubmissionGroup.create(submission_id: newsub.id, material: materials[1], weight: 0.5)
+#glass jar or bottle
+SubmissionGroup.create(submission_id: newsub.id, material: materials[6], weight: 1.1)
+
+
+
+
+
+
+
+
+20.times do
   Recycler.create(first_name: Faker::Name.first_name, last_name: Faker::Name.last_name, email: Faker::Internet.email, password: 'password')
 end
 
@@ -36,6 +55,10 @@ materials = [
 "cereal box",
 "paper towel roll",
 "batteries"]
+
+
+
+
 
 newsub = Submission.create(recycler_id: rand(1..22), image: File.new("#{Rails.root}/public/recycling_pics/IMAG0346.jpg"))
 #can
