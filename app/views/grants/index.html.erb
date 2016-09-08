@@ -5,10 +5,10 @@
 	  <ol>
 	    <% @grants.each do |grant| %>
 	      <li>
-	        <%= link_to "Grant ##{grant.id}", "grants/#{grant.id}" %>, in the amount of $<%= grant.amount %> created by <%= grant.sponsor.name %> on <%= grant.created_at %></li>
+	        <%= link_to "Grant ##{grant.id}", "grants/#{grant.id}" %>, in the amount of $<%= number_with_precision(grant.amount, precision: 2) %> created by <%= grant.sponsor.name %> on <%= grant.created_at %></li>
 	    <% end %>
 	  </ol>
 	<% end %>
 
-	<p>Total of all grants: $<%= GrantsController.total %></p>
+	<p>Total of all grants: $<%= number_with_precision(GrantsController.total, precision: 2) %></p>
 </div>
