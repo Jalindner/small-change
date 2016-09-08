@@ -1,7 +1,7 @@
 <div class="front blue-grey-text text-blue-grey-darken-3 row">
   <br><br><br>
   <div class="col s12 l6 center">
-    <%= link_to submission, class: 'pic-link hover' do %>
+    <%= link_to submission, class: 'pic-link' do %>
       <%= image_tag submission.image.url(), class: 'border' %>
       <% if current_recycler.id != submission.recycler_id  %>
         <%= link_to like_submission_path(submission), method: :put do %>
@@ -57,6 +57,7 @@
       <% else %>
         You've voted enough to <%= link_to "submit your own recyclables!", new_submission_path, class: "lower-links" %>
       <% end %>
+      <p class="lower-links"><%= link_to "Submit more stuff!", new_submission_path %></p>
     </div>
   </div>
 </div>
