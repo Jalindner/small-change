@@ -2,8 +2,8 @@
 	<% if @grant %>
 		<br><br>
 	  <h4>Thank you for supporting recycling!</h4>
-	  Created on <%= @grant.created_at.strftime("%m/%d/%Y") %> by <%= @grant.sponsor.name %> in the amount of $<%= @grant.original_amount %>.<br>
-	  Currently, $<%= @grant.amount %> remaining.<br>
+	  Created on <%= @grant.created_at.strftime("%m/%d/%Y") %> by <%= @grant.sponsor.name %> in the amount of $<%= number_with_precision(@grant.original_amount, precision: 2) %>.<br>
+	  Currently, $<%= number_with_precision(@grant.amount, precision: 2) %> remaining.<br>
 	<% else %>
 	  Grant not found.
 	<% end %>
