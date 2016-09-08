@@ -16,7 +16,13 @@ class Submission < ApplicationRecord
     value = 0.0
 
     self.submission_groups.each do |subm_group|
-      value += (0.01 * subm_group.weight)
+      material_object = subm_group.material
+      unit_value = 0
+      mat_obj = MaterialObject.find_by_subcategory(material_object)
+      if !mat_obj.nil?
+        unit_value = mat_obj.price
+      end
+      value += (unit_value * subm_group.quantity)
     end
 
     value

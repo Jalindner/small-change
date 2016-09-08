@@ -6,6 +6,42 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
+
+##############Materials
+
+MaterialObject.destroy_all
+material_categories =
+{ plastic: {'plastic drink bottle' => 0.2,
+  'plastic food container' => 0.2,
+  'laundry detergent bottle' => 0.3,
+  'gallon milk jug' => 0.4},
+
+  metal: {'aluminum beverage can' => 0.2,
+  'tin or steel food can' => 0.1},
+
+  glass: {'glass jar or bottle' => 0.1,
+  'large glass bottle' => 0.3},
+
+  paper: {'newspaper' => 0.2,
+  'magazine' => 0.2,
+  'junk mail' => 0.1,
+  'small stack of office paper' => 0.1,
+  'cardboard box' => 0.3,
+  'telephone book' => 0.5,
+  'paper bag' => 0.1,
+  'cereal box' => 0.2,
+  'paper towel roll' => 0.1} }
+
+material_categories.keys.each do |mat_cat|
+  material_sub_cats = material_categories[mat_cat]
+  material_sub_cats.keys.each do |mat_sub_cat|
+
+  MaterialObject.create(category: mat_cat, subcategory: mat_sub_cat, price: material_sub_cats[mat_sub_cat])
+  end
+end
+
+##############
+
 ############## recyclers/submissions/votes
 
 require 'faker'
@@ -466,39 +502,3 @@ redcross = Charity.create(name: "American Red Cross", email: "info@redcross.org"
 end
 ##############
 
-
-##############Materials
-
-MaterialObject.destroy_all
-material_categories =
-{ plastic: {'plastic drink bottle' => 0.2,
-  'plastic food container' => 0.2,
-  'laundry detergent bottle' => 0.3,
-  'gallon milk jug' => 0.4},
-
-  metal: {'aluminum beverage can' => 0.2,
-  'tin or steel food can' => 0.1},
-
-  glass: {'glass jar or bottle' => 0.1,
-  'large glass bottle' => 0.3},
-
-  paper: {'newspaper' => 0.2,
-  'magazine' => 0.2,
-  'junk mail' => 0.1,
-  'small stack of office paper' => 0.1,
-  'cardboard box' => 0.3,
-  'telephone book' => 0.5,
-  'paper bag' => 0.1,
-  'cereal box' => 0.2,
-  'paper towel roll' => 0.1} }
-
-material_categories.keys.each do |mat_cat|
-  material_sub_cats = material_categories[mat_cat]
-  material_sub_cats.keys.each do |mat_sub_cat|
-
-  MaterialObject.create(category: mat_cat, subcategory: mat_sub_cat, price: material_sub_cats[mat_sub_cat])
-  end
-end
-
-
-##############
