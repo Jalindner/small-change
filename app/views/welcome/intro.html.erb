@@ -29,6 +29,13 @@
 		</div>
 	</div>
 
+  <div>
+    <h3>Our Current Highest Granting Sponsor!</h3>
+    <%= image_tag @highest_granting_sponsor.logo.url(:display) %>
+    <h5><%= @highest_granting_sponsor.name %></h5>
+    <h5><%= @highest_grant.amount %></h5>
+  </div>
+
 	<% if recycler_session %>
 	  <a href="/votes">Go vote on some Submissions!</a>
 	<% end %>
