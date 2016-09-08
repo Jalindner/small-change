@@ -27,21 +27,27 @@
     <%= f.password_field :password_confirmation, autocomplete: "off" %>
   </div>
   <div>
-    <%= f.label :logo %>
-    <%= f.file_field :logo %>
+    <h5 class="green-text text-green-darken-5">
+      Don't forget your logo
+    </h5>
+      <%= f.label :logo %>
+      <%= f.file_field :logo %>
+
   </div>
 </div>
+<div class='center'>
   <div class="actions btn waves-effect waves-light green darken-4">
     <%= f.submit "Sign up" %>
   </div>
 <% end %>
-<br>
-<div class="lower-links">
-  <%= link_to "Sign in", newer_sponsor_session_path %><br>
+  <br>
+  <div class="lower-links">
+    <%= link_to "Already registered? Sign in!", newer_sponsor_session_path %><br>
 
-  <%- if devise_mapping.recoverable? && controller_name != 'passwords' && controller_name != 'registrations' %>
-    <%= link_to "Forgot your password?", new_password_path(resource_name) %><br />
-  <% end -%>
+    <%- if devise_mapping.recoverable? && controller_name != 'passwords' && controller_name != 'registrations' %>
+      <%= link_to "Forgot your password?", new_password_path(resource_name) %><br />
+    <% end -%>
+  </div>
 </div>
 
 

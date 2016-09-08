@@ -23,19 +23,9 @@ class SubmissionsController < ApplicationController
         @main_materials = MaterialObject.select(:category).distinct
         sub_materials = MaterialObject.select(:subcategory).distinct
 
-        # sub_materials_number = 0
-        # @main_materials.each do |mat|
-        #   sub_materials_count += Submission.materials[mat].count
-        # end
-
         @main_materials.count.times do
           submission_group = @submission.submission_groups.build
         end
-
-        # sub_materials.count.times do
-        #   submission_group = @submission.submission_groups.build
-        # end
-
       else
         redirect_to '/votes'
       end
@@ -68,7 +58,7 @@ class SubmissionsController < ApplicationController
       #TODO: submission show
       redirect_to @submission
     else
-      flash[:error] = "Sorry, but you were missing some info"
+      flash[:error] = "Sorry, some info was missing"
       redirect_to '/submissions/new'
     end
   end
