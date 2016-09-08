@@ -52,7 +52,6 @@ class SubmissionsController < ApplicationController
     @submission.recycler_id = current_recycler.id
 
     if @submission.save
-      flash[:notice] = "Successfully created submission."
 
       submission_params[:submission_groups_attributes].each do |group|
         group_params = submission_params[:submission_groups_attributes][group]
