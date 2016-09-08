@@ -28,7 +28,7 @@
     <h5>Recycling Stats</h5>
     <ul>
     <% submission.submission_groups.each do |subG| %>
-      <li><%= subG.material %>: <%= subG.weight %> oz</li>
+      <li>- <%= subG.material %>: <%= subG.weight %> oz</li>
     <% end %>
     </ul>
   <div class="divider"></div>
@@ -44,14 +44,14 @@
 
     <% if submission.status == "Paid" %>
       <p>Paid for by this sponsor!</p>
-      <p><%= image_tag submission.payments.first.grant.sponsor.logo.url, class: "border" %>
+      <p><%= image_tag submission.payments.first.grant.sponsor.logo.url, class: "border" %></p>
     <% end %>
 
-    <p>Value of this submission is $<%= number_with_precision(submission.value, precision: 2) %></p>
+    <p>Value of this submission is $<%= number_with_precision(submission.value, precision: 2) %>.</p>
 
     <div class="blue-grey-text text-blue-grey-darken-3">
       <% if current_recycler.find_voted_items.count < count_recycler_votes_threshold(current_recycler) %>
-        You need to vote <%= count_recycler_votes_threshold(current_recycler) - current_recycler.find_voted_items.count %> more times before you can submit more recyclables!
+        You need to vote <%= count_recycler_votes_threshold(current_recycler) - current_recycler.find_voted_items.count %> more times before you can submit more recyclables.
       <% else %>
         You've voted enough to <%= link_to "submit your own recyclables!", new_submission_path, class: "lower-links" %>
       <% end %>
