@@ -27,8 +27,8 @@ materials = ["plastic drink bottle", "plastic food container", "laundry detergen
 end
 
 75.times do
-  submission = Submission.find(rand(1..100))
-  submission.upvote_by Recycler.find(rand(1..100))
+  submission = Submission.find(rand(1..25))
+  submission.upvote_by Recycler.find(rand(1..25))
 end
 
 
