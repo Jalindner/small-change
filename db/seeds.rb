@@ -12,21 +12,21 @@ require 'faker'
 rob = Recycler.create(first_name: "Rob", last_name: "Dale", email: "robzd1@gmail.com", password: 'password')
 ver = Recycler.create(first_name: "Veronica", last_name: "Agurto", email: "Veronica@veronica.com", password: 'password')
 
-100.times do
+25.times do
   Recycler.create(first_name: Faker::Name.first_name, last_name: Faker::Name.last_name, email: Faker::Internet.email, password: 'password')
 end
 
 materials = ["plastic drink bottle", "plastic food container", "laundry detergent bottle", "gallon milk jug", "aluminum beverage can", "tin or steel food can", "glass jar or bottle", "large glass bottle", "newspaper", "magazine", "junk mail", "small stack of office paper", "cardboard box", "telephone book", "paper bag", "cereal box", "paper towel roll", "batteries"]
 
-100.times do
-  newsub = Submission.create(recycler_id: rand(1..100), image: File.new("#{Rails.root}/public/happy-earth.jpg"))
+25.times do
+  newsub = Submission.create(recycler_id: rand(1..25), image: File.new("#{Rails.root}/public/happy-earth.jpg"))
 
   rand(1..4).times do
   SubmissionGroup.create(submission_id: newsub.id, material: materials[rand(0..materials.length)], weight: rand(1..3).to_f)
   end
 end
 
-200.times do
+75.times do
   submission = Submission.find(rand(1..100))
   submission.upvote_by Recycler.find(rand(1..100))
 end
@@ -59,7 +59,7 @@ unitedway = Charity.create(name: "The United Way", email: "info@unitedway.org", 
 redcross = Charity.create(name: "American Red Cross", email: "info@redcross.org", password: 'password')
 
 20.times do
-  Donation.create(recycler_id: rand(1..100), charity_id: rand(1..3), amount: rand(1..15).to_f)
+  Donation.create(recycler_id: rand(1..25), charity_id: rand(1..3), amount: rand(1..15).to_f)
 end
 ##############
 
