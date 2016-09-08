@@ -1,24 +1,23 @@
 <div id="sponsor-info" sponsorid="<%= @sponsor.id %>" class="blue-grey-text text-blue-grey-darken-3">
 	<br><br>
 	<div class="row">
-		<div class="col s12 l6">
+		<div class="col s12">
 		<h4><%= @sponsor.name %></h4>
 	 		<%= image_tag @sponsor.logo.url(), class: 'border-sponsor' %>
 	 	</div>
 	 	<br><br>
-	 	<div class="col s12 l6">
+	 	<div class="col s12">
 		  <p>To date, <%= @sponsor.name %> has submitted 
 		  $<%= number_with_precision(@sponsor.grants.sum(:amount), precision: 2) %> in grants.</p>
 		  <p>Grants from <%= @sponsor.name %> have funded $<%= number_with_precision(@sponsor.payments.sum(:amount), precision: 2) %> in payments to recyclers.</p>
 		 	<% if @sponsor.grants %>
 			  Your grants:
-			  <ol>
+			  <ul>
 			    <% @sponsor.grants.each do |grant| %>
-			    <li>
-			      <%= link_to "Grant ##{grant.id}", "/grants/#{grant.id}" %>, created on <%= grant.created_at %> by <%= grant.sponsor.name %>.<br>
-			      In the amount of $<%= grant.original_amount %>.<br>
+			    <li class="lower-links"> -
+			      <%= link_to "Grant ##{grant.id}", "/grants/#{grant.id}" %>, created on <%= grant.created_at.strftime("%Y-%m-%d") %> by <%= grant.sponsor.name %> in the amount of $<%= grant.original_amount %>.<br>
 			  	<% end %>
-			  </ol>
+			  </ul>
 	  	<% end %>
 	   
 		 	<% if current_sponsor %>

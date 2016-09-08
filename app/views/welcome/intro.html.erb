@@ -1,5 +1,5 @@
+ <br><br>
 <div class='container'>
-  <br>
   <% flash.each do |key, value| %>
   <div class="alert blue-grey-text text-blue-grey-darken-3">
 
@@ -12,11 +12,6 @@
   </div>
 <% end %>
 
-
-  <div class="center flowtext">
-    <img src="/images/small-logo.png">
-  </div>
-
   <p class="center blue-grey-text text-blue-grey-darken-3"><strong> | connecting recyclers with sponsors | </strong></p>
 
 
@@ -24,7 +19,7 @@
 		<div class="card-panel z-depth-1 blue-grey lighten-4 col s12 l4 center-align">
 		  <p><i class="material-icons">loop</i><strong><u>Recyclers</u></strong><br> submit information about the stuff they recycle. Once the submission has been vetted by other users, recyclers get paid!</p>
 		</div>
-
+    
 		<div class="card-panel z-depth-1 blue-grey lighten-4 col s12 l4 center-align">
 		  <p><i class="material-icons">loop</i><strong><u>Sponsors</u></strong><br> make a grant to support recyclers. When recyclers get paid, sponsors connect with a community of like-minded people!</p>
 		</div>
@@ -42,8 +37,5 @@
     <h5>$<%= number_with_precision(@highest_grant.amount, precision:2) %></h5>
   </div>
 <% end %>
-	<% if recycler_session %>
-	  <a href="/votes">Go vote on some Submissions!</a>
-	<% end %>
 </div>
 
