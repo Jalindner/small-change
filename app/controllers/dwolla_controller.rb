@@ -22,6 +22,18 @@ class DwollaController < ApplicationController
     token = info['access_token']
     refresh_token = info['refresh_token']
     "Your expiring OAuth access token is: <b>#{token}</b>, and your refresh token is <b>#{refresh_token}</b>"
+
+
+    Dwolla::token = @token
+    Dwolla::debug = true
+
+    transactionId = Dwolla::Transactions.send({
+      :destinationId => 'robzd1@gmail.com',
+      :destinationType => 'Email',
+      :amount => 1.00,
+      :pin => 1234,
+      :notes => 'Everyone loves getting money'})
+
   end
 
 
