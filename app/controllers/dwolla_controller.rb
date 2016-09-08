@@ -4,17 +4,17 @@ class DwollaController < ApplicationController
 
 
   def home
-    Dwolla::api_key = "0gX6rdOus0Ciq7f7lksjxoEcmaDlGol4PZsb6Lgkfsism7AwtW"
-    Dwolla::api_secret = "8Ud96ZoI8c8fywXxTfOGrSJyEhnsWX6WDxt4xbygnA6w5aXx77"
+    Dwolla::api_key = "9oa2TMC3oD3WbGYHh1CAi0aUk1cpi4huXTmgsCKvDFsrNgPKXp"
+    Dwolla::api_secret = "jwb0lwKOffeFBp7dlsUueyr8V3f6xhmpUqZYOf3ecQ97x4ipzq"
 
     redirect_uri = 'https://small-change.herokuapp.com/oauth_return'
-
-
 
     @oauth_url = Dwolla::OAuth.get_auth_url(redirect_uri)
   end
 
-# https://uat.dwolla.com/oauth/v2/authenticate?client_id=0gX6rdOus0Ciq7f7lksjxoEcmaDlGol4PZsb6Lgkfsism7AwtW&redirect_uri=http%3A%2F%2Flocalhost%3A3000%2Foauth_return&response_type=code&scope=send%7Ctransactions%7Cbalance%7Crequest%7Ccontacts%7Caccountinfofull%7Cfunding%7Cscheduled
+# https://www.dwolla.com/oauth/v2/authenticate?client_id=0gX6rdOus0Ciq7f7lksjxoEcmaDlGol4PZsb6Lgkfsism7AwtW&redirect_uri=https%3A%2F%2Fsmall-change.herokuapp.com%2Foauth_return&response_type=code&scope=send%7Ctransactions%7Cbalance%7Crequest%7Ccontacts%7Caccountinfofull%7Cfunding%7Cscheduled
+# https://www.dwolla.com/oauth/v2/authenticate?client_id=0gX6rdOus0Ciq7f7lksjxoEcmaDlGol4PZsb6Lgkfsism7AwtW&redirect_uri=https://small-change.herokuapp.com/oauth_return&response_type=code&scope=send|transactions|balance|request|contacts|accountinfofull|funding|scheduled
+
 
   def oauth_return
     code = params['code']
