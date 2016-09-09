@@ -16,7 +16,7 @@ class SponsorsController < ApplicationController
     @sponsor = Sponsor.new(logo_params)
 
     if !@sponsor.logo_file_name
-      @sponsor.logo: File.new("#{Rails.root}/public/default-logo.jpeg")
+      @sponsor.logo = File.new("#{Rails.root}/public/default-logo.jpeg")
     end
 
     if @sponsor.save
