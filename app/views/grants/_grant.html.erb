@@ -2,7 +2,7 @@
 	<% if @new_grant %>
 	  <h4>Grant id#<%= @new_grant.id %></h4>
 	  Created on <%= @new_grant.created_at %> by <%= @new_grant.sponsor.name %>.<br>
-	  In the amount of $<%= @new_grant.original_amount %>.<br>
+	  In the amount of $<%= number_with_precision(@new_grant.original_amount, precision: 2) %>.<br>
 	  Currently $<%= @new_grant.amount %> remaining.<br>
 	<% else %>
 	  Grant not found

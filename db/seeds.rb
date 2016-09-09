@@ -441,8 +441,8 @@ petsmart = Sponsor.create(name: "Petsmart", email: "info@petsmart.com", password
 wholefoods = Sponsor.create(name: "Whole Foods", email: "info@wholefoods.com", password: 'password')
 
 wfGrant = Grant.create(sponsor_id: wholefoods.id, amount: 500, original_amount: 500)
-psGrant = Grant.create(sponsor_id: petsmart.id, amount: 350)
-sbGrant = Grant.create(sponsor_id: starbucks.id, amount: 650)
+psGrant = Grant.create(sponsor_id: petsmart.id, amount: 350, original_amount: 350)
+sbGrant = Grant.create(sponsor_id: starbucks.id, amount: 650, original_amount: 650)
 
 ##############
 
