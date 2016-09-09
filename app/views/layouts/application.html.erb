@@ -35,7 +35,7 @@
         <% elsif current_sponsor %>
           <ul id="slide-out" class="side-nav">
             <li><div class="userView">
-            <%= link_to "#{current_sponsor.email}", "/sponsors/#{current_sponsor.id}", id: "navbarlinks"%>|
+            <%= link_to "logged in as #{current_sponsor.email}", "/sponsors/#{current_sponsor.id}", id: "navbarlinks"%>
             <%= link_to "create a grant", grants_new_path, id: "navbarlinks" %>
             <%= link_to "sign out", destroy_sponsor_session_path, method: :delete %></li>
           </ul>
@@ -44,7 +44,7 @@
         <% elsif current_charity %>
           <ul id="slide-out" class="side-nav">
             <li><div class="userView">
-            <%= link_to "#{current_charity.email}", "/charities/#{current_charity.id}", id: "navbarlinks"%>|
+            <%= link_to "#{current_charity.email}", "/charities/#{current_charity.id}", id: "navbarlinks"%>
             <%= link_to "view your donations", "/charities/#{current_charity.id}", id: "navbarlinks"%>
             <%= link_to "sign out", destroy_charity_session_path, method: :delete %></li>
             </ul>
