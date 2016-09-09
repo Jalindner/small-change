@@ -436,13 +436,12 @@ end
 
 ############# sponsors/grants
 starbucks = Sponsor.create(name: "Starbucks", email: "info@starbucks.com", password: 'password', logo: File.new("#{Rails.root}/public/starbucks.jpeg"))
-petsmart = Sponsor.create(name: "Petsmart", email: "info@petsmart.com", password: 'password')
-
-wholefoods = Sponsor.create(name: "Whole Foods", email: "info@wholefoods.com", password: 'password')
+patagonia = Sponsor.create(name: "Patagonia", email: "info@patagonia.com", password: 'password', logo: File.new("#{Rails.root}/public/patagonia.jpeg"))
+wholefoods = Sponsor.create(name: "Whole Foods", email: "info@wholefoods.com", password: 'password', logo: File.new("#{Rails.root}/public/wholefoods.png"))
 
 wfGrant = Grant.create(sponsor_id: wholefoods.id, amount: 500, original_amount: 500)
-psGrant = Grant.create(sponsor_id: petsmart.id, amount: 350)
-sbGrant = Grant.create(sponsor_id: starbucks.id, amount: 650)
+pgGrant = Grant.create(sponsor_id: patagonia.id, amount: 350, original_amount: 350)
+sbGrant = Grant.create(sponsor_id: starbucks.id, amount: 650, original_amount: 650)
 
 ##############
 
