@@ -24,32 +24,38 @@
     <div class="navbar container show-on-large">
       <a href="/" class="left"><img src="/images/nav_bar_logo.png" height=66 width=180></a>
         <% if current_recycler %>
-        <ul id="slide-out" class="side-nav">
-          <li><div class="userView">
-            <%= link_to "logged in as #{current_recycler.email}", "/recyclers/#{current_recycler.id}", id: "navbarlinks"%>
-            <%= link_to "recycle your stuff!", new_submission_path, id: "navbarlinks" %>
-            <%= link_to "sign out", destroy_recycler_session_path, method: :delete, id: "navbarlinks" %></li>
-        </ul>
-        <a href="#" data-activates="slide-out" class="button-collapse right"><i class="material-icons">menu</i></a>
-          </div>
-        <% elsif current_sponsor %>
           <ul id="slide-out" class="side-nav">
-            <li><div class="userView">
-            <%= link_to "#{current_sponsor.email}", "/sponsors/#{current_sponsor.id}", id: "navbarlinks"%>|
-            <%= link_to "create a grant", grants_new_path, id: "navbarlinks" %>
-            <%= link_to "sign out", destroy_sponsor_session_path, method: :delete %></li>
+            <li>
+              <div class="userView">
+                <%= link_to "logged in as #{current_recycler.email}", "/recyclers/#{current_recycler.id}", id: "navbarlinks"%>
+                <%= link_to "recycle your stuff!", new_submission_path, id: "navbarlinks" %>
+                <%= link_to "sign out", destroy_recycler_session_path, method: :delete, id: "navbarlinks" %>
+              </div>
+            </li>
           </ul>
           <a href="#" data-activates="slide-out" class="button-collapse right"><i class="material-icons">menu</i></a>
-          </div>
+        <% elsif current_sponsor %>
+          <ul id="slide-out" class="side-nav">
+            <li>
+              <div class="userView">
+                <%= link_to "#{current_sponsor.email}", "/sponsors/#{current_sponsor.id}", id: "navbarlinks"%>
+                <%= link_to "create a grant", grants_new_path, id: "navbarlinks" %>
+                <%= link_to "sign out", destroy_sponsor_session_path, method: :delete %>
+              </div>
+            </li>
+          </ul>
+          <a href="#" data-activates="slide-out" class="button-collapse right"><i class="material-icons">menu</i></a>
         <% elsif current_charity %>
           <ul id="slide-out" class="side-nav">
-            <li><div class="userView">
-            <%= link_to "#{current_charity.email}", "/charities/#{current_charity.id}", id: "navbarlinks"%>|
-            <%= link_to "view your donations", "/charities/#{current_charity.id}", id: "navbarlinks"%>
-            <%= link_to "sign out", destroy_charity_session_path, method: :delete %></li>
-            </ul>
-            <a href="#" data-activates="slide-out" class="button-collapse right"><i class="material-icons">menu</i></a>
-          </div>
+            <li>
+              <div class="userView">
+                <%= link_to "#{current_charity.email}", "/charities/#{current_charity.id}", id: "navbarlinks"%>
+                <%= link_to "view your donations", "/charities/#{current_charity.id}", id: "navbarlinks"%>
+                <%= link_to "sign out", destroy_charity_session_path, method: :delete %>
+              </div>
+            </li>
+          </ul>
+          <a href="#" data-activates="slide-out" class="button-collapse right"><i class="material-icons">menu</i></a>
         <% else %>
           <ul class="right">
             <li><%= link_to "sign up or log in", new_recycler_session_path %></li>
