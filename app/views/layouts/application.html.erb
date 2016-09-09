@@ -38,7 +38,7 @@
           <ul id="slide-out" class="side-nav">
             <li>
               <div class="userView">
-                <%= link_to "#{current_sponsor.email}", "/sponsors/#{current_sponsor.id}", id: "navbarlinks"%>
+                <%= link_to "logged in as #{current_sponsor.email}", "/sponsors/#{current_sponsor.id}", id: "navbarlinks"%>
                 <%= link_to "create a grant", grants_new_path, id: "navbarlinks" %>
                 <%= link_to "sign out", destroy_sponsor_session_path, method: :delete %>
               </div>
