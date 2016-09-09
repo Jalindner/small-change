@@ -1,20 +1,21 @@
+<br><br>
 <h4 class="blue-grey-text text-blue-grey-darken-3">Sign up as a Charity</h4>
 <br>
 <div class="row">
   <%= form_for 'charity', url: charity_registration_path do |f| %>
   <%= devise_error_messages! %>
 
-    <div class="input-field col s12 l6">
+    <div class="input-field col s12">
       <%= f.label :email %><br />
       <%= f.email_field :email, autofocus: true %>
     </div>
 
-    <div class="input-field col s12 l6">
+    <div class="input-field col s12">
       <%= f.label :name %><br />
       <%= f.text_field :name %>
     </div>
 
-    <div class="input-field col s12 l6">
+    <div class="input-field col s12">
       <%= f.label :password %>
     <% if @minimum_password_length %>
     <em>(<%= @minimum_password_length %> characters minimum)</em>
@@ -22,7 +23,7 @@
     <%= f.password_field :password, autocomplete: "off" %>
     </div>
 
-    <div class="input-field col s12 l6">
+    <div class="input-field col s12">
       <%= f.label :password_confirmation %><br />
       <%= f.password_field :password_confirmation, autocomplete: "off" %>
     </div>

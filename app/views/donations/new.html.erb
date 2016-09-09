@@ -1,4 +1,4 @@
-<div class="blue-grey-text text-blue-grey-darken-3">
+<div class="blue-grey-text text-blue-grey-darken-3 lower-links">
 <br><br>
   <% if @funds != 0.0 %>
     You currently have $<%= @funds %> in payments accrued.
@@ -16,6 +16,6 @@
 
     <% end %>
   <% else %>
-    You don't currently have any funds! <%= link_to "Recycle your stuff", new_submission_path, class: :'lower-links' %> to earn payments!
+    You don't currently have any funds. <%= link_to "Recycle your stuff", new_submission_path, class: :'lower-links' %> to earn payments!
   <% end %>
 </div>
