@@ -15,6 +15,10 @@ class SponsorsController < ApplicationController
   def sign_up
     @sponsor = Sponsor.new(logo_params)
 
+    if !@sponsor.logo_file_name
+      @sponsor.logo: File.new("#{Rails.root}/public/default-logo.jpeg")
+    end
+
     if @sponsor.save
       redirect_to @sponsor
     end
