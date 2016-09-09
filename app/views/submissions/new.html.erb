@@ -1,8 +1,15 @@
-<% flash.each do |key, value| %>
-<br>
-  <div class="alert blue-grey-text text-blue-grey-darken-3"><%= value %></div>
+<% if flash[:error] %>
+
+  <% flash.each do |key, value| %>
+
+  <br>
+    <div class="alert blue-grey-text text-blue-grey-darken-3"><%= value[0] %></div>
+  <% end %>
+
 <% end %>
+
 <br>
 <h4 class="blue-grey-text text-blue-grey-darken-3 center">- Submit your recycling -</h4>
+<p class="blue-grey-text text-blue-grey-darken-3 center">Select the type and quantity of items you want to recycle and submit a photo</p>
 <br>
 <%= render "form" %>
