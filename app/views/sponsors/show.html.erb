@@ -11,7 +11,7 @@
 		  $<%= number_with_precision(@sponsor.grants.sum(:amount), precision: 2) %> in grants.</p>
 		  <p>Grants from <%= @sponsor.name %> have funded $<%= number_with_precision(@sponsor.payments.sum(:amount), precision: 2) %> in payments to recyclers.</p>
 		 	<% if @sponsor.grants %>
-			  Your grants:
+			  Recent grants:
 			  <ul>
 			    <% @sponsor.grants.each do |grant| %>
 			    <li class="lower-links"> -
