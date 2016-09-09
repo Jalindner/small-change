@@ -1,5 +1,17 @@
 <div class="front blue-grey-text text-blue-grey-darken-3 row">
   <br><br><br>
+    <div class ="">
+      <% if !flash[:create_submission] %>
+
+          <% if current_recycler.find_voted_items.count < count_recycler_votes_threshold(current_recycler) %>
+          You need to vote <%= count_recycler_votes_threshold(current_recycler) - current_recycler.find_voted_items.count %> more times before you can submit more recyclables! <br><br>
+        <% else %>
+          <div class="lower-links center">
+            You've voted enough to <%= link_to "submit your own recyclables!", new_submission_path %><br><br>
+          </div>
+        <% end %>
+      <% end %>
+    </div>
   <div class="col s12 l6 center">
     <%= link_to submission, class: 'pic-link hover' do %>
       <%= image_tag submission.image.url(), class: 'border-submission' %>
@@ -24,15 +36,6 @@
         </div>
     <% end %>
   </div>
-
-  <% if !flash[:create_submission] %>
-
-        <% if current_recycler.find_voted_items.count < count_recycler_votes_threshold(current_recycler) %>
-        You need to vote <%= count_recycler_votes_threshold(current_recycler) - current_recycler.find_voted_items.count %> more times before you can submit more recyclables! <br><br>
-<!--       <%# else %>
-        You've voted enough to <%#= link_to "submit your own recyclables!", new_submission_path, class: "lower-links" %> -->
-      <% end %>
-<% end %>
 
   <div class="col s12 l6">
     <h5>Recycling Stats</h5>
@@ -63,19 +66,6 @@
 
     <div>
       - Value of this submission is $<%= number_with_precision(submission.value, precision: 2) %>.
-    </div>
-
-    <div class="blue-grey-text text-blue-grey-darken-3">
-
-      <% if current_recycler.find_voted_items.count < count_recycler_votes_threshold(current_recycler) %>
-        - You need to vote <%= count_recycler_votes_threshold(current_recycler) - current_recycler.find_voted_items.count %> more times before you can submit more recyclables.
-      <% else %>
-        <div class="lower-links">
-        - You've voted enough to <%= link_to "submit your own recyclables", new_submission_path %>
-        </div>
-      <% end %>
-      <div class="lower-links"><%= link_to "- Submit more stuff", new_submission_path %></div>
-
     </div>
   </div>
 </div>
