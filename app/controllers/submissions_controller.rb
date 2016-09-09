@@ -23,18 +23,9 @@ class SubmissionsController < ApplicationController
         @main_materials = MaterialObject.select(:category).distinct
         sub_materials = MaterialObject.select(:subcategory).distinct
 
-        # sub_materials_number = 0
-        # @main_materials.each do |mat|
-        #   sub_materials_count += Submission.materials[mat].count
-        # end
-
         @main_materials.count.times do
           submission_group = @submission.submission_groups.build
         end
-
-        # sub_materials.count.times do
-        #   submission_group = @submission.submission_groups.build
-        # end
 
       else
         redirect_to '/votes'
@@ -48,7 +39,6 @@ class SubmissionsController < ApplicationController
 
   def create
     @submission = Submission.new(image_params)
-    #@submission.recycler_id = submission_params[:recycler_id]
     @submission.recycler_id = current_recycler.id
 
     if @submission.save
@@ -64,11 +54,12 @@ class SubmissionsController < ApplicationController
           puts "error while creating the submission group: #{submission_group}"
           puts submission_group.errors.full_messages
         end
+        flash[:create_submission] = true
       end
-      #TODO: submission show
+
       redirect_to @submission
     else
-      flash[:error] = "Sorry, but you were missing some info"
+      flash[:error] = @submission.errors.full_messages
       redirect_to '/submissions/new'
     end
   end
