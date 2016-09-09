@@ -14,6 +14,7 @@
   %>
 
   <%= f.select(:material, sub_materials_options, :prompt => 'Select') %>
+  <label for="quantity">quantity</label>
   <%= f.label :quantity, "quantity" %><br>
   <%= f.number_field :quantity,  min: '0' %><br>
 
